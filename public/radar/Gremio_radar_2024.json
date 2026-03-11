@@ -1,0 +1,3577 @@
+{
+  "data": [
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#AAAAAA",
+        "dash": "dot",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "opacity": 0.3,
+      "showlegend": false,
+      "x": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "y": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#AAAAAA",
+        "dash": "dash",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "opacity": 0.5,
+      "showlegend": false,
+      "x": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "y": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#AAAAAA",
+        "dash": "dot",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "opacity": 0.3,
+      "showlegend": false,
+      "x": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "y": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#AAAAAA",
+        "dash": "solid",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "opacity": 0.4,
+      "showlegend": false,
+      "x": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "y": {
+        "dtype": "f8",
+        "bdata": "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"
+      },
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        6.123233995736766e-17
+      ],
+      "y": [
+        0,
+        1.0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.4067366430758002
+      ],
+      "y": [
+        0,
+        0.9135454576426009
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.7431448254773942
+      ],
+      "y": [
+        0,
+        0.6691306063588582
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.9510565162951535
+      ],
+      "y": [
+        0,
+        0.3090169943749474
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.9945218953682733
+      ],
+      "y": [
+        0,
+        -0.10452846326765347
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.8660254037844387
+      ],
+      "y": [
+        0,
+        -0.49999999999999994
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.5877852522924731
+      ],
+      "y": [
+        0,
+        -0.8090169943749475
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        0.20791169081775945
+      ],
+      "y": [
+        0,
+        -0.9781476007338056
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.20791169081775934
+      ],
+      "y": [
+        0,
+        -0.9781476007338057
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.587785252292473
+      ],
+      "y": [
+        0,
+        -0.8090169943749475
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.8660254037844387
+      ],
+      "y": [
+        0,
+        -0.49999999999999994
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.9945218953682733
+      ],
+      "y": [
+        0,
+        -0.10452846326765373
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.9510565162951536
+      ],
+      "y": [
+        0,
+        0.3090169943749473
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.7431448254773942
+      ],
+      "y": [
+        0,
+        0.6691306063588582
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "line": {
+        "color": "#CCCCCC",
+        "width": 0.5
+      },
+      "mode": "lines",
+      "showlegend": false,
+      "x": [
+        0,
+        -0.4067366430758001
+      ],
+      "y": [
+        0,
+        0.913545457642601
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita Total</b><br>Valor: R$593M<br>Média da Liga: R$529M<br>Percentil: 61º | Posição: 8º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": true,
+      "x": [
+        0,
+        0.2275189178045657,
+        0.2206972384103633,
+        0.21384307038856198,
+        0.2069574227346252,
+        0.20004130907810277,
+        0.19309574753341527,
+        0.1861217605499786,
+        0.17912037476168982,
+        0.17209262083579813,
+        0.16503953332118046,
+        0.15796215049604703,
+        0.150861514215097,
+        0.14373866975614868,
+        0.13659466566626474,
+        0.12943055360739672,
+        0.12224738820157083,
+        0.11504622687563815,
+        0.10782812970561176,
+        0.10059415926061407,
+        0.09334538044645696,
+        0.08608286034887819,
+        0.07880766807645619,
+        0.07152087460322841,
+        0.06422355261103364,
+        0.05691677633160421,
+        0.04960162138842852,
+        0.04227916463841011,
+        0.03495048401334449,
+        0.02761665836123779,
+        0.020278767287490625,
+        0
+      ],
+      "y": [
+        0,
+        0.5608730982546305,
+        0.5635922455665517,
+        0.5662284270076006,
+        0.5687812545080496,
+        0.571250352268625,
+        0.5736353568158266,
+        0.5759359170554356,
+        0.578151694324198,
+        0.5802823624396793,
+        0.5823276077482813,
+        0.5842871291714147,
+        0.5861606382498208,
+        0.5879478591860352,
+        0.589648528884988,
+        0.5912623969927328,
+        0.5927892259333022,
+        0.5942287909436805,
+        0.595580880106891,
+        0.5968452943831922,
+        0.5980218476393779,
+        0.5991103666761781,
+        0.6001106912537555,
+        0.6010226741152936,
+        0.6018461810086752,
+        0.6025810907062445,
+        0.603227295022654,
+        0.6037846988307897,
+        0.6042532200757742,
+        0.6046327897870474,
+        0.6049233520885179,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$593M</b><br><span style='font-size:8px'>(8º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.17048758647056275
+      ],
+      "y": [
+        0.8020810326017205
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita Recorrente</b><br>Valor: R$486M<br>Média da Liga: R$397M<br>Percentil: 71º | Posição: 6º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        0.5117985176835127,
+        0.5057811129396657,
+        0.49968925264602,
+        0.4935238335794538,
+        0.48728576334536117,
+        0.4809759602440446,
+        0.4745953531355327,
+        0.46814488130284354,
+        0.46162549431371414,
+        0.4550381518808149,
+        0.4483838237204719,
+        0.4416634894099153,
+        0.434878138243077,
+        0.42802876908495774,
+        0.42111639022458486,
+        0.41414201922658317,
+        0.4071066827813805,
+        0.40001141655406913,
+        0.3928572650319469,
+        0.385645281370759,
+        0.3783765272396639,
+        0.3710520726649466,
+        0.36367299587250057,
+        0.3562403831291028,
+        0.3487553285825063,
+        0.34121893410037163,
+        0.33363230910806146,
+        0.3259965704253235,
+        0.31831284210188404,
+        0.3105822552519787,
+        0
+      ],
+      "y": [
+        0,
+        0.4928589278143614,
+        0.49903217453674875,
+        0.5051319592140502,
+        0.5111573839028469,
+        0.5171075616061822,
+        0.5229816164041353,
+        0.528778683582765,
+        0.5344979097614035,
+        0.5401384530182812,
+        0.5456994830144658,
+        0.5511801811160953,
+        0.5565797405148885,
+        0.561897366346914,
+        0.5671322758096022,
+        0.5722836982769806,
+        0.5773508754131158,
+        0.5823330612837496,
+        0.5872295224661052,
+        0.5920395381568544,
+        0.5967624002782271,
+        0.6013974135822457,
+        0.6059438957530723,
+        0.6104011775074513,
+        0.6147686026932353,
+        0.619045528385975,
+        0.6232313249835643,
+        0.6273253762989234,
+        0.6313270796507069,
+        0.6352358459520243,
+        0.6390510997971584,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$486M</b><br><span style='font-size:8px'>(6º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.48198390687982795
+      ],
+      "y": [
+        0.6633939353874568
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita c/ Transmissão + Premiações</b><br>Valor: R$179M<br>Média da Liga: R$173M<br>Percentil: 66º | Posição: 7º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        0.6185324045066121,
+        0.6157673238382824,
+        0.6129115966561318,
+        0.6099656433490046,
+        0.6069298975878455,
+        0.6038048062618602,
+        0.6005908294127283,
+        0.597288440166882,
+        0.5938981246658569,
+        0.5904203819947278,
+        0.5868557241086388,
+        0.5832046757574396,
+        0.5794677744084361,
+        0.5756455701672716,
+        0.571738625696946,
+        0.5677475161349863,
+        0.5636728290087816,
+        0.5595151641490935,
+        0.5552751336017561,
+        0.5509533615375766,
+        0.546550484160452,
+        0.5420671496137145,
+        0.5375040178847181,
+        0.5328617607076839,
+        0.5281410614648129,
+        0.5233426150856876,
+        0.5184671279449713,
+        0.5135153177584235,
+        0.5084879134772454,
+        0.5033856551807725,
+        0
+      ],
+      "y": [
+        0,
+        0.22414983680523137,
+        0.23163783727530984,
+        0.23909173856278296,
+        0.24651044338603156,
+        0.25389285964467423,
+        0.2612379005803339,
+        0.2685444849366191,
+        0.2758115371182939,
+        0.28303798734961594,
+        0.2902227718318168,
+        0.2973648328997027,
+        0.3044631191773524,
+        0.3115165857328897,
+        0.31852419423230593,
+        0.325484913092313,
+        0.3323977176322012,
+        0.33926159022468183,
+        0.346075520445691,
+        0.352838505223133,
+        0.35954954898454183,
+        0.3662076638036382,
+        0.3728118695457615,
+        0.3793611940121545,
+        0.38585467308307947,
+        0.3922913508597453,
+        0.39867027980502495,
+        0.40499052088294085,
+        0.4112511436969001,
+        0.4174512266266567,
+        0.4235898569639827,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$179M</b><br><span style='font-size:8px'>(7º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.7101408311032397
+      ],
+      "y": [
+        0.4099999999999999
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita Comercial</b><br>Valor: R$77M<br>Média da Liga: R$90M<br>Percentil: 66º | Posição: 7º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        0.6562274207099196,
+        0.6567470379999012,
+        0.6571699761918663,
+        0.6574961730254916,
+        0.6577255804816554,
+        0.6578581647895078,
+        0.6578939064314404,
+        0.6578328001459608,
+        0.6576748549284662,
+        0.6574200940299199,
+        0.6570685549534279,
+        0.6566202894487185,
+        0.6560753635045244,
+        0.6554338573388684,
+        0.6546958653872542,
+        0.6538614962887652,
+        0.6529308728700716,
+        0.6519041321273494,
+        0.6507814252061129,
+        0.6495629173789652,
+        0.6482487880212683,
+        0.6468392305847371,
+        0.6453344525689627,
+        0.6437346754908652,
+        0.6420401348520852,
+        0.6402510801043158,
+        0.6383677746125809,
+        0.6363904956164653,
+        0.634319534189303,
+        0.632155195195328,
+        0
+      ],
+      "y": [
+        0,
+        -0.04680872859787295,
+        -0.038843440152736886,
+        -0.030872433602241303,
+        -0.022896882350572287,
+        -0.014917960470937002,
+        -0.006936842532729503,
+        0.0010452965713765036,
+        0.009027281798382445,
+        0.017007938127941862,
+        0.02498609073533401,
+        0.03296056516440865,
+        0.040930187500476646,
+        0.048893784543120794,
+        0.05685018397890148,
+        0.06479821455393193,
+        0.07273670624629723,
+        0.08066449043829221,
+        0.08858040008845251,
+        0.09648326990335351,
+        0.10437193650915237,
+        0.1122452386228468,
+        0.12010201722322662,
+        0.12794111572149208,
+        0.1357613801315143,
+        0.14356165923971226,
+        0.15134080477452197,
+        0.15909767157543242,
+        0.1668311177615636,
+        0.17454000489976143,
+        0.18222319817218577,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$77M</b><br><span style='font-size:8px'>(7º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.8155079542019841
+      ],
+      "y": [
+        0.08571333987947584
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita c/ Match-Day + Sócio-Torcedor</b><br>Valor: R$111M<br>Média da Liga: R$86M<br>Percentil: 76º | Posição: 5º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        0.6733275149108854,
+        0.6776362986008908,
+        0.6818453281049747,
+        0.6859539838159633,
+        0.6899616609026125,
+        0.6938677693986437,
+        0.6976717342895928,
+        0.7013729955974574,
+        0.7049710084631299,
+        0.7084652432266071,
+        0.7118551855049595,
+        0.7151403362680541,
+        0.7183202119120156,
+        0.7213943443304176,
+        0.7243622809831918,
+        0.7272235849632461,
+        0.7299778350607815,
+        0.7326246258252977,
+        0.7351635676252791,
+        0.7375942867055523,
+        0.7399164252423056,
+        0.7421296413957652,
+        0.7442336093605157,
+        0.7462280194134623,
+        0.7481125779594247,
+        0.7498870075743571,
+        0.7515510470461875,
+        0.75310445141327,
+        0.7545469920004462,
+        0.7558784564527076,
+        0
+      ],
+      "y": [
+        0,
+        -0.35922142191564854,
+        -0.3510256673202878,
+        -0.3427782385750129,
+        -0.33448034977585483,
+        -0.32613322244702003,
+        -0.3177380853610717,
+        -0.30929617435804274,
+        -0.3008087321635098,
+        -0.29227700820565183,
+        -0.28370225843132363,
+        -0.27508574512116896,
+        -0.26642873670380146,
+        -0.2577325075690802,
+        -0.24899833788050862,
+        -0.2402275133867821,
+        -0.23142132523251477,
+        -0.22258106976817105,
+        -0.21370804835923116,
+        -0.20480356719461854,
+        -0.19586893709441683,
+        -0.18690547331690552,
+        -0.17791449536494172,
+        -0.16889732679171782,
+        -0.15985529500592213,
+        -0.15078973107633264,
+        -0.14170196953587158,
+        -0.13259334818514984,
+        -0.12346520789553096,
+        -0.11431889241174284,
+        -0.1051557481540659,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$111M</b><br><span style='font-size:8px'>(5º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.7798663433620259
+      ],
+      "y": [
+        -0.25339393538745686
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#1F6AA5",
+      "hovertemplate": "<b>Receita c/ Negociação de atletas</b><br>Valor: R$106M<br>Média da Liga: R$132M<br>Percentil: 50º | Posição: 10º<br>Categoria: Receita<extra></extra>",
+      "legendgroup": "Receita",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Receita",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        0.3072803024880323,
+        0.3120432640780882,
+        0.3167602900802119,
+        0.32143068610555536,
+        0.3260537646296244,
+        0.33062884509348844,
+        0.3351552540039653,
+        0.33963232503276497,
+        0.34405939911457956,
+        0.34843582454410355,
+        0.35276095707197064,
+        0.35703415999959304,
+        0.36125480427288936,
+        0.365422268574887,
+        0.3695359394171858,
+        0.3735952112302688,
+        0.37759948645264746,
+        0.3815481756188287,
+        0.38544069744608883,
+        0.3892764789200442,
+        0.3930549553790037,
+        0.3967755705970922,
+        0.400437776866132,
+        0.40404103507627065,
+        0.40758481479534237,
+        0.4110685943469528,
+        0.4144918608872743,
+        0.4178541104805414,
+        0.42115484817323423,
+        0.4243935880669409,
+        0
+      ],
+      "y": [
+        0,
+        -0.39443480538976705,
+        -0.39067761817576974,
+        -0.38686291968641817,
+        -0.3829912714797975,
+        -0.379063243497506,
+        -0.37507941398075423,
+        -0.37104036938524293,
+        -0.3669467042948312,
+        -0.36279902133400865,
+        -0.35859793107918325,
+        -0.35434405196879953,
+        -0.3500380102122982,
+        -0.34568043969793316,
+        -0.34127198189945673,
+        -0.3368132857816894,
+        -0.3323050077049861,
+        -0.32774781132861425,
+        -0.3231423675130568,
+        -0.3184893542212559,
+        -0.3137894564188102,
+        -0.3090433659731421,
+        -0.30425178155164834,
+        -0.29941540851885007,
+        -0.29453495883255665,
+        -0.28961115093905904,
+        -0.28464470966736827,
+        -0.2796363661225135,
+        -0.27458685757791745,
+        -0.2694969273668626,
+        -0.26436732477306585,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$106M</b><br><span style='font-size:8px'>(10º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.6093787568914633
+      ],
+      "y": [
+        -0.5486870972142637
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#E8A020",
+      "hovertemplate": "<b>Custo das Atividades Esportivas</b><br>Valor: R$398M<br>Média da Liga: R$439M<br>Percentil: 50º | Posição: 10º<br>Categoria: Despesa<extra></extra>",
+      "legendgroup": "Despesa",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Despesa",
+      "opacity": 0.85,
+      "showlegend": true,
+      "x": [
+        0,
+        0.12028343590449586,
+        0.1261628035448462,
+        0.1320235988805736,
+        0.13786495914964952,
+        0.14368602445106285,
+        0.14948593787140518,
+        0.1552638456110159,
+        0.16101889710966988,
+        0.1667502451717866,
+        0.17245704609114595,
+        0.1781384597750889,
+        0.18379364986818697,
+        0.18942178387536102,
+        0.19502203328443235,
+        0.20059357368808703,
+        0.2061355849052361,
+        0.21164725110175367,
+        0.217127760910575,
+        0.2225763075511374,
+        0.22799208894814516,
+        0.23337430784964225,
+        0.23872217194437556,
+        0.24403489397842987,
+        0.24931169187111865,
+        0.25455178883011403,
+        0.25975441346579653,
+        0.26491879990481176,
+        0.2700441879028131,
+        0.27512982295637695,
+        0.2801749564140723,
+        0
+      ],
+      "y": [
+        0,
+        -0.48531628351726364,
+        -0.4838211932126419,
+        -0.4822548800568237,
+        -0.480617574625258,
+        -0.47890951794409825,
+        -0.47713096145472095,
+        -0.47528216697671144,
+        -0.4733634066693216,
+        -0.4713749629914057,
+        -0.46931712865983954,
+        -0.4671902066064303,
+        -0.46499450993332203,
+        -0.4627303618669041,
+        -0.4603980957102296,
+        -0.45799805479394995,
+        -0.45553059242577354,
+        -0.4529960718384556,
+        -0.4503948661363273,
+        -0.44772735824037097,
+        -0.4449939408318512,
+        -0.44219501629450825,
+        -0.43933099665532366,
+        -0.436402303523866,
+        -0.43340936803022656,
+        -0.4303526307615524,
+        -0.4272325416971886,
+        -0.424049560142437,
+        -0.42080415466094223,
+        -0.41749680300571484,
+        -0.4141279920488021,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$398M</b><br><span style='font-size:8px'>(10º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        0.3335240473221561
+      ],
+      "y": [
+        -0.7491072752669327
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#E8A020",
+      "hovertemplate": "<b>Folha do Futebol</b><br>Valor: R$165M<br>Média da Liga: R$237M<br>Percentil: 39º | Posição: 12º<br>Categoria: Despesa<extra></extra>",
+      "legendgroup": "Despesa",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Despesa",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        -0.06908804959550366,
+        -0.06436764621662207,
+        -0.05963776733862507,
+        -0.05489910924242003,
+        -0.050152369501294834,
+        -0.04539824687822845,
+        -0.04063744122302675,
+        -0.035870653369298254,
+        -0.0310985850312854,
+        -0.026321938700565373,
+        -0.021541417542637338,
+        -0.016757725293410033,
+        -0.011971566155605491,
+        -0.0071836446950941145,
+        -0.0023946657371758714,
+        0.002394665737175832,
+        0.007183644695094075,
+        0.01197156615560554,
+        0.016757725293410082,
+        0.021541417542637387,
+        0.02632193870056542,
+        0.031098585031285448,
+        0.035870653369298296,
+        0.0406374412230268,
+        0.0453982468782285,
+        0.050152369501294806,
+        0.054899109242419995,
+        0.05963776733862503,
+        0.06436764621662211,
+        0.0690880495955037,
+        0
+      ],
+      "y": [
+        0,
+        -0.3886438162615285,
+        -0.3894534383411799,
+        -0.3902057293558098,
+        -0.39090057856138344,
+        -0.3915378836698194,
+        -0.39211755086404754,
+        -0.3926394948118191,
+        -0.3931036386782691,
+        -0.39350991413722647,
+        -0.39385826138127294,
+        -0.39414862913054666,
+        -0.39438097464029126,
+        -0.3945552637071484,
+        -0.39467147067419267,
+        -0.39472957843470846,
+        -0.39472957843470846,
+        -0.39467147067419267,
+        -0.3945552637071484,
+        -0.39438097464029126,
+        -0.39414862913054666,
+        -0.39385826138127294,
+        -0.39350991413722647,
+        -0.3931036386782691,
+        -0.3926394948118191,
+        -0.3921175508640475,
+        -0.3915378836698194,
+        -0.39090057856138344,
+        -0.3902057293558098,
+        -0.3894534383411799,
+        -0.38864381626152844,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$165M</b><br><span style='font-size:8px'>(12º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        5.021051876504148e-17
+      ],
+      "y": [
+        -0.82
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#E8A020",
+      "hovertemplate": "<b>Folha do Futebol + Amortização</b><br>Valor: R$212M<br>Média da Liga: R$304M<br>Percentil: 39º | Posição: 12º<br>Categoria: Despesa<extra></extra>",
+      "legendgroup": "Despesa",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Despesa",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        -0.22119075506374125,
+        -0.21720775496556075,
+        -0.2131927799232734,
+        -0.20914642097748293,
+        -0.20506927378878678,
+        -0.20096193855008998,
+        -0.19682501989825169,
+        -0.19265912682507616,
+        -0.1884648725876648,
+        -0.18424287461813857,
+        -0.17999375443274604,
+        -0.17571813754037166,
+        -0.17141665335045392,
+        -0.1670899350803318,
+        -0.16273861966202846,
+        -0.15836334764848972,
+        -0.15396476311928867,
+        -0.14954351358581128,
+        -0.145100249895937,
+        -0.14063562613822805,
+        -0.13615029954564156,
+        -0.13164493039877892,
+        -0.12712018192868677,
+        -0.1225767202192231,
+        -0.11801521410900402,
+        -0.11343633509294432,
+        -0.10884075722340748,
+        -0.10422915701097912,
+        -0.09960221332487855,
+        -0.09496060729302301,
+        0
+      ],
+      "y": [
+        0,
+        -0.3269431516174754,
+        -0.329602739215038,
+        -0.33221380631127023,
+        -0.33477596853350294,
+        -0.3372888487083068,
+        -0.33975207691701503,
+        -0.3421652905501788,
+        -0.34452813436094687,
+        -0.34684026051736083,
+        -0.34910132865355914,
+        -0.35131100591988257,
+        -0.3534689670318718,
+        -0.35557489431815315,
+        -0.3576284777672018,
+        -0.35962941507297913,
+        -0.36157741167943425,
+        -0.3634721808238655,
+        -0.36531344357913487,
+        -0.36710092889472795,
+        -0.36883437363665555,
+        -0.3705135226261891,
+        -0.3721381286774255,
+        -0.37370795263367496,
+        -0.3752227634026669,
+        -0.37668233799056916,
+        -0.3780864615348144,
+        -0.37943492733573003,
+        -0.3807275368869661,
+        -0.3819640999047173,
+        -0.3831444343557345,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$212M</b><br><span style='font-size:8px'>(12º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.3335240473221562
+      ],
+      "y": [
+        -0.7491072752669327
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#E8A020",
+      "hovertemplate": "<b>Aquisições de atletas</b><br>Valor: R$130M<br>Média da Liga: R$162M<br>Percentil: 50º | Posição: 10º<br>Categoria: Despesa<extra></extra>",
+      "legendgroup": "Despesa",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Despesa",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        -0.424393588066941,
+        -0.4211548481732343,
+        -0.41785411048054144,
+        -0.41449186088727435,
+        -0.41106859434695286,
+        -0.40758481479534237,
+        -0.4040410350762707,
+        -0.400437776866132,
+        -0.39677557059709223,
+        -0.39305495537900387,
+        -0.3892764789200442,
+        -0.3854406974460889,
+        -0.38154817561882864,
+        -0.37759948645264746,
+        -0.37359521123026873,
+        -0.3695359394171859,
+        -0.365422268574887,
+        -0.36125480427288936,
+        -0.357034159999593,
+        -0.35276095707197064,
+        -0.3484358245441035,
+        -0.34405939911457956,
+        -0.339632325032765,
+        -0.3351552540039653,
+        -0.33062884509348855,
+        -0.3260537646296244,
+        -0.3214306861055555,
+        -0.31676029008021195,
+        -0.31204326407808824,
+        -0.30728030248803223,
+        0
+      ],
+      "y": [
+        0,
+        -0.2643673247730657,
+        -0.26949692736686254,
+        -0.27458685757791734,
+        -0.27963636612251347,
+        -0.2846447096673681,
+        -0.28961115093905904,
+        -0.29453495883255654,
+        -0.29941540851885,
+        -0.3042517815516482,
+        -0.30904336597314186,
+        -0.31378945641881023,
+        -0.31848935422125585,
+        -0.32314236751305686,
+        -0.3277478113286142,
+        -0.33230500770498617,
+        -0.33681328578168934,
+        -0.3412719818994568,
+        -0.34568043969793316,
+        -0.3500380102122983,
+        -0.3543440519687995,
+        -0.3585979310791833,
+        -0.3627990213340086,
+        -0.3669467042948311,
+        -0.37104036938524293,
+        -0.3750794139807542,
+        -0.379063243497506,
+        -0.3829912714797974,
+        -0.3868629196864181,
+        -0.3906776181757697,
+        -0.39443480538976705,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$130M</b><br><span style='font-size:8px'>(10º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.6093787568914631
+      ],
+      "y": [
+        -0.5486870972142638
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#808080",
+      "hovertemplate": "<b>Resultado Operacional (Segmento Futebol)</b><br>Valor: R$104M<br>Média da Liga: R$3M<br>Percentil: 87º | Posição: 3º<br>Categoria: Resultado<extra></extra>",
+      "legendgroup": "Resultado",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Resultado",
+      "opacity": 0.85,
+      "showlegend": true,
+      "x": [
+        0,
+        -0.8601375538944602,
+        -0.8586224391729216,
+        -0.8569809274702728,
+        -0.8552132604318685,
+        -0.8533196982742685,
+        -0.8513005197469317,
+        -0.8491560220911812,
+        -0.8468865209964488,
+        -0.8444923505538018,
+        -0.8419738632067616,
+        -0.8393314296994215,
+        -0.8365654390218694,
+        -0.833676298352925,
+        -0.8306644330001997,
+        -0.827530286337487,
+        -0.8242743197394939,
+        -0.8208970125139234,
+        -0.8173988618309144,
+        -0.8137803826498546,
+        -0.8100421076435746,
+        -0.8061845871199322,
+        -0.802208388940803,
+        -0.7981140984384858,
+        -0.7939023183295366,
+        -0.7895736686260426,
+        -0.785128786544352,
+        -0.7805683264112684,
+        -0.7758929595677296,
+        -0.771103374269979,
+        -0.7662002755882489,
+        0
+      ],
+      "y": [
+        0,
+        -0.1196599892787646,
+        -0.1300870155030175,
+        -0.14049489174319038,
+        -0.15088208586585988,
+        -0.16124706878219863,
+        -0.171588314673068,
+        -0.1819043012136351,
+        -0.19219350979747213,
+        -0.20245442576010608,
+        -0.2126855386019961,
+        -0.22288534221088813,
+        -0.23305233508353163,
+        -0.2431850205467113,
+        -0.2532819069775741,
+        -0.26334150802320644,
+        -0.2733623428194419,
+        -0.28334293620885465,
+        -0.2932818189579187,
+        -0.30317752797329134,
+        -0.31302860651719217,
+        -0.32283360442185105,
+        -0.33259107830298296,
+        -0.34229959177227015,
+        -0.3519577156488075,
+        -0.36156402816949573,
+        -0.37111711519833335,
+        -0.3806155704345938,
+        -0.39005799561984256,
+        -0.39944300074377614,
+        -0.40876920424884167,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$104M</b><br><span style='font-size:8px'>(3º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.7798663433620259
+      ],
+      "y": [
+        -0.2533939353874569
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#808080",
+      "hovertemplate": "<b>Resultado</b><br>Valor: R$44M<br>Média da Liga: R$−69M<br>Percentil: 87º | Posição: 3º<br>Categoria: Resultado<extra></extra>",
+      "legendgroup": "Resultado",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Resultado",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        -0.8344448576578329,
+        -0.8373017851298797,
+        -0.840035454213734,
+        -0.8426454624886066,
+        -0.8451314257376968,
+        -0.8474929780047523,
+        -0.849729771647942,
+        -0.8518414773910308,
+        -0.853827784371853,
+        -0.8556884001880741,
+        -0.8574230509402342,
+        -0.8590314812720691,
+        -0.8605134544081012,
+        -0.8618687521884945,
+        -0.8630971751011699,
+        -0.8641985423111754,
+        -0.8651726916873063,
+        -0.8660194798259723,
+        -0.8667387820723084,
+        -0.8673304925385247,
+        -0.8677945241194942,
+        -0.8681308085055753,
+        -0.8683392961926683,
+        -0.8684199564895013,
+        -0.8683727775221501,
+        -0.8681977662357852,
+        -0.8678949483936487,
+        -0.8674643685732636,
+        -0.8669060901598696,
+        -0.8662201953370936,
+        0
+      ],
+      "y": [
+        0,
+        0.24053462158728534,
+        0.23039280646768545,
+        0.22021707544526414,
+        0.2100089264795712,
+        0.19976986230236915,
+        0.1895013901964205,
+        0.17920502177359904,
+        0.16888227275236953,
+        0.1585346627346589,
+        0.14816371498215775,
+        0.1377709561920809,
+        0.12735791627242662,
+        0.11692612811675704,
+        0.10647712737854567,
+        0.0960124522451125,
+        0.08553364321119011,
+        0.0750422428521501,
+        0.06453979559691937,
+        0.0540278475006293,
+        0.04350794601701935,
+        0.03298163977064101,
+        0.022450478328883177,
+        0.011916011973864549,
+        0.0013797914742165068,
+        -0.009156632143203228,
+        -0.019691707821637327,
+        -0.030223884702755714,
+        -0.04075161235495862,
+        -0.05127334100161299,
+        -0.06178752174919242,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$44M</b><br><span style='font-size:8px'>(3º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.8155079542019841
+      ],
+      "y": [
+        0.08571333987947587
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#8B0000",
+      "hovertemplate": "<b>Dívida Líquida</b><br>Valor: R$722M<br>Média da Liga: R$662M<br>Percentil: 50º | Posição: 10º<br>Categoria: Passivo<extra></extra>",
+      "legendgroup": "Passivo",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Passivo",
+      "opacity": 0.85,
+      "showlegend": true,
+      "x": [
+        0,
+        -0.382573097937387,
+        -0.3864508142427065,
+        -0.3902716414964017,
+        -0.39403501723817813,
+        -0.39774038746512247,
+        -0.4013872067132577,
+        -0.4049749381378396,
+        -0.40850305359238587,
+        -0.41197103370642296,
+        -0.4153783679619436,
+        -0.4187245547685582,
+        -0.4220091015373346,
+        -0.4252315247533111,
+        -0.4283913500466739,
+        -0.43148811226258954,
+        -0.4345213555296789,
+        -0.43749063332712645,
+        -0.44039550855041143,
+        -0.44323555357565414,
+        -0.44601035032256553,
+        -0.448719490315993,
+        -0.4513625747460512,
+        -0.45393921452683034,
+        -0.4564490303536736,
+        -0.4588916527590138,
+        -0.46126672216676273,
+        -0.46357388894524354,
+        -0.46581281345866027,
+        -0.46798316611709456,
+        -0.4700846274250252,
+        0
+      ],
+      "y": [
+        0,
+        0.321928291292627,
+        0.3172629322362591,
+        0.3125508692096442,
+        0.30779279587103503,
+        0.302989412651819,
+        0.2981414266534064,
+        0.2932495515431405,
+        0.2883145074492373,
+        0.28333702085477874,
+        0.27831782449076486,
+        0.2732576572282517,
+        0.2681572639695811,
+        0.2630173955387251,
+        0.25783880857075825,
+        0.25262226540047283,
+        0.24736853395015784,
+        0.24207838761655237,
+        0.23675260515699614,
+        0.23139197057478775,
+        0.225997273003774,
+        0.22056930659218085,
+        0.2151088703857081,
+        0.20961676820990324,
+        0.2040938085518303,
+        0.19854080444105368,
+        0.1929585733299522,
+        0.18734793697338387,
+        0.18170972130771482,
+        0.17604475632923536,
+        0.1703538759719756,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>R$722M</b><br><span style='font-size:8px'>(10º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.7101408311032396
+      ],
+      "y": [
+        0.4100000000000001
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#2E7D32",
+      "hovertemplate": "<b>Público médio (mandante)</b><br>Valor: 20.345<br>Média da Liga: 26.856<br>Percentil: 29º | Posição: 14º<br>Categoria: Estádio<extra></extra>",
+      "legendgroup": "Estádio",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Estádio",
+      "opacity": 0.85,
+      "showlegend": true,
+      "x": [
+        0,
+        -0.12653351139895413,
+        -0.12968300974521194,
+        -0.13281341758068732,
+        -0.13592427408106217,
+        -0.13901512130015134,
+        -0.14208550423731736,
+        -0.14513497090444924,
+        -0.1481630723925003,
+        -0.151169362937571,
+        -0.15415339998652972,
+        -0.15711474426216107,
+        -0.16005295982783027,
+        -0.16296761415165792,
+        -0.16585827817019203,
+        -0.16872452635157092,
+        -0.17156593675816426,
+        -0.17438209110868638,
+        -0.17717257483977208,
+        -0.17993697716700258,
+        -0.18267489114537752,
+        -0.1853859137292208,
+        -0.18806964583151312,
+        -0.1907256923826401,
+        -0.19335366238855042,
+        -0.1959531689883146,
+        -0.19852382951107314,
+        -0.20106526553237017,
+        -0.20357710292986006,
+        -0.20605897193838235,
+        -0.20851050720439415,
+        0
+      ],
+      "y": [
+        0,
+        0.2603541517692127,
+        0.2587997890915655,
+        0.2572073287465843,
+        0.2555770051588206,
+        0.25390905832663735,
+        0.2522037337868787,
+        0.2504612825787255,
+        0.2486819612067394,
+        0.24686603160310344,
+        0.24501376108906311,
+        0.24312542233557405,
+        0.2412012933231629,
+        0.23924165730100572,
+        0.23724680274523138,
+        0.2352170233164546,
+        0.23315261781654759,
+        0.23105389014465286,
+        0.2289211492524465,
+        0.22675470909865822,
+        0.2245548886028536,
+        0.22232201159848614,
+        0.22005640678522573,
+        0.21775840768057167,
+        0.21542835257075607,
+        0.21306658446094393,
+        0.21067345102474083,
+        0.20824930455301163,
+        0.20579450190202042,
+        0.20330940444089762,
+        0.2007943779984435,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>20.345</b><br><span style='font-size:8px'>(14º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.48198390687982806
+      ],
+      "y": [
+        0.6633939353874568
+      ],
+      "type": "scatter"
+    },
+    {
+      "fill": "toself",
+      "fillcolor": "#2E7D32",
+      "hovertemplate": "<b>% Ocupação</b><br>Valor: 33.9%<br>Média da Liga: 59.6%<br>Percentil: 8º | Posição: 18º<br>Categoria: Estádio<extra></extra>",
+      "legendgroup": "Estádio",
+      "line": {
+        "color": "white",
+        "width": 0.8
+      },
+      "mode": "lines",
+      "name": "Estádio",
+      "opacity": 0.85,
+      "showlegend": false,
+      "x": [
+        0,
+        -0.0026803240240857802,
+        -0.0036502018007897002,
+        -0.004619542234807299,
+        -0.005588202630468164,
+        -0.006556040392209674,
+        -0.007522913045568567,
+        -0.00848867825815404,
+        -0.009453193860600652,
+        -0.010416317867496791,
+        -0.011377908498286501,
+        -0.012337824198140427,
+        -0.013295923658794253,
+        -0.014252065839350417,
+        -0.015206109987040877,
+        -0.01615791565794678,
+        -0.01710734273767328,
+        -0.018054251461975857,
+        -0.018998502437334447,
+        -0.019939956661473718,
+        -0.02087847554382539,
+        -0.021813920925930014,
+        -0.022746155101775085,
+        -0.023675040838066874,
+        -0.02460044139443199,
+        -0.02552222054354712,
+        -0.026440242591192722,
+        -0.027354372396228746,
+        -0.028264475390488233,
+        -0.029170417598587146,
+        -0.030072065657646956,
+        0
+      ],
+      "y": [
+        0,
+        0.07995508653691714,
+        0.07991668178054888,
+        0.07986651256653712,
+        0.07980458628024349,
+        0.07973091203777688,
+        0.07964550068465145,
+        0.0795483647941901,
+        0.07943951866567359,
+        0.07931897832223551,
+        0.07918676150850355,
+        0.07904288768798734,
+        0.07888737804021323,
+        0.07872025545760647,
+        0.07854154454212124,
+        0.07835127160161907,
+        0.078149464645996,
+        0.07793615338305929,
+        0.07771136921415422,
+        0.07747514522954152,
+        0.0772275162035261,
+        0.07696851858933802,
+        0.0766981905137663,
+        0.07641657177154616,
+        0.07612370381950104,
+        0.07581962977043967,
+        0.07550439438680956,
+        0.07517804407410743,
+        0.07484062687404806,
+        0.07449219245749206,
+        0.07413279211713376,
+        0
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<b>33.9%</b><br><span style='font-size:8px'>(18º)</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 9
+      },
+      "x": [
+        -0.170487586470563
+      ],
+      "y": [
+        0.8020810326017205
+      ],
+      "type": "scatter"
+    },
+    {
+      "line": {
+        "color": "#E53935",
+        "width": 2
+      },
+      "mode": "lines",
+      "name": "Média da Liga",
+      "showlegend": true,
+      "x": [
+        null
+      ],
+      "y": [
+        null
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$529M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.19784253722136147,
+        0.18877718913468472,
+        0.17964710209189808,
+        0.17045540715087493,
+        0.1612052564972056,
+        0.15189982236319136,
+        0.14254229593996504,
+        0.13313588628310782,
+        0.12368381921214122,
+        0.11418933620426942,
+        0.1046556932827523,
+        0.09508615990028936,
+        0.08548401781779938,
+        0.07585255997897798,
+        0.06619508938102077,
+        0.05651491794189852,
+        0.04681536536457327,
+        0.037099757998544494,
+        0.027371427699115953,
+        0.017633710684774456
+      ],
+      "y": [
+        0.4877157376127222,
+        0.4912957185969718,
+        0.49470721539036666,
+        0.49794905805949363,
+        0.5010201348518616,
+        0.5039193925771644,
+        0.5066458369684596,
+        0.509198533023141,
+        0.5115766053235877,
+        0.5137792383373775,
+        0.515805676696965,
+        0.5176552254587256,
+        0.5193272503412791,
+        0.5208211779430085,
+        0.5221364959387019,
+        0.5232727532552482,
+        0.5242295602263277,
+        0.5250065887260434,
+        0.5256035722814482,
+        0.5260203061639286
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$397M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.4170210144087882,
+        0.4095129664781922,
+        0.4018644808067612,
+        0.39407818035429476,
+        0.38615673534257977,
+        0.37810286233966794,
+        0.36991932332826116,
+        0.3616089247585204,
+        0.3531745165856269,
+        0.3446189912924227,
+        0.33594528289746667,
+        0.3271563659488475,
+        0.31825525450409614,
+        0.30924500109654973,
+        0.3001286956885209,
+        0.2909094646116306,
+        0.2815904694946686,
+        0.27217490617935003,
+        0.2626660036243378,
+        0.2530670227979086
+      ],
+      "y": [
+        0.4015887559968871,
+        0.4092422090741535,
+        0.41675531726370857,
+        0.42412550403189625,
+        0.43135024185831045,
+        0.43842705310257957,
+        0.44535351085404445,
+        0.452127239764039,
+        0.45874591686048916,
+        0.4652072723445488,
+        0.4715090903690014,
+        0.47764920979815917,
+        0.4836255249489992,
+        0.4894359863132839,
+        0.49507860126041525,
+        0.5005514347207852,
+        0.5058526098493851,
+        0.5109803086694478,
+        0.5159327726959022,
+        0.5207083035384253
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$173M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.5937911083263475,
+        0.5897045593043401,
+        0.5854157779164542,
+        0.5809262349507195,
+        0.5762374700440291,
+        0.5713510911541397,
+        0.5662687740082402,
+        0.5609922615282806,
+        0.5555233632332578,
+        0.5498639546186608,
+        0.544015976513292,
+        0.5379814344136822,
+        0.5317623977963285,
+        0.5253609994079917,
+        0.5187794345342953,
+        0.5120199602468769,
+        0.5050848946293526,
+        0.49797661598235665,
+        0.4906975620079307,
+        0.48325022897354153
+      ],
+      "y": [
+        0.21518384333302207,
+        0.2261426529752333,
+        0.23702390960718614,
+        0.24782388162762736,
+        0.2585388653109225,
+        0.2691651860772054,
+        0.279699199752533,
+        0.2901372938186125,
+        0.3004758886516731,
+        0.3107114387500565,
+        0.32084043395010564,
+        0.3308594006299349,
+        0.3407649029006684,
+        0.35055354378473874,
+        0.3602219663808408,
+        0.3697668550151424,
+        0.3791849363783568,
+        0.38847298064828545,
+        0.39762780259744884,
+        0.40664626268542337
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$90M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.7874729048519034,
+        0.7883780312887672,
+        0.789012792587769,
+        0.7893769710648546,
+        0.7894704418292228,
+        0.7892931728261545,
+        0.7888452248480067,
+        0.7881267515133631,
+        0.7871379992143535,
+        0.7858793070321561,
+        0.7843511066207134,
+        0.7825539220587014,
+        0.7804883696698033,
+        0.7781551578113478,
+        0.7755550866313868,
+        0.7726890477942933,
+        0.7695580241749757,
+        0.7661630895218122,
+        0.7625054080884212,
+        0.7585862342343936
+      ],
+      "y": [
+        -0.056170474317447545,
+        -0.041578574316462516,
+        -0.02697241542376434,
+        -0.012357006652803334,
+        0.0022626398108313165,
+        0.016881510328282653,
+        0.03149459152679549,
+        0.04609687201899474,
+        0.06068334412148271,
+        0.07524900557216638,
+        0.08978886124572527,
+        0.10429792486663211,
+        0.11877122071913833,
+        0.1332037853536383,
+        0.14759066928882708,
+        0.16192693870906774,
+        0.17620767715638666,
+        0.19042798721651563,
+        0.20458299219840392,
+        0.2186678378066229
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$86M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.4643638033868175,
+        0.4688717597651425,
+        0.4732189219902347,
+        0.4774037992530308,
+        0.4814249563982205,
+        0.4852810144164167,
+        0.48897065091707,
+        0.4924926005819682,
+        0.49584565559916216,
+        0.49902866607717083,
+        0.5020405404393234,
+        0.5048802457981031,
+        0.5075468083093635,
+        0.5100393135062976,
+        0.5123569066130436,
+        0.5144987928378201,
+        0.5164642376454912,
+        0.5182525670094665,
+        0.5198631676428508,
+        0.5212954872087637
+      ],
+      "y": [
+        -0.24773891166596446,
+        -0.23909743441544065,
+        -0.23037396146202724,
+        -0.22157148441999325,
+        -0.21269302199714704,
+        -0.2037416189596055,
+        -0.19472034508762653,
+        -0.18563229412286372,
+        -0.17648058270740305,
+        -0.1672683493149466,
+        -0.1579987531745093,
+        -0.14867497318699768,
+        -0.13930020683504293,
+        -0.1298776690864606,
+        -0.12041059129171491,
+        -0.11090222007576445,
+        -0.10135581622466945,
+        -0.09177465356734303,
+        -0.08216201785282926,
+        -0.07252120562349372
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$132M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.3881435399848829,
+        0.3973031742097994,
+        0.4063265579010822,
+        0.41521059659353965,
+        0.4239522436087376,
+        0.4325485010998227,
+        0.44099642107959897,
+        0.4492931064315067,
+        0.45743571190315424,
+        0.46542144508206473,
+        0.4732475673533023,
+        0.48091139483864737,
+        0.4884102993170026,
+        0.49574170912571036,
+        0.5029031100424751,
+        0.5098920461475864,
+        0.5167061206661491,
+        0.5233429967900283,
+        0.5298003984792319,
+        0.5360761112424516
+      ],
+      "y": [
+        -0.4982334383870741,
+        -0.4909604408929711,
+        -0.48351907418762835,
+        -0.47591189020178887,
+        -0.46814149773131664,
+        -0.4602105615425394,
+        -0.45212180145839875,
+        -0.44387799142571766,
+        -0.4354819585639079,
+        -0.42693658219544184,
+        -0.41824479285842203,
+        -0.40940957130158706,
+        -0.4004339474620985,
+        -0.39132099942645837,
+        -0.3820738523749158,
+        -0.37269567750972143,
+        -0.3631896909676013,
+        -0.35355915271681937,
+        -0.34380736543920903,
+        -0.33393767339755687
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$439M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        0.1392755573631005,
+        0.14965766611998338,
+        0.1599884515092345,
+        0.17026437070735398,
+        0.18048189970656858,
+        0.19063753452334908,
+        0.20072779240006072,
+        0.2107492129993355,
+        0.2206983595907543,
+        0.23057182022943384,
+        0.2403662089261145,
+        0.25007816680834505,
+        0.2597043632723701,
+        0.2692414971253218,
+        0.2786862977173258,
+        0.2880355260631329,
+        0.2972859759528915,
+        0.3064344750516806,
+        0.3154778859874248,
+        0.32441310742682056
+      ],
+      "y": [
+        -0.5619451703884105,
+        -0.5592697366863164,
+        -0.5564025078891534,
+        -0.553344467279913,
+        -0.5500966635782935,
+        -0.5466602105810527,
+        -0.5430362867800459,
+        -0.5392261349580738,
+        -0.535231061762686,
+        -0.5310524372580807,
+        -0.5266916944552568,
+        -0.5221503288205798,
+        -0.5174298977629287,
+        -0.5125320200996006,
+        -0.5074583755011559,
+        -0.5022107039153949,
+        -0.4967908049706625,
+        -0.4912005373586872,
+        -0.485441818197163,
+        -0.47951662237229714
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$237M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.09211739946067153,
+        -0.08250583108034121,
+        -0.07286596827841459,
+        -0.06320111693447238,
+        -0.05351459149762694,
+        -0.04380971384987029,
+        -0.03408981216687353,
+        -0.02435821977662681,
+        -0.01461827401631306,
+        -0.004873315087807319,
+        0.004873315087807384,
+        0.014618274016313125,
+        0.024358219776626756,
+        0.03408981216687359,
+        0.043809713849870355,
+        0.053514591497627,
+        0.06320111693447245,
+        0.07286596827841454,
+        0.08250583108034117,
+        0.09211739946067159
+      ],
+      "y": [
+        -0.5181917550153713,
+        -0.5198087129772352,
+        -0.5212474085462263,
+        -0.5225073483383201,
+        -0.5235881002717209,
+        -0.5244892937150385,
+        -0.5252106196143931,
+        -0.5257518305994008,
+        -0.5261127410680067,
+        -0.5262932272501352,
+        -0.5262932272501352,
+        -0.5261127410680067,
+        -0.5257518305994008,
+        -0.5252106196143931,
+        -0.5244892937150385,
+        -0.5235881002717209,
+        -0.5225073483383201,
+        -0.5212474085462263,
+        -0.5198087129772352,
+        -0.5181917550153712
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$304M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.2654289060764895,
+        -0.2581182703533475,
+        -0.250719115951375,
+        -0.24323398032509308,
+        -0.23566543041529053,
+        -0.22801606176872094,
+        -0.2202884976479904,
+        -0.21248538813193923,
+        -0.2046094092068278,
+        -0.19666326184863905,
+        -0.18864967109680952,
+        -0.18057138511970797,
+        -0.17243117427218352,
+        -0.16423183014550416,
+        -0.15597616461001282,
+        -0.1476670088508289,
+        -0.13930721239692603,
+        -0.13089964214391908,
+        -0.12244718137089543,
+        -0.1139527287516276
+      ],
+      "y": [
+        -0.3923317819409704,
+        -0.39717966943404254,
+        -0.40189134874801674,
+        -0.40646520406690567,
+        -0.41089966683986845,
+        -0.4151932163191276,
+        -0.41934438008149144,
+        -0.42335173453330527,
+        -0.42721390539865617,
+        -0.43092956819066464,
+        -0.4344974486657023,
+        -0.4379163232603795,
+        -0.4411850195111513,
+        -0.4443024164564011,
+        -0.4472674450208613,
+        -0.45007908838224003,
+        -0.45273638231992885,
+        -0.45523841554567096,
+        -0.457584330016077,
+        -0.45977332122688136
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$162M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.4467300927020431,
+        -0.4415003320660266,
+        -0.43611916399169026,
+        -0.43058843388845763,
+        -0.4249100384563222,
+        -0.419085925035396,
+        -0.4131180909380921,
+        -0.4070085827641688,
+        -0.40075949569887276,
+        -0.39437297279441846,
+        -0.38785120423505404,
+        -0.38119642658596187,
+        -0.37441092202625564,
+        -0.3674970175663325,
+        -0.36045708424985223,
+        -0.35329353634061467,
+        -0.3460088304946164,
+        -0.33860546491756854,
+        -0.3310859785081661,
+        -0.3234529499874023
+      ],
+      "y": [
+        -0.27828139449796385,
+        -0.2865061378660074,
+        -0.294632627264016,
+        -0.3026580758063343,
+        -0.31057973125810107,
+        -0.31839487697909635,
+        -0.32610083285538194,
+        -0.3336949562184155,
+        -0.34117464275132264,
+        -0.3485373273820184,
+        -0.35578048516286814,
+        -0.36290163213658994,
+        -0.369898326188098,
+        -0.3767681678819989,
+        -0.38350880128544945,
+        -0.39011791477609714,
+        -0.3965932418348241,
+        -0.40293256182302356,
+        -0.4091337007441425,
+        -0.41519453198922845
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$3M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.5212954872087637,
+        -0.5198631676428508,
+        -0.5182525670094665,
+        -0.5164642376454913,
+        -0.5144987928378202,
+        -0.5123569066130436,
+        -0.5100393135062975,
+        -0.5075468083093634,
+        -0.504880245798103,
+        -0.5020405404393234,
+        -0.4990286660771708,
+        -0.49584565559916216,
+        -0.49249260058196814,
+        -0.48897065091707004,
+        -0.4852810144164167,
+        -0.4814249563982206,
+        -0.4774037992530307,
+        -0.47321892199023463,
+        -0.46887175976514245,
+        -0.46436380338681743
+      ],
+      "y": [
+        -0.07252120562349369,
+        -0.08216201785282926,
+        -0.09177465356734299,
+        -0.10135581622466922,
+        -0.11090222007576424,
+        -0.12041059129171493,
+        -0.1298776690864606,
+        -0.13930020683504296,
+        -0.14867497318699774,
+        -0.15799875317450932,
+        -0.16726834931494666,
+        -0.17648058270740313,
+        -0.18563229412286383,
+        -0.19472034508762642,
+        -0.20374161895960538,
+        -0.21269302199714696,
+        -0.2215714844199934,
+        -0.23037396146202735,
+        -0.23909743441544073,
+        -0.24773891166596462
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$−69M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.35400690930938367,
+        -0.3558358571079298,
+        -0.35754277511017896,
+        -0.359127077948322,
+        -0.3605882223040035,
+        -0.36192570709464716,
+        -0.3631390736452957,
+        -0.3642279058459082,
+        -0.36519183029406066,
+        -0.36603051642299955,
+        -0.3667436766150062,
+        -0.3673310663000316,
+        -0.3677924840395694,
+        -0.3681277715957364,
+        -0.36833681398553875,
+        -0.36841953952030393,
+        -0.36837591983026546,
+        -0.36820596987429216,
+        -0.36790974793475795,
+        -0.36748735559755485
+      ],
+      "y": [
+        0.10204499097642407,
+        0.09547206302592191,
+        0.08886639403437402,
+        0.08223024933964715,
+        0.07556590473089833,
+        0.06887564566811918,
+        0.06216176649836442,
+        0.05542656966893125,
+        0.04867236493776167,
+        0.041901468581338475,
+        0.035116202600344315,
+        0.028318893923358603,
+        0.02151187360886421,
+        0.01469747604583789,
+        0.007878038153198553,
+        0.0010558985783879265,
+        -0.005766603104641744,
+        -0.01258712719775689,
+        -0.01940333468101588,
+        -0.026212888014808904
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>R$662M<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.3221668193156943,
+        -0.327131708005287,
+        -0.3319844106549044,
+        -0.336723263086235,
+        -0.3413466401645845,
+        -0.3458529563561969,
+        -0.3502406662719946,
+        -0.3545082651975524,
+        -0.3586542896091215,
+        -0.362677317675528,
+        -0.36657596974577383,
+        -0.3703489088221718,
+        -0.3739948410188538,
+        -0.37751251600549346,
+        -0.38090072743609316,
+        -0.3841583133626861,
+        -0.38728415663381305,
+        -0.39027718527763616,
+        -0.3931363728695601,
+        -0.39586073888423173
+      ],
+      "y": [
+        0.271097508456949,
+        0.26508520173163264,
+        0.25898198709885706,
+        0.25278995758557127,
+        0.2465112366767617,
+        0.2401479775872271,
+        0.23370236252315912,
+        0.22717660193377887,
+        0.22057293375328985,
+        0.21389362263340367,
+        0.20714095916670439,
+        0.20031725910111545,
+        0.19342486254574168,
+        0.18646613316835534,
+        0.17944345738480366,
+        0.17235924354061502,
+        0.16521592108508473,
+        0.1580159397381239,
+        0.1507617686501554,
+        0.14345589555534788
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>26.856<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.1840487438530242,
+        -0.19102982081769998,
+        -0.19794538631225442,
+        -0.20479306872339523,
+        -0.21157051971754934,
+        -0.21827541504619719,
+        -0.22490545534294543,
+        -0.23145836691207006,
+        -0.23793190250825258,
+        -0.2443238421072484,
+        -0.2506319936672164,
+        -0.25685419388045583,
+        -0.26298830891528746,
+        -0.26903223514782615,
+        -0.27498389988339483,
+        -0.2808412620673306,
+        -0.2866023129849417,
+        -0.2922650769503718,
+        -0.2978276119841398,
+        -0.30328801047911874
+      ],
+      "y": [
+        0.37869694802794573,
+        0.3752238346879289,
+        0.3716220426686893,
+        0.3678928071631892,
+        0.36403740706966203,
+        0.36005716455302916,
+        0.35595344459147904,
+        0.3517276545083629,
+        0.34738124348957033,
+        0.34291570208654654,
+        0.33833256170512643,
+        0.3336333940803558,
+        0.32881981073748295,
+        0.32389346243930506,
+        0.3188560386200579,
+        0.31370926680604394,
+        0.3084549120231971,
+        0.30309477619178793,
+        0.29763069750847515,
+        0.29206454981591773
+      ],
+      "type": "scatter"
+    },
+    {
+      "hovertemplate": "<b>Média da Liga</b><br>59.6%<extra></extra>",
+      "line": {
+        "color": "#E53935",
+        "width": 1
+      },
+      "mode": "lines",
+      "opacity": 0.25,
+      "showlegend": false,
+      "x": [
+        -0.014106968547819895,
+        -0.021897142159292723,
+        -0.02967980639883555,
+        -0.03745229229165858,
+        -0.04521193435351877,
+        -0.05295607150481657,
+        -0.060682047983182344,
+        -0.06838721425423946,
+        -0.07606892792023144,
+        -0.0837245546262018,
+        -0.09135146896341559,
+        -0.09894705536971302,
+        -0.1065087090264863,
+        -0.11403383675197208,
+        -0.12151985789055313,
+        -0.12896420519776444,
+        -0.1363643257207,
+        -0.1437176816735185,
+        -0.1510217513077478,
+        -0.15827402977708924
+      ],
+      "y": [
+        0.42081624493114284,
+        0.42048285782515854,
+        0.42000527098083473,
+        0.41938364818106216,
+        0.41861820260419863,
+        0.4177091967509616,
+        0.41665694235440687,
+        0.4154618002730233,
+        0.41412418036698045,
+        0.41264454135757195,
+        0.411023390669902,
+        0.40926128425887015,
+        0.4073588264185128,
+        0.4053166695747676,
+        0.40313551406173154,
+        0.4008161078814893,
+        0.39835924644759485,
+        0.39576577231229326,
+        0.3930365748775774,
+        0.3901725900901777
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Receita<br>Total</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        0.2661269642467321
+      ],
+      "y": [
+        1.2520289289392712
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Receita<br>Recorrente</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        0.7523651229343656
+      ],
+      "y": [
+        1.0355417527999327
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Transmissão +<br>Premiações</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        1.1085125168440815
+      ],
+      "y": [
+        0.6399999999999999
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Receita<br>Comercial</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        1.27298802607139
+      ],
+      "y": [
+        0.13379643298259644
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Match-Day +<br>Sócio-Torcedor</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        1.2173523408577966
+      ],
+      "y": [
+        -0.3955417527999327
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Negociação<br>de<br>Atletas</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        0.9512253766110647
+      ],
+      "y": [
+        -0.8564871761393386
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Custo das<br>Atividades<br>Esportivas</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        0.5206229031370243
+      ],
+      "y": [
+        -1.1693381857825291
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Folha<br>Futebol</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        7.83773951454306e-17
+      ],
+      "y": [
+        -1.28
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Folha +<br>Amortização</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -0.5206229031370243
+      ],
+      "y": [
+        -1.1693381857825291
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Aquisições<br>Atletas</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -0.9512253766110645
+      ],
+      "y": [
+        -0.8564871761393387
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Resultado<br>Operacional</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -1.2173523408577966
+      ],
+      "y": [
+        -0.3955417527999328
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Resultado</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -1.27298802607139
+      ],
+      "y": [
+        0.13379643298259647
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Dívida<br>Líquida</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -1.1085125168440815
+      ],
+      "y": [
+        0.6400000000000001
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>Público<br>Médio</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -0.7523651229343657
+      ],
+      "y": [
+        1.0355417527999327
+      ],
+      "type": "scatter"
+    },
+    {
+      "hoverinfo": "skip",
+      "mode": "text",
+      "showlegend": false,
+      "text": [
+        "<span style='font-size:13.5px;color:#222222'>%<br>Ocupação</span>"
+      ],
+      "textfont": {
+        "color": "#222222",
+        "family": "Arial, sans-serif",
+        "size": 13.5
+      },
+      "x": [
+        -0.26612696424673254
+      ],
+      "y": [
+        1.2520289289392712
+      ],
+      "type": "scatter"
+    }
+  ],
+  "layout": {
+    "template": {
+      "data": {
+        "candlestick": [
+          {
+            "decreasing": {
+              "line": {
+                "color": "#000033"
+              }
+            },
+            "increasing": {
+              "line": {
+                "color": "#000032"
+              }
+            },
+            "type": "candlestick"
+          }
+        ],
+        "contourcarpet": [
+          {
+            "colorscale": [
+              [
+                0.0,
+                "#000011"
+              ],
+              [
+                0.1111111111111111,
+                "#000012"
+              ],
+              [
+                0.2222222222222222,
+                "#000013"
+              ],
+              [
+                0.3333333333333333,
+                "#000014"
+              ],
+              [
+                0.4444444444444444,
+                "#000015"
+              ],
+              [
+                0.5555555555555556,
+                "#000016"
+              ],
+              [
+                0.6666666666666666,
+                "#000017"
+              ],
+              [
+                0.7777777777777778,
+                "#000018"
+              ],
+              [
+                0.8888888888888888,
+                "#000019"
+              ],
+              [
+                1.0,
+                "#000020"
+              ]
+            ],
+            "type": "contourcarpet"
+          }
+        ],
+        "contour": [
+          {
+            "colorscale": [
+              [
+                0.0,
+                "#000011"
+              ],
+              [
+                0.1111111111111111,
+                "#000012"
+              ],
+              [
+                0.2222222222222222,
+                "#000013"
+              ],
+              [
+                0.3333333333333333,
+                "#000014"
+              ],
+              [
+                0.4444444444444444,
+                "#000015"
+              ],
+              [
+                0.5555555555555556,
+                "#000016"
+              ],
+              [
+                0.6666666666666666,
+                "#000017"
+              ],
+              [
+                0.7777777777777778,
+                "#000018"
+              ],
+              [
+                0.8888888888888888,
+                "#000019"
+              ],
+              [
+                1.0,
+                "#000020"
+              ]
+            ],
+            "type": "contour"
+          }
+        ],
+        "heatmap": [
+          {
+            "colorscale": [
+              [
+                0.0,
+                "#000011"
+              ],
+              [
+                0.1111111111111111,
+                "#000012"
+              ],
+              [
+                0.2222222222222222,
+                "#000013"
+              ],
+              [
+                0.3333333333333333,
+                "#000014"
+              ],
+              [
+                0.4444444444444444,
+                "#000015"
+              ],
+              [
+                0.5555555555555556,
+                "#000016"
+              ],
+              [
+                0.6666666666666666,
+                "#000017"
+              ],
+              [
+                0.7777777777777778,
+                "#000018"
+              ],
+              [
+                0.8888888888888888,
+                "#000019"
+              ],
+              [
+                1.0,
+                "#000020"
+              ]
+            ],
+            "type": "heatmap"
+          }
+        ],
+        "histogram2d": [
+          {
+            "colorscale": [
+              [
+                0.0,
+                "#000011"
+              ],
+              [
+                0.1111111111111111,
+                "#000012"
+              ],
+              [
+                0.2222222222222222,
+                "#000013"
+              ],
+              [
+                0.3333333333333333,
+                "#000014"
+              ],
+              [
+                0.4444444444444444,
+                "#000015"
+              ],
+              [
+                0.5555555555555556,
+                "#000016"
+              ],
+              [
+                0.6666666666666666,
+                "#000017"
+              ],
+              [
+                0.7777777777777778,
+                "#000018"
+              ],
+              [
+                0.8888888888888888,
+                "#000019"
+              ],
+              [
+                1.0,
+                "#000020"
+              ]
+            ],
+            "type": "histogram2d"
+          }
+        ],
+        "icicle": [
+          {
+            "textfont": {
+              "color": "white"
+            },
+            "type": "icicle"
+          }
+        ],
+        "sankey": [
+          {
+            "textfont": {
+              "color": "#000036"
+            },
+            "type": "sankey"
+          }
+        ],
+        "scatter": [
+          {
+            "marker": {
+              "line": {
+                "width": 0
+              }
+            },
+            "type": "scatter"
+          }
+        ],
+        "table": [
+          {
+            "cells": {
+              "fill": {
+                "color": "#000038"
+              },
+              "font": {
+                "color": "#000037"
+              },
+              "line": {
+                "color": "#000039"
+              }
+            },
+            "header": {
+              "fill": {
+                "color": "#000040"
+              },
+              "font": {
+                "color": "#000036"
+              },
+              "line": {
+                "color": "#000039"
+              }
+            },
+            "type": "table"
+          }
+        ],
+        "waterfall": [
+          {
+            "connector": {
+              "line": {
+                "color": "#000036",
+                "width": 2
+              }
+            },
+            "decreasing": {
+              "marker": {
+                "color": "#000033"
+              }
+            },
+            "increasing": {
+              "marker": {
+                "color": "#000032"
+              }
+            },
+            "totals": {
+              "marker": {
+                "color": "#000034"
+              }
+            },
+            "type": "waterfall"
+          }
+        ]
+      },
+      "layout": {
+        "coloraxis": {
+          "colorscale": [
+            [
+              0.0,
+              "#000011"
+            ],
+            [
+              0.1111111111111111,
+              "#000012"
+            ],
+            [
+              0.2222222222222222,
+              "#000013"
+            ],
+            [
+              0.3333333333333333,
+              "#000014"
+            ],
+            [
+              0.4444444444444444,
+              "#000015"
+            ],
+            [
+              0.5555555555555556,
+              "#000016"
+            ],
+            [
+              0.6666666666666666,
+              "#000017"
+            ],
+            [
+              0.7777777777777778,
+              "#000018"
+            ],
+            [
+              0.8888888888888888,
+              "#000019"
+            ],
+            [
+              1.0,
+              "#000020"
+            ]
+          ]
+        },
+        "colorscale": {
+          "diverging": [
+            [
+              0.0,
+              "#000021"
+            ],
+            [
+              0.1111111111111111,
+              "#000022"
+            ],
+            [
+              0.2222222222222222,
+              "#000023"
+            ],
+            [
+              0.3333333333333333,
+              "#000024"
+            ],
+            [
+              0.4444444444444444,
+              "#000025"
+            ],
+            [
+              0.5555555555555556,
+              "#000026"
+            ],
+            [
+              0.6666666666666666,
+              "#000027"
+            ],
+            [
+              0.7777777777777778,
+              "#000028"
+            ],
+            [
+              0.8888888888888888,
+              "#000029"
+            ],
+            [
+              1.0,
+              "#000030"
+            ]
+          ],
+          "sequential": [
+            [
+              0.0,
+              "#000011"
+            ],
+            [
+              0.1111111111111111,
+              "#000012"
+            ],
+            [
+              0.2222222222222222,
+              "#000013"
+            ],
+            [
+              0.3333333333333333,
+              "#000014"
+            ],
+            [
+              0.4444444444444444,
+              "#000015"
+            ],
+            [
+              0.5555555555555556,
+              "#000016"
+            ],
+            [
+              0.6666666666666666,
+              "#000017"
+            ],
+            [
+              0.7777777777777778,
+              "#000018"
+            ],
+            [
+              0.8888888888888888,
+              "#000019"
+            ],
+            [
+              1.0,
+              "#000020"
+            ]
+          ],
+          "sequentialminus": [
+            [
+              0.0,
+              "#000011"
+            ],
+            [
+              0.1111111111111111,
+              "#000012"
+            ],
+            [
+              0.2222222222222222,
+              "#000013"
+            ],
+            [
+              0.3333333333333333,
+              "#000014"
+            ],
+            [
+              0.4444444444444444,
+              "#000015"
+            ],
+            [
+              0.5555555555555556,
+              "#000016"
+            ],
+            [
+              0.6666666666666666,
+              "#000017"
+            ],
+            [
+              0.7777777777777778,
+              "#000018"
+            ],
+            [
+              0.8888888888888888,
+              "#000019"
+            ],
+            [
+              1.0,
+              "#000020"
+            ]
+          ]
+        },
+        "colorway": [
+          "#000001",
+          "#000002",
+          "#000003",
+          "#000004",
+          "#000005",
+          "#000006",
+          "#000007",
+          "#000008",
+          "#000009",
+          "#000010"
+        ]
+      }
+    },
+    "title": {
+      "font": {
+        "size": 25
+      },
+      "text": "<b>Grêmio</b><br><span style='font-size:20px'>Radar Financeiro – Série A</span><br><span style='font-size:15px'><i>Ranking Percentil vs. Série A  |  Temporada 2024</i></span>",
+      "x": 0.5,
+      "xanchor": "center",
+      "y": 0.97,
+      "yanchor": "top"
+    },
+    "xaxis": {
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "range": [
+        -1.4336000000000002,
+        1.4336000000000002
+      ]
+    },
+    "yaxis": {
+      "showgrid": false,
+      "zeroline": false,
+      "showticklabels": false,
+      "range": [
+        -1.4336000000000002,
+        1.4336000000000002
+      ],
+      "scaleanchor": "x",
+      "scaleratio": 1
+    },
+    "legend": {
+      "title": {
+        "font": {
+          "size": 10.5
+        },
+        "text": "Categorias"
+      },
+      "font": {
+        "size": 10.5
+      },
+      "xref": "paper",
+      "yref": "paper",
+      "x": 0.98,
+      "y": 0.98,
+      "xanchor": "right",
+      "yanchor": "top",
+      "bgcolor": "rgba(255,255,255,0.75)",
+      "bordercolor": "rgba(0,0,0,0)",
+      "borderwidth": 0,
+      "tracegroupgap": 0,
+      "itemsizing": "constant"
+    },
+    "margin": {
+      "l": 40,
+      "r": 40,
+      "t": 130,
+      "b": 40
+    },
+    "paper_bgcolor": "rgba(0,0,0,0)",
+    "plot_bgcolor": "rgba(0,0,0,0)",
+    "showlegend": true,
+    "width": 1000,
+    "height": 1000
+  }
+}

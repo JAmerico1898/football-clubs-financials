@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #ffffff;
+  color: #111;
+}
+
+@layer components {
+  .nav-card {
+    @apply relative block rounded-xl border border-gray-200 bg-white p-5 shadow-sm
+           transition-all duration-200 ease-out overflow-hidden;
+  }
+  .nav-card::before {
+    content: "";
+    @apply absolute top-0 left-0 right-0 h-[3px] opacity-0 transition-opacity duration-200;
+    background: linear-gradient(90deg, #1565C0, #F9A825, #2E7D32);
+  }
+  .nav-card:hover {
+    @apply -translate-y-0.5 shadow-md;
+  }
+  .nav-card:hover::before {
+    @apply opacity-100;
+  }
+  .nav-card:active {
+    @apply scale-[0.98];
+  }
+}

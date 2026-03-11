@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"C:/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials/app/analise-de-desigualdade/\" 2>/dev/null; echo \"exit: $?\")",
+      "Bash(cd \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" && npx next build 2>&1 | tail -20)",
+      "Bash(cd \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" && npx next build 2>&1 | tail -10)",
+      "Bash(cd \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" && npx next build 2>&1 | tail -5)",
+      "Bash(grep -n \"exclude\\\\|filter\\\\|skip\" components/*.tsx lib/*.ts app/**/*.tsx 2>/dev/null | head -20)",
+      "Bash(wc -l data/*.csv)",
+      "Bash(find . -name \"*.tsx\" -o -name \"*.ts\" | xargs grep -l \"Sport\\\\|Santos\" | grep -v node_modules | grep -v \".next\")",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && npx next build 2>&1 | tail -20)",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && rm -rf .next)",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && rm -rf .next && npx next build 2>&1 | tail -20)",
+      "Bash(du -sh \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\"/* 2>/dev/null | sort -hr)",
+      "Bash(du -sh \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials/public\"/* 2>/dev/null | sort -hr)",
+      "Bash(find \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" -maxdepth 1 -name \"*.json\" -o -name \"*.yml\" -o -name \"*.yaml\" 2>/dev/null | grep -v node_modules)"
+    ]
+  }
+}
