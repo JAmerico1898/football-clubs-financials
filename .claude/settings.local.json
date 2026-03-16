@@ -13,7 +13,11 @@
       "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && rm -rf .next && npx next build 2>&1 | tail -20)",
       "Bash(du -sh \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\"/* 2>/dev/null | sort -hr)",
       "Bash(du -sh \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials/public\"/* 2>/dev/null | sort -hr)",
-      "Bash(find \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" -maxdepth 1 -name \"*.json\" -o -name \"*.yml\" -o -name \"*.yaml\" 2>/dev/null | grep -v node_modules)"
+      "Bash(find \"C:\\\\Users\\\\felip\\\\OneDrive\\\\Área de Trabalho\\\\José Américo\\\\financials\\\\football-clubs-financials\" -maxdepth 1 -name \"*.json\" -o -name \"*.yml\" -o -name \"*.yaml\" 2>/dev/null | grep -v node_modules)",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && gh repo create football-clubs-financials --public --source=. --push)",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && gh repo view JAmerico1898/football-clubs-financials --json url,isEmpty 2>&1)",
+      "Bash(cd \"/c/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials\" && gh api repos/JAmerico1898/football-clubs-financials/commits --jq '.[].commit.message' 2>&1 | head -5)",
+      "Bash(gh repo:*)"
     ]
   }
 }
