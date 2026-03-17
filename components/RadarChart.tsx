@@ -35,14 +35,17 @@ export default function RadarChart({ club }: RadarChartProps) {
   if (!plotData) return null;
 
   return (
-    <div style={{ minHeight: 500 }}>
+    <div style={{ minHeight: 500, overflowX: "auto" }}>
+      <div style={{ width: 870, margin: "0 auto" }}>
       <PlotlyChart
         data={plotData.data}
         layout={{
           ...plotData.layout,
-          autosize: true,
+          width: 870,
+          height: 870,
         }}
       />
+      </div>
     </div>
   );
 }
