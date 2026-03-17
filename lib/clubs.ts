@@ -46,3 +46,7 @@ export function getRadarUrl(club: Club): string {
 export function getIconUrl(club: Club): string {
   return `/clubs/${club.iconFile}`;
 }
+
+export function getSummaryUrl(club: Club): string {
+  return `/summaries/resumo_${club.fileKey.toLowerCase()}_2024.md`;
+}

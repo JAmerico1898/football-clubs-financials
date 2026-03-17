@@ -6,6 +6,7 @@ import BackButton from "@/components/BackButton";
 import SankeyChart from "@/components/SankeyChart";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
+import ClubSummary from "@/components/ClubSummary";
 
 export default function AnaliseIndividual2024() {
   const [selected, setSelected] = useState(DEFAULT_CLUB);
@@ -40,6 +41,8 @@ export default function AnaliseIndividual2024() {
           className="object-contain"
         />
       </div>
+
+      <ClubSummary club={club} />
 
       <hr className="mb-8" />
 
