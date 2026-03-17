@@ -47,8 +47,9 @@ export default function TransparencyTable({ data, iconMap }: Props) {
                     <Image
                       src={iconMap[d.club]}
                       alt={d.club}
-                      width={24}
-                      height={24}
+                      width={32}
+                      height={32}
+                      style={{ objectFit: "contain" }}
                     />
                   )}
                   {d.club}

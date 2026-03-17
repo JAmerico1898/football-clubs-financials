@@ -39,9 +39,9 @@ export default function AnaliseComparativaSimples() {
         <img
           src={getIconUrl(club)}
           alt={club.name}
-          width={72}
-          height={72}
-          className="rounded-full"
+          width={96}
+          height={96}
+          className="object-contain"
         />
         <MetricSelector value={metricKey} onChange={setMetricKey} />
       </div>

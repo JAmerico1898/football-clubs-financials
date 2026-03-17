@@ -37,12 +37,12 @@ export default function Compare2Clubes() {
               </option>
             ))}
           </select>
-          <div className="w-[72px] h-[72px] flex items-center justify-center">
+          <div className="w-[96px] h-[96px] flex items-center justify-center">
             {club1 && (
               <img
                 src={getIconUrl(club1)}
                 alt={club1.name}
-                className="max-w-[72px] max-h-[72px] object-contain rounded-full"
+                className="max-w-[96px] max-h-[96px] object-contain"
               />
             )}
           </div>
@@ -64,12 +64,12 @@ export default function Compare2Clubes() {
               </option>
             ))}
           </select>
-          <div className="w-[72px] h-[72px] flex items-center justify-center">
+          <div className="w-[96px] h-[96px] flex items-center justify-center">
             {club2 && (
               <img
                 src={getIconUrl(club2)}
                 alt={club2.name}
-                className="max-w-[72px] max-h-[72px] object-contain rounded-full"
+                className="max-w-[96px] max-h-[96px] object-contain"
               />
             )}
           </div>

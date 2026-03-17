@@ -101,8 +101,8 @@ export default function ScatterPlotChart({
   const yRange = yMax - yMin || 1;
 
   // Uniform icon size in axis units
-  const iconSizeX = xRange * 0.045;
-  const iconSizeY = yRange * 0.07;
+  const iconSizeX = xRange * 0.06;
+  const iconSizeY = yRange * 0.09;
 
   // Invisible scatter trace for hover
   const hoverTrace = {

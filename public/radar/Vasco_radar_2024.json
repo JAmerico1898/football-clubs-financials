@@ -1589,7 +1589,7 @@
     {
       "fill": "toself",
       "fillcolor": "#8B0000",
-      "hovertemplate": "<b>Dívida Líquida</b><br>Valor: R$964M<br>Média da Liga: R$662M<br>Percentil: 71º | Posição: 6º<br>Categoria: Passivo<extra></extra>",
+      "hovertemplate": "<b>Dívida Líquida</b><br>Valor: R$964M<br>Média da Liga: R$663M<br>Percentil: 71º | Posição: 6º<br>Categoria: Passivo<extra></extra>",
       "legendgroup": "Passivo",
       "line": {
         "color": "white",
@@ -1896,11 +1896,16 @@
       "type": "scatter"
     },
     {
-      "line": {
+      "marker": {
         "color": "#E53935",
-        "width": 2
+        "line": {
+          "color": "#E53935",
+          "width": 2
+        },
+        "size": 16,
+        "symbol": "line-ew"
       },
-      "mode": "lines",
+      "mode": "markers",
       "name": "Média da Liga",
       "showlegend": true,
       "x": [
@@ -1913,12 +1918,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$529M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.19784253722136147,
@@ -1968,12 +1975,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$397M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.4170210144087882,
@@ -2023,12 +2032,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$173M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.5937911083263475,
@@ -2078,12 +2089,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$90M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.7874729048519034,
@@ -2133,12 +2146,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$86M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.4643638033868175,
@@ -2188,12 +2203,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$132M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.3881435399848829,
@@ -2243,12 +2260,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$439M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         0.1392755573631005,
@@ -2298,12 +2317,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$237M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.09211739946067153,
@@ -2353,12 +2374,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$304M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.2654289060764895,
@@ -2408,12 +2431,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$162M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.4467300927020431,
@@ -2463,12 +2488,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$3M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.5212954872087637,
@@ -2518,12 +2545,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>R$−69M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.35400690930938367,
@@ -2572,13 +2601,15 @@
       "type": "scatter"
     },
     {
-      "hovertemplate": "<b>Média da Liga</b><br>R$662M<extra></extra>",
+      "hovertemplate": "<b>Média da Liga</b><br>R$663M<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.3221668193156943,
@@ -2628,12 +2659,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>26.856<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.1840487438530242,
@@ -2683,12 +2716,14 @@
     },
     {
       "hovertemplate": "<b>Média da Liga</b><br>59.6%<extra></extra>",
+      "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
-        "width": 1
+        "width": 1.75
       },
       "mode": "lines",
-      "opacity": 0.25,
+      "name": "Média da Liga",
+      "opacity": 0.4,
       "showlegend": false,
       "x": [
         -0.014106968547819895,

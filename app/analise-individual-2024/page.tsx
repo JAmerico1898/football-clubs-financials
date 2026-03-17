@@ -35,9 +35,9 @@ export default function AnaliseIndividual2024() {
         <img
           src={getIconUrl(club)}
           alt={club.name}
-          width={72}
-          height={72}
-          className="rounded-full"
+          width={96}
+          height={96}
+          className="object-contain"
         />
       </div>
 

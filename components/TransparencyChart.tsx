@@ -51,7 +51,7 @@ function CustomTooltip({ active, payload, label }: any) {
 function ClubBadgeTick({ x, y, payload, iconMap }: any) {
   const iconUrl = iconMap[payload.value];
   if (!iconUrl) return null;
-  const size = 28;
+  const size = 36;
   return (
     <g transform={`translate(${x},${y})`}>
       <image
@@ -60,6 +60,7 @@ function ClubBadgeTick({ x, y, payload, iconMap }: any) {
         y={4}
         width={size}
         height={size}
+        preserveAspectRatio="xMidYMid meet"
       />
     </g>
   );
@@ -98,7 +99,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             dataKey="club"
             interval={0}
             tick={(props: any) => <ClubBadgeTick {...props} iconMap={iconMap} />}
-            height={50}
+            height={56}
           />
           <YAxis
             label={{
