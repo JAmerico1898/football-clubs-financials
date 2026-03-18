@@ -5,11 +5,13 @@ export default function AnaliseIndividualHistorica() {
     <main className="max-w-[800px] mx-auto px-4 py-8">
       <BackButton />
       <div className="text-center mt-16">
-        <div className="h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-brand-blue to-brand-green mb-8" />
-        <h1 className="text-2xl font-bold text-gray-800 mb-4">
+        <h1
+          className="text-3xl font-bold tracking-tight mb-4"
+          style={{ color: "var(--text-primary)" }}
+        >
           Analise Individual - Historica
         </h1>
-        <p className="text-gray-500">Em breve</p>
+        <p style={{ color: "var(--text-secondary)" }}>Em breve</p>
       </div>
     </main>
   );

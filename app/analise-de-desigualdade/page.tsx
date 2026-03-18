@@ -135,72 +135,93 @@ export default function AnaliseDeDesigualdade() {
     <main className="max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
-      <h1 className="text-2xl font-bold text-center mb-8">
+      <h1
+        className="text-3xl font-bold tracking-tight text-center mb-8"
+        style={{ color: "var(--text-primary)" }}
+      >
         Análise de Desigualdade
       </h1>
 
       {error && (
-        <p className="text-center text-red-500 py-8">{error}</p>
+        <p className="text-center py-8" style={{ color: "var(--brand-red)" }}>{error}</p>
       )}
 
       {!chartData && !error && (
-        <p className="text-center text-gray-500 py-8">Carregando...</p>
+        <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>Carregando...</p>
       )}
 
       {chartData && (
         <div className="space-y-12">
           {/* Section 1: Gini Index */}
           <section>
-            <h2 className="text-xl font-bold mb-2">Índice de Gini</h2>
-            <p className="text-gray-600 text-sm mb-6">
+            <h2
+              className="text-xl font-bold mb-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Índice de Gini
+            </h2>
+            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
               O Índice de Gini mede a desigualdade na distribuição de receitas entre os clubes de uma liga.
               Valores mais próximos de 0 indicam maior igualdade, enquanto valores mais próximos de 1
               indicam maior concentração de receita em poucos clubes.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <InequalityLineChart
-                title="Índice de Gini — Receita Operacional"
-                yAxisLabel="Gini"
-                data={chartData.giniTurnover}
-                lines={TURNOVER_LINES}
-                formatDecimals={4}
-                footnote={TURNOVER_FOOTNOTE}
-              />
-              <InequalityLineChart
-                title="Índice de Gini — Receita de Transmissão"
-                yAxisLabel="Gini"
-                data={chartData.giniBroadcast}
-                lines={BROADCAST_LINES}
-                formatDecimals={4}
-                footnote={BROADCAST_FOOTNOTE}
-              />
+              <div className="card-surface mb-6">
+                <InequalityLineChart
+                  title="Índice de Gini — Receita Operacional"
+                  yAxisLabel="Gini"
+                  data={chartData.giniTurnover}
+                  lines={TURNOVER_LINES}
+                  formatDecimals={4}
+                  footnote={TURNOVER_FOOTNOTE}
+                />
+              </div>
+              <div className="card-surface mb-6">
+                <InequalityLineChart
+                  title="Índice de Gini — Receita de Transmissão"
+                  yAxisLabel="Gini"
+                  data={chartData.giniBroadcast}
+                  lines={BROADCAST_LINES}
+                  formatDecimals={4}
+                  footnote={BROADCAST_FOOTNOTE}
+                />
+              </div>
             </div>
           </section>
 
           {/* Section 2: Máx/Mín Ratio */}
           <section>
-            <h2 className="text-xl font-bold mb-2">Razão Máx/Mín</h2>
-            <p className="text-gray-600 text-sm mb-6">
+            <h2
+              className="text-xl font-bold mb-2"
+              style={{ color: "var(--text-primary)" }}
+            >
+              Razão Máx/Mín
+            </h2>
+            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
               A Razão Máx/Mín divide a maior receita pela menor receita.
               Quanto maior o valor, maior a disparidade entre o topo e a base da competição.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <InequalityLineChart
-                title="Razão Máx/Mín — Receita Operacional"
-                yAxisLabel="Máx/Mín"
-                data={chartData.maxMinTurnover}
-                lines={TURNOVER_LINES}
-                formatDecimals={2}
-                footnote={TURNOVER_FOOTNOTE}
-              />
-              <InequalityLineChart
-                title="Razão Máx/Mín — Receita de Transmissão"
-                yAxisLabel="Máx/Mín"
-                data={chartData.maxMinBroadcast}
-                lines={BROADCAST_LINES}
-                formatDecimals={2}
-                footnote={BROADCAST_FOOTNOTE}
-              />
+              <div className="card-surface mb-6">
+                <InequalityLineChart
+                  title="Razão Máx/Mín — Receita Operacional"
+                  yAxisLabel="Máx/Mín"
+                  data={chartData.maxMinTurnover}
+                  lines={TURNOVER_LINES}
+                  formatDecimals={2}
+                  footnote={TURNOVER_FOOTNOTE}
+                />
+              </div>
+              <div className="card-surface mb-6">
+                <InequalityLineChart
+                  title="Razão Máx/Mín — Receita de Transmissão"
+                  yAxisLabel="Máx/Mín"
+                  data={chartData.maxMinBroadcast}
+                  lines={BROADCAST_LINES}
+                  formatDecimals={2}
+                  footnote={BROADCAST_FOOTNOTE}
+                />
+              </div>
             </div>
           </section>
         </div>

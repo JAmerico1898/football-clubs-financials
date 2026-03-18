@@ -15,7 +15,7 @@ export default function IndiceDeTransparencia() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/data/Transparencia_2024.csv")
+    fetch("/data/Transparencia.csv")
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados");
         return res.text();
@@ -64,22 +64,29 @@ export default function IndiceDeTransparencia() {
     <main className="max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
-      <h1 className="text-2xl font-bold text-center mb-8">
+      <h1
+        className="text-3xl font-bold tracking-tight text-center mb-8"
+        style={{ color: "var(--text-primary)" }}
+      >
         Índice de Transparência
       </h1>
 
       {error && (
-        <p className="text-center text-red-500 py-8">{error}</p>
+        <p className="text-center py-8" style={{ color: "var(--brand-red)" }}>{error}</p>
       )}
 
       {!data && !error && (
-        <p className="text-center text-gray-500 py-8">Carregando...</p>
+        <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>Carregando...</p>
       )}
 
       {data && (
         <div className="space-y-12">
-          <TransparencyChart data={data} iconMap={iconMap} />
-          <TransparencyTable data={data} iconMap={iconMap} />
+          <div className="card-surface mb-6">
+            <TransparencyChart data={data} iconMap={iconMap} />
+          </div>
+          <div className="card-surface mb-6">
+            <TransparencyTable data={data} iconMap={iconMap} />
+          </div>
         </div>
       )}
     </main>
