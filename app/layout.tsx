@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Almanaque Financeiro da Série A 2024",
+  title: "Almanaque Financeiro da Série A 2025",
   description: "Explore as finanças dos clubes do Brasileirão",
 };
 

@@ -18,7 +18,7 @@ export default function FrontPage() {
             priority
           />
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center">
-            Almanaque Financeiro da Série A 2024
+            Almanaque Financeiro da Série A 2025
           </h1>
           <p className="mt-3 text-gray-500 text-center max-w-md">
             Explore as finanças dos clubes do Brasileirão
@@ -32,6 +32,14 @@ export default function FrontPage() {
           ))}
         </div>
       </main>
+
+      {/* Hidden visit counter */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Ffinancials-football-clubs.vercel.app&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visits&edge_flat=false"
+        alt=""
+        style={{ display: 'none' }}
+      />
     </>
   );
 }

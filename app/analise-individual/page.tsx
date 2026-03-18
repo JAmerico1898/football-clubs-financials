@@ -16,7 +16,7 @@ function getClubsForSeason(season: Season): Club[] {
 
 export default function AnaliseIndividual() {
   const [season, setSeason] = useState<Season>("2025");
-  const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [selectedName, setSelectedName] = useState<string | null>("Vasco");
 
   const clubList = getClubsForSeason(season);
   const club = selectedName ? clubList.find((c) => c.name === selectedName) ?? null : null;
@@ -38,7 +38,7 @@ export default function AnaliseIndividual() {
 
   function handleSeasonChange(newSeason: Season) {
     setSeason(newSeason);
-    setSelectedName(null); // Reset club when season changes
+    setSelectedName("Vasco"); // Reset to default club when season changes
   }
 
   return (
