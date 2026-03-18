@@ -19,10 +19,10 @@ const HEADERS = [
 
 export default function TransparencyTable({ data, iconMap }: Props) {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto card-surface !p-0">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr style={{ backgroundColor: "#1565C0" }}>
+          <tr style={{ backgroundColor: "var(--brand-blue)" }}>
             {HEADERS.map((h) => (
               <th
                 key={h.label}
@@ -37,11 +37,13 @@ export default function TransparencyTable({ data, iconMap }: Props) {
           {data.map((d, i) => (
             <tr
               key={d.club}
-              className="hover:bg-blue-50 transition-colors"
-              style={{ backgroundColor: i % 2 === 0 ? "#fff" : "#F5F5F5" }}
+              className="transition-colors hover:bg-blue-50 dark:hover:bg-slate-800"
+              style={{
+                backgroundColor: i % 2 === 0 ? "var(--surface)" : "var(--background)",
+              }}
             >
-              <td className="px-3 py-2 text-center">{i + 1}</td>
-              <td className="px-3 py-2 text-left">
+              <td className="px-3 py-2 text-center" style={{ color: "var(--text-primary)" }}>{i + 1}</td>
+              <td className="px-3 py-2 text-left" style={{ color: "var(--text-primary)" }}>
                 <span className="flex items-center gap-2 whitespace-nowrap">
                   {iconMap[d.club] && (
                     <Image
@@ -55,12 +57,15 @@ export default function TransparencyTable({ data, iconMap }: Props) {
                   {d.club}
                 </span>
               </td>
-              <td className="px-3 py-2 text-center">{d.nivel1.toFixed(1)}</td>
-              <td className="px-3 py-2 text-center">{d.nivel2.toFixed(1)}</td>
-              <td className="px-3 py-2 text-center">{d.nivel3.toFixed(1)}</td>
+              <td className="px-3 py-2 text-center" style={{ color: "var(--text-primary)" }}>{d.nivel1.toFixed(1)}</td>
+              <td className="px-3 py-2 text-center" style={{ color: "var(--text-primary)" }}>{d.nivel2.toFixed(1)}</td>
+              <td className="px-3 py-2 text-center" style={{ color: "var(--text-primary)" }}>{d.nivel3.toFixed(1)}</td>
               <td
                 className="px-3 py-2 text-center font-bold"
-                style={{ backgroundColor: i % 2 === 0 ? "#E3F2FD" : "#BBDEFB" }}
+                style={{
+                  color: "var(--text-primary)",
+                  backgroundColor: "rgba(21, 101, 192, 0.12)",
+                }}
               >
                 {d.total.toFixed(1)}
               </td>

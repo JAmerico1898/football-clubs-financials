@@ -10,18 +10,23 @@ interface ClubSummaryProps {
 }
 
 export default function ClubSummary({ content, loading, clubSelected }: ClubSummaryProps) {
-  if (loading) return <p className="text-center text-gray-500 py-4">Carregando resumo...</p>;
+  if (loading)
+    return <p className="text-center py-4" style={{ color: "var(--text-secondary)" }}>Carregando resumo...</p>;
   if (!content && clubSelected) {
-    return <p className="text-center text-gray-500 italic py-4">Resumo não disponível para este clube.</p>;
+    return <p className="text-center py-4" style={{ color: "var(--text-secondary)" }}>Resumo não disponível para este clube.</p>;
   }
   if (!content) return null;
 
   return (
     <div
-      className="max-w-2xl mx-auto mb-6 px-5 py-4 bg-gray-50 border border-gray-200 rounded-lg text-sm leading-relaxed
+      className="max-w-2xl mx-auto mb-6 px-5 py-4 rounded-lg text-sm leading-relaxed
         [&_h4]:font-semibold [&_h4]:text-base [&_h4]:mt-2 [&_h4]:mb-1
-        [&_p]:my-1 [&_p]:text-gray-700
-        [&_b]:font-semibold"
+        [&_p]:my-1 [&_b]:font-semibold"
+      style={{
+        backgroundColor: "var(--surface)",
+        border: "1px solid var(--border)",
+        color: "var(--text-primary)",
+      }}
     >
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
     </div>
