@@ -32,20 +32,19 @@ export default function ContatoPage() {
   }
 
   return (
-    <>
-      <div className="h-1 w-full bg-gradient-to-r from-brand-blue via-brand-gold to-brand-green" />
-      <main className="max-w-[960px] mx-auto px-4 py-12">
-        <BackButton />
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Dúvidas, Sugestões, Bugs
-        </h1>
-        <p className="text-gray-500 mb-8">
-          Envie sua mensagem e entraremos em contato.
-        </p>
+    <main className="max-w-[960px] mx-auto px-4 py-12">
+      <BackButton />
+      <h1 className="text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>
+        Dúvidas, Sugestões, Bugs
+      </h1>
+      <p className="mb-8" style={{ color: "var(--text-secondary)" }}>
+        Envie sua mensagem e entraremos em contato.
+      </p>
 
+      <div className="card-surface">
         <form onSubmit={handleSubmit} className="max-w-md space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="name" className="block text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
               Nome (opcional)
             </label>
             <input
@@ -53,12 +52,12 @@ export default function ContatoPage() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="select-themed w-full"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="email" className="block text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
               E-mail (opcional)
             </label>
             <input
@@ -66,12 +65,12 @@ export default function ContatoPage() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="select-themed w-full"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="message" className="block text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
               Mensagem
             </label>
             <textarea
@@ -80,26 +79,27 @@ export default function ContatoPage() {
               rows={5}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue"
+              className="select-themed w-full"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "sending"}
-            className="rounded-md bg-brand-blue px-4 py-2 text-sm font-medium text-white hover:bg-blue-700 disabled:opacity-50"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-white shadow-sm transition-all active:shadow-none active:scale-[0.98] disabled:opacity-50"
+            style={{ backgroundColor: "var(--brand-blue)" }}
           >
             {status === "sending" ? "Enviando..." : "Enviar"}
           </button>
 
           {status === "sent" && (
-            <p className="text-green-600 text-sm">Mensagem enviada com sucesso!</p>
+            <div className="alert-success">Mensagem enviada com sucesso!</div>
           )}
           {status === "error" && (
-            <p className="text-red-600 text-sm">Erro ao enviar. Tente novamente.</p>
+            <div className="alert-error">Erro ao enviar. Tente novamente.</div>
           )}
         </form>
-      </main>
-    </>
+      </div>
+    </main>
   );
 }
