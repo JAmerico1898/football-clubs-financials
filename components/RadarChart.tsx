@@ -17,14 +17,14 @@ export default function RadarChart({ data, error, loading }: RadarChartProps) {
   if (!data) return null;
 
   return (
-    <div style={{ height: 870, overflowX: "auto" }}>
-      <div style={{ width: 870, height: 870, margin: "0 auto" }}>
+    <div style={{ height: 783, overflowX: "auto" }}>
+      <div style={{ width: 783, height: 783, margin: "0 auto" }}>
         <PlotlyChart
           data={data.data}
           layout={{
             ...data.layout,
-            width: 870,
-            height: 870,
+            width: 783,
+            height: 783,
             paper_bgcolor: "transparent",
             plot_bgcolor: "transparent",
             font: {
