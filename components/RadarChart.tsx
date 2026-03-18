@@ -17,7 +17,7 @@ export default function RadarChart({ data, error, loading }: RadarChartProps) {
   if (!data) return null;
 
   return (
-    <div style={{ minHeight: 500, overflowX: "auto" }}>
+    <div style={{ minHeight: 500, overflow: "auto" }}>
       <div style={{ width: 870, margin: "0 auto" }}>
         <PlotlyChart
           data={data.data}

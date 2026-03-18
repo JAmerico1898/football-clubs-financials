@@ -23,7 +23,7 @@ export default function SankeyChart({ clubName, data, error, loading }: SankeyCh
         <p style={{ fontSize: 25, fontWeight: "bold" }}>{clubName}</p>
         <p style={{ fontSize: 20 }}>Demonstração de Resultado</p>
       </div>
-      <div>
+      <div style={{ height: 560, overflow: "hidden" }}>
         <PlotlyChart
           data={data.data}
           layout={{
