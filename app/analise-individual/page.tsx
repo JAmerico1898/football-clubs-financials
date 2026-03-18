@@ -45,58 +45,58 @@ export default function AnaliseIndividual() {
     <main className="max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
-      <h1 className="text-2xl font-bold text-center mb-1">
+      <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Análise Individual
       </h1>
-      <p className="text-center text-gray-600 mb-6">
+      <p className="text-center mb-6" style={{ color: "var(--text-secondary)" }}>
         Explore as finanças dos clubes do Brasileirão
       </p>
 
-      {/* Season selector */}
-      <div className="flex justify-center gap-2 mb-4">
-        {(["2025", "2024"] as Season[]).map((s) => (
-          <button
-            key={s}
-            onClick={() => handleSeasonChange(s)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              season === s
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
+      <div className="card-surface mb-6">
+        {/* Season selector */}
+        <div className="flex justify-center mb-4">
+          <div className="pill-group">
+            {(["2025", "2024"] as Season[]).map((s) => (
+              <button
+                key={s}
+                onClick={() => handleSeasonChange(s)}
+                className={season === s ? "pill-btn-active" : "pill-btn"}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      {/* Club dropdown + icon */}
-      <div className="flex flex-col items-center gap-4 mb-6">
-        <select
-          value={selectedName ?? ""}
-          onChange={(e) => setSelectedName(e.target.value || null)}
-          className="px-4 py-2 border border-gray-300 rounded-md text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          <option value="">Selecione um clube</option>
-          {clubList.map((c) => (
-            <option key={c.name} value={c.name}>
-              {c.name}
-            </option>
-          ))}
-        </select>
-        {club && (
-          <img
-            src={getIconUrl(club)}
-            alt={club.name}
-            width={96}
-            height={96}
-            className="object-contain"
-          />
-        )}
+        {/* Club dropdown + icon */}
+        <div className="flex flex-col items-center gap-4">
+          <select
+            value={selectedName ?? ""}
+            onChange={(e) => setSelectedName(e.target.value || null)}
+            className="select-themed"
+          >
+            <option value="">Selecione um clube</option>
+            {clubList.map((c) => (
+              <option key={c.name} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+          {club && (
+            <img
+              src={getIconUrl(club)}
+              alt={club.name}
+              width={96}
+              height={96}
+              className="object-contain"
+            />
+          )}
+        </div>
       </div>
 
       {/* Prompt when no club selected */}
       {!club && (
-        <p className="text-center text-gray-500 italic py-8">
+        <p className="text-center italic py-8" style={{ color: "var(--text-secondary)" }}>
           Selecione um clube para visualizar a análise.
         </p>
       )}
@@ -109,7 +109,7 @@ export default function AnaliseIndividual() {
           <hr className="mb-8" />
 
           <div className="flex flex-col gap-16">
-            <section>
+            <section className="card-surface mb-6">
               <SankeyChart
                 clubName={club.name}
                 data={sankeyData}
@@ -118,7 +118,7 @@ export default function AnaliseIndividual() {
               />
             </section>
 
-            <section>
+            <section className="card-surface mb-6">
               <RadarChart
                 data={radarData}
                 error={radarError}
@@ -126,7 +126,7 @@ export default function AnaliseIndividual() {
               />
             </section>
 
-            <section>
+            <section className="card-surface mb-6">
               <HorizontalBarChart
                 clubName={club.name}
                 season={season}

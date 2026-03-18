@@ -31,66 +31,66 @@ export default function AnaliseComparativaSimples() {
     <main className="max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
-      <h1 className="text-2xl font-bold text-center mb-1">
+      <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Análise Comparativa Simples
       </h1>
-      <p className="text-center text-gray-600 mb-6">
+      <p className="text-center mb-6" style={{ color: "var(--text-secondary)" }}>
         Explore as finanças dos clubes do Brasileirão
       </p>
 
-      {/* Season selector */}
-      <div className="flex justify-center gap-2 mb-4">
-        {(["2025", "2024"] as Season[]).map((s) => (
-          <button
-            key={s}
-            onClick={() => handleSeasonChange(s)}
-            className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-              season === s
-                ? "bg-blue-600 text-white"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-            }`}
-          >
-            {s}
-          </button>
-        ))}
-      </div>
+      <div className="card-surface mb-6">
+        {/* Season selector */}
+        <div className="flex justify-center mb-4">
+          <div className="pill-group">
+            {(["2025", "2024"] as Season[]).map((s) => (
+              <button
+                key={s}
+                onClick={() => handleSeasonChange(s)}
+                className={season === s ? "pill-btn-active" : "pill-btn"}
+              >
+                {s}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      <div className="flex flex-col items-center gap-4 mb-6">
-        <select
-          value={selected}
-          onChange={(e) => setSelected(e.target.value)}
-          className="px-4 py-2 border border-gray-300 rounded-md text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        >
-          {clubList.map((c) => (
-            <option key={c.name} value={c.name}>
-              {c.name}
-            </option>
-          ))}
-        </select>
-        {club && (
-          <img
-            src={getIconUrl(club)}
-            alt={club.name}
-            width={96}
-            height={96}
-            className="object-contain"
-          />
-        )}
-        <MetricSelector value={metricKey} onChange={setMetricKey} />
+        <div className="flex flex-col items-center gap-4">
+          <select
+            value={selected}
+            onChange={(e) => setSelected(e.target.value)}
+            className="select-themed"
+          >
+            {clubList.map((c) => (
+              <option key={c.name} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+          {club && (
+            <img
+              src={getIconUrl(club)}
+              alt={club.name}
+              width={96}
+              height={96}
+              className="object-contain"
+            />
+          )}
+          <MetricSelector value={metricKey} onChange={setMetricKey} />
+        </div>
       </div>
 
       <hr className="mb-8" />
 
       {!metric || !club ? (
-        <p className="text-center text-gray-500 mt-16">
+        <p className="text-center mt-16" style={{ color: "var(--text-secondary)" }}>
           Selecione um clube e uma métrica para visualizar.
         </p>
       ) : (
         <div className="flex flex-col gap-16">
-          <section>
+          <section className="card-surface mb-6">
             <ComparisonBarChart club={club} metric={metric} season={season} />
           </section>
-          <section>
+          <section className="card-surface mb-6">
             <EvolutionLineChart club={club} metric={metric} season={season} />
           </section>
         </div>
