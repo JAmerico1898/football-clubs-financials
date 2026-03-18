@@ -28,7 +28,7 @@ export default function PlotlyChart({ data, layout }: PlotlyChartProps) {
       }}
       config={{ responsive: true, displayModeBar: false }}
       useResizeHandler
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%" }}
     />
   );
 }
