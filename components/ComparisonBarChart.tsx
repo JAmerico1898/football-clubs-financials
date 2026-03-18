@@ -13,12 +13,14 @@ import {
   ReferenceLine,
 } from "recharts";
 import Papa from "papaparse";
-import { Club, allChartClubs, extraChartClubs, getIconUrl } from "@/lib/clubs";
+import { Club, clubs2024, extraChartClubs, getIconUrl, type Season } from "@/lib/clubs";
+import { clubs2025 } from "@/lib/clubs2025";
 import { Metric, formatValue, formatAxisValue } from "@/lib/metric-config";
 
 interface ComparisonBarChartProps {
   club: Club;
   metric: Metric;
+  season: Season;
 }
 
 interface BarDatum {
@@ -71,12 +73,17 @@ function CustomTooltip({ active, payload, metric }: CustomTooltipProps) {
   );
 }
 
-export default function ComparisonBarChart({ club, metric }: ComparisonBarChartProps) {
+export default function ComparisonBarChart({ club, metric, season }: ComparisonBarChartProps) {
   const [data, setData] = useState<BarDatum[]>([]);
   const [missingClubs, setMissingClubs] = useState<string[]>([]);
 
+  const chartClubs = useMemo(
+    () => [...(season === "2025" ? clubs2025 : clubs2024), ...extraChartClubs],
+    [season]
+  );
+
   useEffect(() => {
-    fetch("/data/Índices_2024.csv")
+    fetch(`/data/Índices_${season}.csv`)
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");
@@ -90,7 +97,7 @@ export default function ComparisonBarChart({ club, metric }: ComparisonBarChartP
 
         const extraNames = new Set(extraChartClubs.map((c) => c.name));
         const missing: string[] = [];
-        const unsorted: Omit<BarDatum, "rank">[] = allChartClubs
+        const unsorted: Omit<BarDatum, "rank">[] = chartClubs
           .map((c) => {
             const colIdx = header.findIndex((h) => h.trim() === c.csvColumn);
             const raw = colIdx >= 0 ? metricRow[colIdx]?.trim() : "";
@@ -122,7 +129,7 @@ export default function ComparisonBarChart({ club, metric }: ComparisonBarChartP
         setMissingClubs(missing);
         setData(result);
       });
-  }, [club, metric]);
+  }, [club, metric, season, chartClubs]);
 
   // Compute Y-axis domain to accommodate negative values + padding for labels
   const yDomain = useMemo(() => {
@@ -153,8 +160,7 @@ export default function ComparisonBarChart({ club, metric }: ComparisonBarChartP
 
   return (
     <div>
-      <h2 className="text-[25px] font-bold text-center mb-2">{metric.label}</h2>
-      <p className="text-center text-gray-500 text-sm mb-4">Comparativo 2024</p>
+      <h2 className="text-[25px] font-bold text-center mb-2">{metric.label} — {season}</h2>
       <ResponsiveContainer width="100%" height={520}>
         <BarChart data={data} margin={{ top: 30, right: 20, left: 20, bottom: 50 }}>
           <XAxis
