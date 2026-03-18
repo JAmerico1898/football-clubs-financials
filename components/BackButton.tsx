@@ -1,25 +1,16 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function BackButton() {
   return (
     <Link
       href="/"
-      className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-brand-blue transition-colors mb-6"
+      className="inline-flex items-center gap-1.5 text-sm rounded-lg px-3 py-2
+                 transition-colors mb-6
+                 text-[var(--text-secondary)] hover:text-[var(--text-primary)]
+                 hover:bg-slate-100 dark:hover:bg-slate-800"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M19 12H5" />
-        <path d="m12 19-7-7 7-7" />
-      </svg>
+      <ArrowLeft size={16} />
       Voltar ao inicio
     </Link>
   );

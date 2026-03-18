@@ -16,7 +16,7 @@ export default function MetricSelector({ value, onChange }: MetricSelectorProps)
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="px-4 py-2 border border-gray-300 rounded-md text-base bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="select-themed"
     >
       <option value="">Selecione uma métrica</option>
       <optgroup label="Financeiras">
