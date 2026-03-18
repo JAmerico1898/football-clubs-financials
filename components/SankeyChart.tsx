@@ -23,13 +23,13 @@ export default function SankeyChart({ clubName, data, error, loading }: SankeyCh
         <p style={{ fontSize: 25, fontWeight: "bold", color: "var(--text-primary)" }}>{clubName}</p>
         <p style={{ fontSize: 20, color: "var(--text-secondary)" }}>Demonstração de Resultado</p>
       </div>
-      <div style={{ height: 600, position: "relative" }}>
+      <div style={{ height: 800, position: "relative" }}>
         <PlotlyChart
           data={data.data}
           layout={{
             ...data.layout,
-            height: 600,
-            margin: { t: 40, b: 20, l: 0, r: 0, ...data.layout.margin },
+            height: 800,
+            margin: { t: 200, b: 20, l: 0, r: 0 },
             autosize: true,
             paper_bgcolor: "transparent",
             plot_bgcolor: "transparent",
