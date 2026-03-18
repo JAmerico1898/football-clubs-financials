@@ -19,15 +19,16 @@ export default function SankeyChart({ clubName, data, error, loading }: SankeyCh
 
   return (
     <div>
-      <div className="text-center mb-2">
-        <p style={{ fontSize: 25, fontWeight: "bold" }}>{clubName}</p>
-        <p style={{ fontSize: 20 }}>Demonstração de Resultado</p>
+      <div className="text-center mb-4">
+        <p style={{ fontSize: 25, fontWeight: "bold", color: "var(--text-primary)" }}>{clubName}</p>
+        <p style={{ fontSize: 20, color: "var(--text-secondary)" }}>Demonstração de Resultado</p>
       </div>
-      <div>
+      <div style={{ height: 600, position: "relative" }}>
         <PlotlyChart
           data={data.data}
           layout={{
             ...data.layout,
+            height: 600,
             autosize: true,
             paper_bgcolor: "transparent",
             plot_bgcolor: "transparent",
