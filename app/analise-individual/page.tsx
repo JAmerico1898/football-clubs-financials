@@ -108,33 +108,35 @@ export default function AnaliseIndividual() {
 
           <hr className="mb-8" />
 
-          <section>
-            <SankeyChart
-              clubName={club.name}
-              data={sankeyData}
-              error={sankeyError}
-              loading={sankeyLoading}
-            />
-          </section>
+          <div className="flex flex-col gap-16">
+            <section>
+              <SankeyChart
+                clubName={club.name}
+                data={sankeyData}
+                error={sankeyError}
+                loading={sankeyLoading}
+              />
+            </section>
 
-          <section>
-            <RadarChart
-              data={radarData}
-              error={radarError}
-              loading={radarLoading}
-            />
-          </section>
+            <section>
+              <RadarChart
+                data={radarData}
+                error={radarError}
+                loading={radarLoading}
+              />
+            </section>
 
-          <section className="card-surface">
-            <HorizontalBarChart
-              clubName={club.name}
-              season={season}
-              data={barData}
-              error={barError}
-              loading={barLoading}
-              noPriorData={barNoPriorData}
-            />
-          </section>
+            <section className="card-surface">
+              <HorizontalBarChart
+                clubName={club.name}
+                season={season}
+                data={barData}
+                error={barError}
+                loading={barLoading}
+                noPriorData={barNoPriorData}
+              />
+            </section>
+          </div>
         </>
       )}
     </main>
