@@ -6,7 +6,7 @@ export interface CompareMetric {
 
 export const compareMetrics: CompareMetric[] = [
   // Receita
-  { label: "Receita Total", csvKey: "Receita Total", category: "receita" },
+  { label: "Receita Operacional", csvKey: "Receita Operacional", category: "receita" },
   { label: "Receita Recorrente", csvKey: "Receita Recorrente", category: "receita" },
   { label: "Transmissão + Premiações", csvKey: "Receita c/ Transmissão + Premiações", category: "receita" },
   { label: "Receita Comercial", csvKey: "Receita Comercial", category: "receita" },

@@ -93,14 +93,14 @@ Render a pre-built Radar chart showing selected financial metrics of the selecte
 Plot a **horizontal grouped bar chart** comparing financial metrics between **2024 and 2023** for the selected club. Metrics are organized into **4 categories**, each with a distinct color. The two years are distinguished by different tones (light/dark) of the category color.
 
 ### Data source
-- **File:** `/football-clubs-financials/data/Painel_Consolidado_Moeda_Cte.csv`
+- **File:** `/football-clubs-financials/data/Painel_Consolidado_Moeda_Cte_2024.csv`
 - The CSV has one row per metric. Each column represents a club. The column header matching the selected club is used to extract values.
 
 ### Metrics and CSV row mapping
 
 | Category | Metric | Row 2024 | Row 2023 |
 |---|---|---|---|
-| **Receita** | Receita Total | 0 | 37 |
+| **Receita** | Receita Operacional | 0 | 37 |
 | **Receita** | Receita Recorrente | 1 | 38 |
 | **Receita** | Receita c/ Transmissão + Premiações | 2 | 39 |
 | **Receita** | Receita Comercial | 3 | 40 |
@@ -184,5 +184,5 @@ npm install react-plotly.js plotly.js recharts papaparse
 │   ├── sankey/         ← {club}_sankey_2024.json
 │   └── radar/          ← {club}_radar_2024.json
 └── data/
-    └── Painel_Consolidado_Moeda_Cte.csv
+    └── Painel_Consolidado_Moeda_Cte_2024.csv
 ```

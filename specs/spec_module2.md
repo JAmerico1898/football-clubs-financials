@@ -26,7 +26,7 @@ Módulo 2 is named **"Análise Comparativa Simples"**. It allows the user to sel
 ### Metric lists
 
 **Financeiras:**
-- Receita Total
+- Receita Operacional
 - Receita Recorrente
 - Receita c/ Transmissão + Premiações
 - Receita Comercial
@@ -52,11 +52,11 @@ Módulo 2 is named **"Análise Comparativa Simples"**. It allows the user to sel
 
 **Gerenciais:**
 - Público Médio / Sócios-Torcedores
-- Dívida/Receita Total
-- Folha do futebol / Receita Total
-- (Folha futebol + Compra de Jogadores) / Receita Total
+- Dívida/Receita Operacional
+- Folha do futebol / Receita Operacional
+- (Folha futebol + Compra de Jogadores) / Receita Operacional
 - Folha do Futebol / Pontuação Série A
-- Custo das Atividades Esportivas / Receita Total
+- Custo das Atividades Esportivas / Receita Operacional
 - Ticket Médio
 
 ---
@@ -67,7 +67,7 @@ Módulo 2 is named **"Análise Comparativa Simples"**. It allows the user to sel
 Plot a **vertical bar chart** showing the selected metric for **all clubs in 2024**, allowing the user to visually compare the selected club against the rest of the league.
 
 ### Data source
-- **File:** `/football-clubs-financials/data/Índices.csv`
+- **File:** `/football-clubs-financials/data/Índices_2024.csv`
 - Each row corresponds to a metric; each column corresponds to a club.
 - The row matching the selected metric name is used to extract values for all clubs.
 
@@ -185,7 +185,7 @@ npm install recharts papaparse
 ├── public/
 │   └── clubs/                              ← club icons
 └── data/
-    ├── Índices.csv                          ← Feature 1 data (2024 cross-section)
+    ├── Índices_2024.csv                          ← Feature 1 data (2024 cross-section)
     └── ÍndicesPainel_Consolidado_Moeda_Cte.csv  ← Feature 2 data (2021–2024, IPCA-adjusted)
 ```
 

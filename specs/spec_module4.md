@@ -22,7 +22,7 @@ Módulo 4 is named **"Compare 2 Clubes"**. It allows the user to select two club
 
 ## Data Source
 
-- **File:** `/football-clubs-financials/data/Índices.csv`
+- **File:** `/football-clubs-financials/data/Índices_2024.csv`
 - **Year:** 2024 only
 - Same file used in Módulos 2 (Feature 1) and 3
 - Each row = one metric; each column = one club
@@ -32,11 +32,11 @@ Módulo 4 is named **"Compare 2 Clubes"**. It allows the user to select two club
 
 ## Metrics (same as Módulo 1)
 
-Metrics are grouped into 4 categories. Use the same row indices from `Painel_Consolidado_Moeda_Cte.csv` as defined in Módulo 1 for reference — but here data comes from `Índices.csv`. Match metric names to the correct rows in `Índices.csv`.
+Metrics are grouped into 4 categories. Use the same row indices from `Painel_Consolidado_Moeda_Cte_2024.csv` as defined in Módulo 1 for reference — but here data comes from `Índices_2024.csv`. Match metric names to the correct rows in `Índices_2024.csv`.
 
 | Category | Metrics |
 |---|---|
-| **Receita** | Receita Total, Receita Recorrente, Receita c/ Transmissão + Premiações, Receita Comercial, Receita c/ Match-Day + Sócio-Torcedor, Receita c/ Negociação de atletas |
+| **Receita** | Receita Operacional, Receita Recorrente, Receita c/ Transmissão + Premiações, Receita Comercial, Receita c/ Match-Day + Sócio-Torcedor, Receita c/ Negociação de atletas |
 | **Despesa** | Custo das Atividades Esportivas, Folha do Futebol, Folha do Futebol + Amortização, Aquisições de atletas |
 | **Resultado** | Resultado Operacional (Segmento Futebol), Resultado |
 | **Passivo** | Dívida Líquida |
@@ -153,9 +153,9 @@ Chart must be responsive on different screen sizes.
 - [ ] Chart is responsive on different screen sizes
 
 ### Robustness
-- [ ] If a club is missing a metric value in `Índices.csv`, display zero for that bar (no crash)
+- [ ] If a club is missing a metric value in `Índices_2024.csv`, display zero for that bar (no crash)
 - [ ] If the same club is selected for both slots, chart renders with identical bars (no crash)
-- [ ] If `Índices.csv` fails to load, a friendly error message is shown
+- [ ] If `Índices_2024.csv` fails to load, a friendly error message is shown
 
 ---
 
@@ -176,7 +176,7 @@ npm install recharts papaparse
 ├── public/
 │   └── clubs/          ← club icons (same as all previous modules)
 └── data/
-    └── Índices.csv     ← 2024 data (same as Módulos 2 Feature 1 and 3)
+    └── Índices_2024.csv     ← 2024 data (same as Módulos 2 Feature 1 and 3)
 ```
 
 ---

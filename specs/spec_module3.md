@@ -24,7 +24,7 @@ Módulo 3 is named **"Análise Conjunta"**. It allows the user to select a club,
 Two independent dropdowns — one for the X-axis, one for the Y-axis.
 
 ### X-axis metrics (`variáveis_conjuntas_x`)
-- Receita Total
+- Receita Operacional
 - Custo das Atividades Esportivas
 - Folha do Futebol
 - Folha do Futebol + Compra de Jogadores
@@ -46,7 +46,7 @@ Two independent dropdowns — one for the X-axis, one for the Y-axis.
 
 ## Data Source
 
-- **File:** `/football-clubs-financials/data/Índices.csv`
+- **File:** `/football-clubs-financials/data/Índices_2024.csv`
 - **Year:** 2024 only — each club appears as **one point** on the scatter plot.
 - Each row corresponds to a metric; each column corresponds to a club.
 - Extract the row matching the selected X metric → one value per club.
@@ -154,7 +154,7 @@ On hover over a club's point, display:
 ### Robustness
 - [ ] If a club has a missing value for a metric, it is **excluded** from the chart (not plotted, not included in regression)
 - [ ] If fewer than 3 valid data points exist (unlikely but possible), display a warning: *"Dados insuficientes para calcular a regressão."*
-- [ ] If a metric is not found in `Índices.csv`, a friendly error is displayed (no crash)
+- [ ] If a metric is not found in `Índices_2024.csv`, a friendly error is displayed (no crash)
 - [ ] Chart resizes correctly on window resize
 
 ---
@@ -178,7 +178,7 @@ No external statistics library is needed — R² and Pearson r are computed manu
 ├── public/
 │   └── clubs/          ← club icons (same as Módulos 1 and 2)
 └── data/
-    └── Índices.csv     ← 2024 cross-section data (same as Módulo 2, Feature 1)
+    └── Índices_2024.csv     ← 2024 cross-section data (same as Módulo 2, Feature 1)
 ```
 
 ---

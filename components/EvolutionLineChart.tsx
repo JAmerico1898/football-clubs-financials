@@ -70,7 +70,7 @@ export default function EvolutionLineChart({ club, metric }: EvolutionLineChartP
   useEffect(() => {
     if (!hasHistory) return;
 
-    fetch("/data/Painel_Consolidado_Moeda_Cte.csv")
+    fetch("/data/Painel_Consolidado_Moeda_Cte_2024.csv")
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");

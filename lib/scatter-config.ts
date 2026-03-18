@@ -1,7 +1,7 @@
 import { metrics, Metric } from "./metric-config";
 
 const xAxisKeys = [
-  "Receita Total",
+  "Receita Operacional",
   "Custo das Atividades Esportivas",
   "Folha do Futebol",
   "Folha do Futebol + Compra de Jogadores",
@@ -29,7 +29,7 @@ export const yAxisMetrics: Metric[] = yAxisKeys
 
 /** Map csvKey → axis title with unit when relevant */
 const axisUnitMap: Record<string, string> = {
-  "Receita Total": "Receita Total (R$ milhões)",
+  "Receita Operacional": "Receita Operacional (R$ milhões)",
   "Custo das Atividades Esportivas": "Custo das Atividades Esportivas (R$ milhões)",
   "Folha do Futebol": "Folha do Futebol (R$ milhões)",
   "Folha do Futebol + Compra de Jogadores": "Folha do Futebol + Compra de Jogadores (R$ milhões)",

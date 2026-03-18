@@ -27,7 +27,7 @@ export default function ScatterPlotChart({
   const [header, setHeader] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/data/Índices.csv")
+    fetch("/data/Índices_2024.csv")
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");

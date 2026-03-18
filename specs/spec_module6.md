@@ -24,7 +24,7 @@ The module is structured as follows:
 
 | Columns (0-indexed) | League | Metric basis |
 |---|---|---|
-| 0 | Brasileirão | Turnover (Receita Total) |
+| 0 | Brasileirão | Turnover (Receita Operacional) |
 | 1 | Brasileirão | Turnover |
 | 2 | Brasileirão | Turnover |
 | 3 | Brasileirão | Turnover |
@@ -149,7 +149,7 @@ Place before Plots 3 and 4. Suggested text:
 - Brasileirão line ends at 2024 (no 2025 point) — line simply stops, no gap indicator needed
 - Data points marked with dots
 - Tooltip: year, both league values (if available for that year)
-- Chart title: `"Índice de Gini — Receita Total"`
+- Chart title: `"Índice de Gini — Receita Operacional"`
 - Legend with flag + league name
 
 ---
@@ -182,7 +182,7 @@ Place before Plots 3 and 4. Suggested text:
 Identical structure to Plot 1, but using **Max-Min Ratio values** (row 24 of CSV, cols 0–8).
 
 - Y-axis label: `"Razão Máx/Mín"`
-- Chart title: `"Razão Máx/Mín — Receita Total"`
+- Chart title: `"Razão Máx/Mín — Receita Operacional"`
 - Same two lines (Brasileirão + Premier League), same colors as Plot 1
 - Brasileirão ends at 2024
 
@@ -218,7 +218,7 @@ Identical structure to Plot 2, but using **Max-Min Ratio values** (row 24, cols 
 - [ ] Brasileirão line has 4 data points (2021–2024), Premier League has 5 (2021–2025)
 - [ ] X-axis shows labels 2021, 2022, 2023, 2024, 2025
 - [ ] Y-axis labeled "Índice de Gini"
-- [ ] Chart title reads "Índice de Gini — Receita Total"
+- [ ] Chart title reads "Índice de Gini — Receita Operacional"
 - [ ] Legend shows both league names with flags
 - [ ] Tooltip shows correct values on hover
 
@@ -234,7 +234,7 @@ Identical structure to Plot 2, but using **Max-Min Ratio values** (row 24, cols 
 - [ ] Two lines rendered with correct Max-Min data
 - [ ] Brasileirão ends at 2024
 - [ ] Y-axis labeled "Razão Máx/Mín"
-- [ ] Chart title reads "Razão Máx/Mín — Receita Total"
+- [ ] Chart title reads "Razão Máx/Mín — Receita Operacional"
 
 ### Plot 4 — Max-Min: 4 European Leagues (Broadcast)
 - [ ] Four lines rendered with correct Max-Min data

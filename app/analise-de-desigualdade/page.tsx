@@ -19,7 +19,7 @@ const BROADCAST_LINES: LineConfig[] = [
   { dataKey: "seriea", label: "Serie A", color: "#1565C0", countryCode: "it" },
 ];
 
-const TURNOVER_FOOTNOTE = "A comparação usa 2021 para o Brasil e 2020/21 para a Europa.\nReceita Total não disponível para as demais ligas europeias.";
+const TURNOVER_FOOTNOTE = "A comparação usa 2021 para o Brasil e 2020/21 para a Europa.\nReceita Operacional não disponível para as demais ligas europeias.";
 const BROADCAST_FOOTNOTE = "Receita de Transmissão não disponível para a liga brasileira.";
 
 // Column ranges for each league in the CSV
@@ -159,7 +159,7 @@ export default function AnaliseDeDesigualdade() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InequalityLineChart
-                title="Índice de Gini — Receita Total"
+                title="Índice de Gini — Receita Operacional"
                 yAxisLabel="Gini"
                 data={chartData.giniTurnover}
                 lines={TURNOVER_LINES}
@@ -186,7 +186,7 @@ export default function AnaliseDeDesigualdade() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <InequalityLineChart
-                title="Razão Máx/Mín — Receita Total"
+                title="Razão Máx/Mín — Receita Operacional"
                 yAxisLabel="Máx/Mín"
                 data={chartData.maxMinTurnover}
                 lines={TURNOVER_LINES}

@@ -85,7 +85,7 @@ export default function HorizontalBarChart({ club }: HorizontalBarChartProps) {
     setError(null);
     setData(null);
 
-    fetch("/data/Painel_Consolidado_Moeda_Cte.csv")
+    fetch("/data/Painel_Consolidado_Moeda_Cte_2024.csv")
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados CSV");
         return res.text();

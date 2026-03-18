@@ -15,7 +15,7 @@ export default function IndiceDeTransparencia() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/data/Transparencia.csv")
+    fetch("/data/Transparencia_2024.csv")
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados");
         return res.text();

@@ -76,7 +76,7 @@ export default function ComparisonBarChart({ club, metric }: ComparisonBarChartP
   const [missingClubs, setMissingClubs] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/data/Índices.csv")
+    fetch("/data/Índices_2024.csv")
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");

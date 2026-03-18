@@ -7,7 +7,7 @@ export interface MetricDef {
 
 export const metrics: MetricDef[] = [
   // Receita (green)
-  { label: "Receita Total", row2024: 0, row2023: 37, category: "receita" },
+  { label: "Receita Operacional", row2024: 0, row2023: 37, category: "receita" },
   { label: "Receita Recorrente", row2024: 1, row2023: 38, category: "receita" },
   { label: "Transmissão + Premiações", row2024: 2, row2023: 39, category: "receita" },
   { label: "Receita Comercial", row2024: 3, row2023: 40, category: "receita" },
