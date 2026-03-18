@@ -1,11 +1,15 @@
+export type Season = "2024" | "2025";
+
 export interface Club {
   name: string;
   fileKey: string;
+  radarFileKey?: string; // if radar file uses different naming than fileKey
   iconFile: string;
   csvColumn: string;
 }
 
-export const clubs: Club[] = [
+// 2024 clubs — also exported as `clubs` for backward compatibility with other modules
+export const clubs2024: Club[] = [
   { name: "Vasco", fileKey: "Vasco", iconFile: "Vasco.png", csvColumn: "Vasco" },
   { name: "Athletico", fileKey: "Athletico", iconFile: "Athletico.png", csvColumn: "Athletico" },
   { name: "Atlético", fileKey: "Atletico", iconFile: "Atletico.png", csvColumn: "Atlético" },
@@ -19,13 +23,16 @@ export const clubs: Club[] = [
   { name: "Flamengo", fileKey: "Flamengo", iconFile: "Flamengo.png", csvColumn: "Flamengo" },
   { name: "Fluminense", fileKey: "Fluminense", iconFile: "Fluminense.png", csvColumn: "Fluminense" },
   { name: "Fortaleza", fileKey: "Fortaleza", iconFile: "Fortaleza.png", csvColumn: "Fortaleza" },
-  { name: "Grêmio", fileKey: "Gremio", iconFile: "Gremio.png", csvColumn: "Grêmio" },
+  { name: "Grêmio", fileKey: "Gremio", radarFileKey: "Grêmio", iconFile: "Gremio.png", csvColumn: "Grêmio" },
   { name: "Internacional", fileKey: "Internacional", iconFile: "Internacional.png", csvColumn: "Internacional" },
   { name: "Juventude", fileKey: "Juventude", iconFile: "Juventude.png", csvColumn: "Juventude" },
   { name: "Palmeiras", fileKey: "Palmeiras", iconFile: "Palmeiras.png", csvColumn: "Palmeiras" },
   { name: "São Paulo", fileKey: "Sao_Paulo", iconFile: "SaoPaulo.png", csvColumn: "São Paulo" },
   { name: "Vitória", fileKey: "Vitoria", iconFile: "Vitoria.png", csvColumn: "Vitória" },
 ];
+
+// Backward-compat alias — other modules import `clubs` and expect the 2024 list
+export const clubs = clubs2024;
 
 export const extraChartClubs: Club[] = [
   { name: "Red Bull Bragantino", fileKey: "RedBullBragantino", iconFile: "Red Bull Bragantino.png", csvColumn: "Red Bull Bragantino" },
@@ -35,18 +42,23 @@ export const allChartClubs: Club[] = [...clubs, ...extraChartClubs];
 
 export const DEFAULT_CLUB = "Vasco";
 
-export function getSankeyUrl(club: Club): string {
-  return `/sankey/${club.fileKey}_sankey_2024.json`;
+export function getSankeyUrl(club: Club, season: Season = "2024"): string {
+  return `/sankey/${club.fileKey}_sankey_${season}.json`;
 }
 
-export function getRadarUrl(club: Club): string {
-  return `/radar/${club.fileKey}_radar_2024.json`;
+export function getRadarUrl(club: Club, season: Season = "2024"): string {
+  const key = club.radarFileKey || club.fileKey;
+  return `/radar/${key}_radar_${season}.json`;
 }
 
 export function getIconUrl(club: Club): string {
   return `/clubs/${club.iconFile}`;
 }
 
-export function getSummaryUrl(club: Club): string {
-  return `/summaries/resumo_${club.fileKey.toLowerCase()}_2024.md`;
+export function getSummaryUrl(club: Club, season: Season = "2024"): string {
+  return `/summaries/resumo_${club.fileKey.toLowerCase()}_${season}.md`;
+}
+
+export function getBarChartCsvUrl(season: Season): string {
+  return `/data/Painel_Consolidado_Moeda_Cte_${season}.csv`;
 }
