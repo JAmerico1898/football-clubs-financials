@@ -8,8 +8,8 @@ export interface Route {
 export const routes: Route[] = [
   {
     label: "Análise Individual",
-    href: "/analise-individual-2024",
-    description: "Analise receitas, despesas e indicadores financeiros de clubes da Série A em 2024",
+    href: "/analise-individual",
+    description: "Analise receitas, despesas e indicadores financeiros de clubes da Série A em 2025",
     available: true,
   },
   {
@@ -40,6 +40,18 @@ export const routes: Route[] = [
     label: "Análise de Desigualdade",
     href: "/analise-de-desigualdade",
     description: "Acompanhe a evolução do Índice de Gini nas finanças do futebol brasileiro",
+    available: true,
+  },
+  {
+    label: "Sistema de Sustentabilidade Financeira",
+    href: "/sustentabilidade-financeira",
+    description: "Simulador do Fair Play Financeiro",
+    available: true,
+  },
+  {
+    label: "Dúvidas, Sugestões, Bugs",
+    href: "/contato",
+    description: "Entre em contato",
     available: true,
   },
 ];
