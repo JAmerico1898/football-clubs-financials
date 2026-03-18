@@ -296,7 +296,7 @@ export default function ScatterPlotChart({
         {missingClubs.length > 0 && (
           <div className="-mt-4 ml-[80px] space-y-0.5">
             {missingClubs.map((name) => (
-              <p key={name} className="text-gray-500 text-xs italic">
+              <p key={name} className="text-xs italic" style={{ color: "var(--text-secondary)" }}>
                 {name} não reportou esse dado em suas Demonstrações Financeiras publicadas.
               </p>
             ))}
@@ -429,7 +429,7 @@ export default function ScatterPlotChart({
       {missingClubs.length > 0 && (
         <div className="-mt-4 ml-[80px] space-y-0.5">
           {missingClubs.map((name) => (
-            <p key={name} className="text-gray-500 text-xs italic">
+            <p key={name} className="text-xs italic" style={{ color: "var(--text-secondary)" }}>
               {name} não reportou esse dado em suas Demonstrações Financeiras publicadas.
             </p>
           ))}

@@ -13,8 +13,8 @@ interface SankeyChartProps {
 export default function SankeyChart({ clubName, data, error, loading }: SankeyChartProps) {
   const colors = useThemeColors();
 
-  if (loading) return <p className="text-center text-gray-500 py-8">Carregando diagrama Sankey...</p>;
-  if (error) return <p className="text-center text-red-500 py-8">{error}</p>;
+  if (loading) return <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>Carregando diagrama Sankey...</p>;
+  if (error) return <p className="text-center py-8" style={{ color: "var(--brand-red)" }}>{error}</p>;
   if (!data) return null;
 
   return (

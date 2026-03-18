@@ -35,7 +35,7 @@ function CustomTooltip({ active, payload, label }: any) {
   if (!active || !payload || payload.length === 0) return null;
   const total = payload.reduce((s: number, p: any) => s + Number(p.value), 0);
   return (
-    <div className="bg-white border border-gray-200 rounded shadow px-3 py-2 text-sm">
+    <div className="rounded shadow px-3 py-2 text-sm" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-semibold mb-1">{label}</p>
       {payload.map((entry: any) => (
         <p key={entry.dataKey} style={{ color: entry.color }}>
