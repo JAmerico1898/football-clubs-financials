@@ -45,10 +45,10 @@ function ClubIconTick(props: Record<string, unknown> & { data: BarDatum[] }) {
     <g transform={`translate(${x},${y + 4})`}>
       <image
         href={item.iconUrl}
-        x={-18}
+        x={-22}
         y={0}
-        width={36}
-        height={36}
+        width={44}
+        height={44}
         preserveAspectRatio="xMidYMid meet"
       />
     </g>
@@ -169,7 +169,7 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
             tick={(props) => (
               <ClubIconTick {...(props as Record<string, unknown>)} data={data} />
             )}
-            height={56}
+            height={64}
           />
           <YAxis
             domain={yDomain}

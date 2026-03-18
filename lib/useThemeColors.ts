@@ -14,7 +14,7 @@ export interface ThemeColors {
   brandRed: string;
 }
 
-const LIGHT_DEFAULTS: ThemeColors = {
+const DEFAULTS: ThemeColors = {
   textPrimary: "#0f172a",
   textSecondary: "#64748b",
   background: "#f8fafc",
@@ -27,9 +27,9 @@ const LIGHT_DEFAULTS: ThemeColors = {
 };
 
 function resolve(): ThemeColors {
-  if (typeof window === "undefined") return LIGHT_DEFAULTS;
+  if (typeof window === "undefined") return DEFAULTS;
   const s = getComputedStyle(document.documentElement);
-  const g = (v: string, fallbackKey: keyof ThemeColors) => s.getPropertyValue(v).trim() || LIGHT_DEFAULTS[fallbackKey];
+  const g = (v: string, fallbackKey: keyof ThemeColors) => s.getPropertyValue(v).trim() || DEFAULTS[fallbackKey];
   return {
     textPrimary: g("--text-primary", "textPrimary"),
     textSecondary: g("--text-secondary", "textSecondary"),
@@ -44,13 +44,10 @@ function resolve(): ThemeColors {
 }
 
 export function useThemeColors(): ThemeColors {
-  const [colors, setColors] = useState<ThemeColors>(LIGHT_DEFAULTS);
+  const [colors, setColors] = useState<ThemeColors>(DEFAULTS);
 
   useEffect(() => {
     setColors(resolve());
-    const observer = new MutationObserver(() => setColors(resolve()));
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
   }, []);
 
   return colors;

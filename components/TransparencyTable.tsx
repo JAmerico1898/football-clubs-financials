@@ -37,7 +37,7 @@ export default function TransparencyTable({ data, iconMap }: Props) {
           {data.map((d, i) => (
             <tr
               key={d.club}
-              className="transition-colors hover:bg-blue-50 dark:hover:bg-slate-800"
+              className="transition-colors hover:bg-blue-50"
               style={{
                 backgroundColor: i % 2 === 0 ? "var(--surface)" : "var(--background)",
               }}

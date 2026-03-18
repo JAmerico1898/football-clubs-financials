@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Light theme (default) ── */
+/* ── Theme tokens ── */
 :root {
   --background: #f8fafc;
   --surface: #ffffff;
@@ -13,19 +13,6 @@
   --brand-gold: #F9A825;
   --brand-green: #2E7D32;
   --brand-red: #C62828;
-}
-
-/* ── Dark theme ── */
-.dark {
-  --background: #020617;
-  --surface: #0f172a;
-  --border: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --brand-blue: #42a5f5;
-  --brand-gold: #fdd835;
-  --brand-green: #66bb6a;
-  --brand-red: #ef5350;
 }
 
 /* ── Base styles ── */
@@ -46,9 +33,6 @@ body::before {
   pointer-events: none;
 }
 
-.dark body::before {
-  background-image: radial-gradient(circle, #1e293b 1px, transparent 1px);
-}
 
 /* ── Fade-in animation ── */
 @keyframes fadeIn {
@@ -104,18 +88,10 @@ body::before {
     --tw-ring-color: rgba(21, 101, 192, 0.5);
   }
 
-  .dark .select-themed {
-    --tw-ring-color: rgba(66, 165, 245, 0.5);
-  }
-
   /* ── Pill toggle group ── */
   .pill-group {
     @apply inline-flex rounded-full p-1;
     background-color: #f1f5f9;
-  }
-
-  .dark .pill-group {
-    background-color: #1e293b;
   }
 
   .pill-btn {
@@ -131,11 +107,6 @@ body::before {
     @apply px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
     background-color: var(--surface);
     color: var(--brand-blue);
-  }
-
-  .dark .pill-btn-active {
-    background-color: #334155;
-    color: #ffffff;
   }
 
   /* ── Alert boxes ── */
@@ -159,10 +130,6 @@ body::before {
   .skeleton {
     @apply animate-pulse rounded-md;
     background-color: #e2e8f0;
-  }
-
-  .dark .skeleton {
-    background-color: #1e293b;
   }
 
   .skeleton-text {

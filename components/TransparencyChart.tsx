@@ -52,7 +52,7 @@ function CustomTooltip({ active, payload, label }: any) {
 function ClubBadgeTick({ x, y, payload, iconMap }: any) {
   const iconUrl = iconMap[payload.value];
   if (!iconUrl) return null;
-  const size = 36;
+  const size = 44;
   return (
     <g transform={`translate(${x},${y})`}>
       <image

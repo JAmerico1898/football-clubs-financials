@@ -8,7 +8,7 @@ export default function BackButton() {
       className="inline-flex items-center gap-1.5 text-sm rounded-lg px-3 py-2
                  transition-colors mb-6
                  text-[var(--text-secondary)] hover:text-[var(--text-primary)]
-                 hover:bg-slate-100 dark:hover:bg-slate-800"
+                 hover:bg-slate-100"
     >
       <ArrowLeft size={16} />
       Voltar ao inicio

@@ -86,8 +86,8 @@ export default function AnaliseIndividual() {
             <img
               src={getIconUrl(club)}
               alt={club.name}
-              width={96}
-              height={96}
+              width={120}
+              height={120}
               className="object-contain"
             />
           )}
@@ -109,7 +109,7 @@ export default function AnaliseIndividual() {
           <hr className="mb-8" />
 
           <div className="flex flex-col gap-16">
-            <section className="card-surface">
+            <section className="card-surface relative isolate">
               <SankeyChart
                 clubName={club.name}
                 data={sankeyData}
@@ -118,7 +118,7 @@ export default function AnaliseIndividual() {
               />
             </section>
 
-            <section className="card-surface">
+            <section className="card-surface relative isolate">
               <RadarChart
                 data={radarData}
                 error={radarError}

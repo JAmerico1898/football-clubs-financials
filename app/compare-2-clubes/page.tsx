@@ -5,6 +5,8 @@ import { clubs2024, getIconUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
 import BackButton from "@/components/BackButton";
 import CompareBarChart from "@/components/CompareBarChart";
+import ConceptNotes from "@/components/ConceptNotes";
+import { compareMetrics } from "@/lib/compare-chart-config";
 
 function getClubsForSeason(season: Season): Club[] {
   const source = season === "2025" ? clubs2025 : clubs2024;
@@ -72,12 +74,12 @@ export default function Compare2Clubes() {
                 </option>
               ))}
             </select>
-            <div className="w-[96px] h-[96px] flex items-center justify-center">
+            <div className="w-[120px] h-[120px] flex items-center justify-center">
               {club1 && (
                 <img
                   src={getIconUrl(club1)}
                   alt={club1.name}
-                  className="max-w-[96px] max-h-[96px] object-contain"
+                  className="max-w-[120px] max-h-[120px] object-contain"
                 />
               )}
             </div>
@@ -99,12 +101,12 @@ export default function Compare2Clubes() {
                 </option>
               ))}
             </select>
-            <div className="w-[96px] h-[96px] flex items-center justify-center">
+            <div className="w-[120px] h-[120px] flex items-center justify-center">
               {club2 && (
                 <img
                   src={getIconUrl(club2)}
                   alt={club2.name}
-                  className="max-w-[96px] max-h-[96px] object-contain"
+                  className="max-w-[120px] max-h-[120px] object-contain"
                 />
               )}
             </div>
@@ -121,6 +123,7 @@ export default function Compare2Clubes() {
       ) : (
         <div className="card-surface mb-6">
           <CompareBarChart club1={club1} club2={club2} season={season} />
+          <ConceptNotes metricKeys={compareMetrics.flatMap((m) => [m.label, m.csvKey])} />
         </div>
       )}
     </main>

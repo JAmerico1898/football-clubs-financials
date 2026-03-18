@@ -11,7 +11,7 @@ export default function NavCard({ route }: { route: Route }) {
       style={{ "--card-accent": route.accent } as React.CSSProperties}
     >
       {!route.available && (
-        <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-[var(--text-secondary)]">
+        <span className="absolute top-3 right-3 text-xs font-medium px-2 py-0.5 rounded-full bg-slate-100 text-[var(--text-secondary)]">
           Em breve
         </span>
       )}

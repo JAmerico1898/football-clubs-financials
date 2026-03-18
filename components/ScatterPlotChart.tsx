@@ -189,8 +189,8 @@ export default function ScatterPlotChart({
     const yMax = Math.max(...yValues);
     const yRange = yMax - yMin || 1;
 
-    const iconSizeX = xRange * 0.06;
-    const iconSizeY = yRange * 0.09;
+    const iconSizeX = xRange * 0.08;
+    const iconSizeY = yRange * 0.12;
 
     const hoverTrace = {
       x: clubPoints.map((cp) => cp.x),

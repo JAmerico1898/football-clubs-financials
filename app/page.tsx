@@ -9,13 +9,13 @@ export default function FrontPage() {
         <Image
           src="/brasileirao-logo.jpg"
           alt="Brasileirao"
-          width={120}
-          height={120}
-          className="rounded-full drop-shadow-md mb-6"
+          width={156}
+          height={156}
+          className="drop-shadow-md mb-6"
           priority
         />
         <h1 className="text-4xl font-bold tracking-tight text-center" style={{ color: "var(--text-primary)" }}>
-          Almanaque Financeiro da Série A 2025
+          Almanaque Financeiro da Série A - 2025
         </h1>
         <p className="mt-3 text-lg text-center max-w-md" style={{ color: "var(--text-secondary)" }}>
           Explore as finanças dos clubes do Brasileirão

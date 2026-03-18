@@ -1,0 +1,2 @@
+Nota: Neste aplicativo, Receita Operacional é o resultado da seguinte expressão:
+Rec Direitos de Transmissão + Rec Premiações + Rec Match-Day + Rec Sócio-Torcedor + Rec Publicidade e Patrocínio + Rec Licenciamento da Marca + Rec Negociação de Atletas + Outras Receitas

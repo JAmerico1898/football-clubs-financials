@@ -5,6 +5,7 @@ import { type ScatterPeriod } from "@/lib/clubs";
 import { xAxisMetrics, yAxisMetrics } from "@/lib/scatter-config";
 import BackButton from "@/components/BackButton";
 import ScatterPlotChart from "@/components/ScatterPlotChart";
+import ConceptNotes from "@/components/ConceptNotes";
 
 const periods: ScatterPeriod[] = ["2025", "2024", "2025 & 2024"];
 
@@ -102,6 +103,7 @@ export default function AnaliseConjunta() {
       ) : (
         <div className="card-surface mb-6">
           <ScatterPlotChart xMetric={xMetric} yMetric={yMetric} period={period} />
+          <ConceptNotes metricKeys={[xMetric.label, xMetric.csvKey, yMetric.label, yMetric.csvKey]} />
         </div>
       )}
     </main>
