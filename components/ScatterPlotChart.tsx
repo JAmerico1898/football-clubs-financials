@@ -15,6 +15,7 @@ import { Metric, formatValue, formatAxisValue } from "@/lib/metric-config";
 import { getAxisTitle } from "@/lib/scatter-config";
 import { linearRegression, pearsonR, Point } from "@/lib/regression";
 import PlotlyChart from "./PlotlyChart";
+import { useThemeColors } from "@/lib/useThemeColors";
 
 interface ScatterPlotChartProps {
   xMetric: Metric;
@@ -45,6 +46,7 @@ export default function ScatterPlotChart({
   yMetric,
   period,
 }: ScatterPlotChartProps) {
+  const colors = useThemeColors();
   const [csvMap, setCsvMap] = useState<Record<string, CsvData> | null>(null);
 
   useEffect(() => {
@@ -209,7 +211,7 @@ export default function ScatterPlotChart({
       y: [slope * lineX0 + intercept, slope * lineX1 + intercept],
       mode: "lines" as const,
       type: "scatter" as const,
-      line: { color: "#555", width: 2, dash: "dash" as const },
+      line: { color: colors.textSecondary, width: 2, dash: "dash" as const },
       hoverinfo: "skip" as const,
       showlegend: false,
     };
@@ -241,17 +243,28 @@ export default function ScatterPlotChart({
         text: `${yMetric.label} vs. ${xMetric.label} — ${period}`,
         font: { size: 18 },
       },
+      paper_bgcolor: "transparent",
+      plot_bgcolor: "transparent",
+      font: {
+        family: "Inter, system-ui, sans-serif",
+        color: colors.textPrimary,
+      },
+      colorway: [colors.brandBlue, colors.brandRed, colors.brandGreen, colors.brandGold],
       xaxis: {
         title: { text: xTitle },
         tickvals: xTicks,
         ticktext: xTicks.map((v) => formatAxisValue(v, xMetric.format)),
         range: [xMin - xRange * 0.08, xMax + xRange * 0.08],
+        gridcolor: colors.border,
+        zerolinecolor: colors.border,
       },
       yaxis: {
         title: { text: yTitle },
         tickvals: yTicks,
         ticktext: yTicks.map((v) => formatAxisValue(v, yMetric.format)),
         range: [yMin - yRange * 0.1, yMax + yRange * 0.1],
+        gridcolor: colors.border,
+        zerolinecolor: colors.border,
       },
       images,
       annotations: [
@@ -262,9 +275,9 @@ export default function ScatterPlotChart({
           yref: "paper",
           text: `R² = ${r2.toFixed(2)}  |  r = ${r.toFixed(2)}`,
           showarrow: false,
-          font: { size: 14, color: "#333" },
-          bgcolor: "rgba(255,255,255,0.85)",
-          bordercolor: "#ccc",
+          font: { size: 14, color: colors.textSecondary },
+          bgcolor: colors.surface,
+          bordercolor: colors.border,
           borderwidth: 1,
           borderpad: 6,
           xanchor: "left",
@@ -336,15 +349,15 @@ export default function ScatterPlotChart({
     ),
   });
 
-  const trace2025 = makeTrace(points2025, "#1565C0", "2025");
-  const trace2024 = makeTrace(points2024, "#E65100", "2024");
+  const trace2025 = makeTrace(points2025, colors.brandBlue, "2025");
+  const trace2024 = makeTrace(points2024, colors.brandRed, "2024");
 
   const regressionTrace = {
     x: [lineX0, lineX1],
     y: [slope * lineX0 + intercept, slope * lineX1 + intercept],
     mode: "lines" as const,
     type: "scatter" as const,
-    line: { color: "#555", width: 2, dash: "dash" as const },
+    line: { color: colors.textSecondary, width: 2, dash: "dash" as const },
     hoverinfo: "skip" as const,
     showlegend: false,
   };
@@ -362,17 +375,28 @@ export default function ScatterPlotChart({
       text: `${yMetric.label} vs. ${xMetric.label} — 2025 & 2024`,
       font: { size: 18 },
     },
+    paper_bgcolor: "transparent",
+    plot_bgcolor: "transparent",
+    font: {
+      family: "Inter, system-ui, sans-serif",
+      color: colors.textPrimary,
+    },
+    colorway: [colors.brandBlue, colors.brandRed, colors.brandGreen, colors.brandGold],
     xaxis: {
       title: { text: xTitle },
       tickvals: xTicks,
       ticktext: xTicks.map((v) => formatAxisValue(v, xMetric.format)),
       range: [xMin - xRange * 0.08, xMax + xRange * 0.08],
+      gridcolor: colors.border,
+      zerolinecolor: colors.border,
     },
     yaxis: {
       title: { text: yTitle },
       tickvals: yTicks,
       ticktext: yTicks.map((v) => formatAxisValue(v, yMetric.format)),
       range: [yMin - yRange * 0.1, yMax + yRange * 0.1],
+      gridcolor: colors.border,
+      zerolinecolor: colors.border,
     },
     images: [],
     showlegend: true,
@@ -384,9 +408,9 @@ export default function ScatterPlotChart({
         yref: "paper",
         text: `R² = ${r2.toFixed(2)}  |  r = ${r.toFixed(2)}<br><sub>Regressão calculada sobre 2025 e 2024 combinados</sub>`,
         showarrow: false,
-        font: { size: 14, color: "#333" },
-        bgcolor: "rgba(255,255,255,0.85)",
-        bordercolor: "#ccc",
+        font: { size: 14, color: colors.textSecondary },
+        bgcolor: colors.surface,
+        bordercolor: colors.border,
         borderwidth: 1,
         borderpad: 6,
         xanchor: "left",

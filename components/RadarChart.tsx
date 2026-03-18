@@ -1,6 +1,7 @@
 "use client";
 
 import PlotlyChart from "./PlotlyChart";
+import { useThemeColors } from "@/lib/useThemeColors";
 
 interface RadarChartProps {
   data: { data: any[]; layout: Record<string, any> } | null;
@@ -9,6 +10,8 @@ interface RadarChartProps {
 }
 
 export default function RadarChart({ data, error, loading }: RadarChartProps) {
+  const colors = useThemeColors();
+
   if (loading) return <p className="text-center text-gray-500 py-8">Carregando gráfico radar...</p>;
   if (error) return <p className="text-center text-red-500 py-8">{error}</p>;
   if (!data) return null;
@@ -22,6 +25,13 @@ export default function RadarChart({ data, error, loading }: RadarChartProps) {
             ...data.layout,
             width: 870,
             height: 870,
+            paper_bgcolor: "transparent",
+            plot_bgcolor: "transparent",
+            font: {
+              family: "Inter, system-ui, sans-serif",
+              color: colors.textPrimary,
+            },
+            colorway: [colors.brandBlue, colors.brandRed, colors.brandGreen, colors.brandGold],
           }}
         />
       </div>

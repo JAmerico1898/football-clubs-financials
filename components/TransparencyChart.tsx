@@ -10,6 +10,7 @@ import {
   ResponsiveContainer,
   LabelList,
 } from "recharts";
+import { useThemeColors } from "@/lib/useThemeColors";
 
 export interface TransparencyDatum {
   club: string;
@@ -67,7 +68,7 @@ function ClubBadgeTick({ x, y, payload, iconMap }: any) {
 }
 
 function renderTopLabel(props: any) {
-  const { x, y, width, index, data } = props;
+  const { x, y, width, index, data, fillColor } = props;
   if (!data || !data[index]) return null;
   const total = data[index].total;
   return (
@@ -77,7 +78,7 @@ function renderTopLabel(props: any) {
       textAnchor="middle"
       fontSize={11}
       fontWeight="bold"
-      fill="#333"
+      fill={fillColor || "#333"}
     >
       {total.toFixed(1)}
     </text>
@@ -85,6 +86,8 @@ function renderTopLabel(props: any) {
 }
 
 export default function TransparencyChart({ data, iconMap }: Props) {
+  const colors = useThemeColors();
+
   return (
     <div>
       <h2 className="text-lg font-bold text-center mb-4">
@@ -106,8 +109,9 @@ export default function TransparencyChart({ data, iconMap }: Props) {
               value: "Pontuação",
               angle: -90,
               position: "insideLeft",
-              style: { fontSize: 18, fontWeight: "bold" },
+              style: { fontSize: 18, fontWeight: "bold", fill: colors.textPrimary },
             }}
+            tick={{ fill: colors.textSecondary }}
           />
           <Tooltip content={<CustomTooltip />} />
           <Legend verticalAlign="top" wrapperStyle={{ paddingBottom: 30 }} />
@@ -130,7 +134,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             fill={COLORS.nivel3}
           >
             <LabelList
-              content={(props: any) => renderTopLabel({ ...props, data })}
+              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary })}
             />
           </Bar>
         </BarChart>
