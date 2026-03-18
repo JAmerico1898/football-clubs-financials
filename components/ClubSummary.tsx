@@ -1,27 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Club, getSummaryUrl } from "@/lib/clubs";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 interface ClubSummaryProps {
-  club: Club;
+  content: string | null;
+  loading?: boolean;
+  clubSelected?: boolean;
 }
 
-export default function ClubSummary({ club }: ClubSummaryProps) {
-  const [html, setHtml] = useState<string | null>(null);
-
-  useEffect(() => {
-    setHtml(null);
-    fetch(getSummaryUrl(club))
-      .then((res) => {
-        if (!res.ok) return null;
-        return res.text();
-      })
-      .then((text) => setHtml(text))
-      .catch(() => setHtml(null));
-  }, [club]);
-
-  if (!html) return null;
+export default function ClubSummary({ content, loading, clubSelected }: ClubSummaryProps) {
+  if (loading) return <p className="text-center text-gray-500 py-4">Carregando resumo...</p>;
+  if (!content && clubSelected) {
+    return <p className="text-center text-gray-500 italic py-4">Resumo não disponível para este clube.</p>;
+  }
+  if (!content) return null;
 
   return (
     <div
@@ -29,7 +22,8 @@ export default function ClubSummary({ club }: ClubSummaryProps) {
         [&_h4]:font-semibold [&_h4]:text-base [&_h4]:mt-2 [&_h4]:mb-1
         [&_p]:my-1 [&_p]:text-gray-700
         [&_b]:font-semibold"
-      dangerouslySetInnerHTML={{ __html: html }}
-    />
+    >
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown>
+    </div>
   );
 }
