@@ -93,7 +93,7 @@ export default function HorizontalBarChart({
           <span>{years.prior} (cor leve)</span>
         </div>
       </div>
-      <ResponsiveContainer width="100%" height={data.length * 55 + 60}>
+      <ResponsiveContainer width="100%" height={data.length * 52 + 57}>
         <BarChart data={data} layout="vertical" margin={{ top: 10, right: 40, bottom: 10, left: 220 }}>
           <XAxis
             type="number"
@@ -108,12 +108,12 @@ export default function HorizontalBarChart({
           />
           <Tooltip content={<CustomTooltip years={years} />} />
           <ReferenceLine x={0} stroke="var(--text-secondary)" />
-          <Bar dataKey="valCurrent" name={years.current} barSize={18}>
+          <Bar dataKey="valCurrent" name={years.current} barSize={17}>
             {data.map((d, i) => (
               <Cell key={`cur-${i}`} fill={categoryColors[d.category].dark} />
             ))}
           </Bar>
-          <Bar dataKey="valPrior" name={years.prior} barSize={18}>
+          <Bar dataKey="valPrior" name={years.prior} barSize={17}>
             {data.map((d, i) => (
               <Cell key={`pri-${i}`} fill={categoryColors[d.category].light} />
             ))}

@@ -123,6 +123,9 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
       <h2 className="text-[25px] font-bold text-center mb-1">
         {metric.label} — 2021 a {season}
       </h2>
+      <p className="text-center italic" style={{ color: "var(--text-secondary)", fontSize: 16, fontWeight: 600 }}>
+        Clube em destaque: {club.name}
+      </p>
       <p className="text-center text-sm italic mb-4" style={{ color: "var(--text-secondary)" }}>
         Valores em moeda constante (IPCA)
       </p>

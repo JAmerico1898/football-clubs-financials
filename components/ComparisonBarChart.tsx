@@ -45,10 +45,10 @@ function ClubIconTick(props: Record<string, unknown> & { data: BarDatum[] }) {
     <g transform={`translate(${x},${y + 4})`}>
       <image
         href={item.iconUrl}
-        x={-22}
+        x={-21}
         y={0}
-        width={44}
-        height={44}
+        width={41}
+        height={41}
         preserveAspectRatio="xMidYMid meet"
       />
     </g>
