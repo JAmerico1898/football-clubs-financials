@@ -10,17 +10,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import Papa from "papaparse";
-import { Club, clubs } from "@/lib/clubs";
+import { Club, clubs2024, type Season } from "@/lib/clubs";
+import { clubs2025 } from "@/lib/clubs2025";
 import { Metric, hasHistoricalData, formatValue, formatAxisValue } from "@/lib/metric-config";
 
 interface EvolutionLineChartProps {
   club: Club;
   metric: Metric;
+  season: Season;
 }
 
 const ACCENT = "#1565C0";
 const GRAY = "#CCCCCC";
-const YEARS = ["2021", "2022", "2023", "2024"];
 
 interface LineTooltipProps {
   active?: boolean;
@@ -63,14 +64,20 @@ function LineCustomTooltip({ active, payload, label, metric, selectedClub }: Lin
   );
 }
 
-export default function EvolutionLineChart({ club, metric }: EvolutionLineChartProps) {
+export default function EvolutionLineChart({ club, metric, season }: EvolutionLineChartProps) {
   const [data, setData] = useState<Record<string, string | number>[]>([]);
   const hasHistory = hasHistoricalData(metric);
+
+  const YEARS = season === "2025"
+    ? ["2021", "2022", "2023", "2024", "2025"]
+    : ["2021", "2022", "2023", "2024"];
+
+  const chartClubs = season === "2025" ? clubs2025 : clubs2024;
 
   useEffect(() => {
     if (!hasHistory) return;
 
-    fetch("/data/Painel_Consolidado_Moeda_Cte_2024.csv")
+    fetch(`/data/Painel_Consolidado_Moeda_Cte_${season}.csv`)
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");
@@ -85,7 +92,7 @@ export default function EvolutionLineChart({ club, metric }: EvolutionLineChartP
             (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
           );
           const point: Record<string, string | number> = { year };
-          clubs.forEach((c) => {
+          chartClubs.forEach((c) => {
             const colIdx = header.findIndex((h) => h.trim() === c.csvColumn);
             const raw = row && colIdx >= 0 ? row[colIdx] : "";
             point[c.name] = parseFloat(raw) || 0;
@@ -95,7 +102,8 @@ export default function EvolutionLineChart({ club, metric }: EvolutionLineChartP
 
         setData(chartData);
       });
-  }, [metric, hasHistory]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [metric, hasHistory, season]);
 
   if (!hasHistory) {
     return (
@@ -113,7 +121,7 @@ export default function EvolutionLineChart({ club, metric }: EvolutionLineChartP
   return (
     <div>
       <h2 className="text-[25px] font-bold text-center mb-1">
-        {metric.label} (2021-2024)
+        {metric.label} — 2021 a {season}
       </h2>
       <p className="text-center text-gray-500 text-sm italic mb-4">
         Valores em moeda constante (IPCA)
@@ -140,7 +148,7 @@ export default function EvolutionLineChart({ club, metric }: EvolutionLineChartP
               )
             }
           />
-          {clubs.map((c) => (
+          {chartClubs.map((c) => (
             <Line
               key={c.name}
               type="monotone"
