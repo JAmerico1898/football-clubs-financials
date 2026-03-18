@@ -29,6 +29,7 @@ export default function SankeyChart({ clubName, data, error, loading }: SankeyCh
           layout={{
             ...data.layout,
             height: 600,
+            margin: { t: 40, b: 20, l: 0, r: 0, ...data.layout.margin },
             autosize: true,
             paper_bgcolor: "transparent",
             plot_bgcolor: "transparent",
