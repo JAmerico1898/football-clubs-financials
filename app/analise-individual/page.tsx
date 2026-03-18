@@ -109,7 +109,7 @@ export default function AnaliseIndividual() {
           <hr className="mb-8" />
 
           <div className="flex flex-col gap-16">
-            <section>
+            <section className="card-surface">
               <SankeyChart
                 clubName={club.name}
                 data={sankeyData}
@@ -118,7 +118,7 @@ export default function AnaliseIndividual() {
               />
             </section>
 
-            <section>
+            <section className="card-surface">
               <RadarChart
                 data={radarData}
                 error={radarError}
