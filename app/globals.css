@@ -2,28 +2,174 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background: #ffffff;
-  color: #111;
+/* ── Light theme (default) ── */
+:root {
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --brand-blue: #1565C0;
+  --brand-gold: #F9A825;
+  --brand-green: #2E7D32;
+  --brand-red: #C62828;
 }
 
+/* ── Dark theme ── */
+.dark {
+  --background: #020617;
+  --surface: #0f172a;
+  --border: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --brand-blue: #42a5f5;
+  --brand-gold: #fdd835;
+  --brand-green: #66bb6a;
+  --brand-red: #ef5350;
+}
+
+/* ── Base styles ── */
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+/* ── Dot grid background ── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.dark body::before {
+  background-image: radial-gradient(circle, #1e293b 1px, transparent 1px);
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* ── Nav card ── */
 @layer components {
   .nav-card {
-    @apply relative block rounded-xl border border-gray-200 bg-white p-5 shadow-sm
+    @apply relative block rounded-xl p-6 shadow-sm
            transition-all duration-200 ease-out overflow-hidden;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
   }
+
   .nav-card::before {
     content: "";
-    @apply absolute top-0 left-0 right-0 h-[3px] opacity-0 transition-opacity duration-200;
-    background: linear-gradient(90deg, #1565C0, #F9A825, #2E7D32);
+    @apply absolute top-0 left-0 bottom-0 w-1 rounded-full opacity-60 transition-opacity duration-200;
+    background-color: var(--card-accent, var(--brand-blue));
   }
+
   .nav-card:hover {
     @apply -translate-y-0.5 shadow-md;
   }
+
   .nav-card:hover::before {
     @apply opacity-100;
   }
+
   .nav-card:active {
     @apply scale-[0.98];
+  }
+
+  /* ── Card surface (reusable for controls/chart zones) ── */
+  .card-surface {
+    @apply rounded-xl shadow-sm p-6;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  /* ── Theme-aware select ── */
+  .select-themed {
+    @apply rounded-lg py-2.5 px-4 text-base transition-colors duration-150
+           focus:outline-none focus:ring-2;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    --tw-ring-color: rgba(21, 101, 192, 0.5);
+  }
+
+  .dark .select-themed {
+    --tw-ring-color: rgba(66, 165, 245, 0.5);
+  }
+
+  /* ── Pill toggle group ── */
+  .pill-group {
+    @apply inline-flex rounded-full p-1;
+    background-color: #f1f5f9;
+  }
+
+  .dark .pill-group {
+    background-color: #1e293b;
+  }
+
+  .pill-btn {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-colors;
+    color: var(--text-secondary);
+  }
+
+  .pill-btn:hover {
+    color: var(--text-primary);
+  }
+
+  .pill-btn-active {
+    @apply px-4 py-2 rounded-full text-sm font-semibold shadow-sm;
+    background-color: var(--surface);
+    color: var(--brand-blue);
+  }
+
+  .dark .pill-btn-active {
+    background-color: #334155;
+    color: #ffffff;
+  }
+
+  /* ── Alert boxes ── */
+  .alert-success {
+    @apply rounded-lg p-3 text-sm border;
+    background-color: var(--surface);
+    border-color: var(--brand-green);
+    color: var(--brand-green);
+    border-left: 4px solid var(--brand-green);
+  }
+
+  .alert-error {
+    @apply rounded-lg p-3 text-sm border;
+    background-color: var(--surface);
+    border-color: var(--brand-red);
+    color: var(--brand-red);
+    border-left: 4px solid var(--brand-red);
+  }
+
+  /* ── Skeleton loading ── */
+  .skeleton {
+    @apply animate-pulse rounded-md;
+    background-color: #e2e8f0;
+  }
+
+  .dark .skeleton {
+    background-color: #1e293b;
+  }
+
+  .skeleton-text {
+    @apply skeleton h-4 w-3/4 mx-auto;
+  }
+
+  .skeleton-chart {
+    @apply skeleton h-64 w-full;
   }
 }
