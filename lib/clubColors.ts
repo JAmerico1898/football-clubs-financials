@@ -2,10 +2,10 @@ type ColorName = "Red" | "Gray" | "Blue" | "Green" | "Black" | "Yellow" | "Golde
 
 const colorTones: Record<ColorName, { dark: string; light: string }> = {
   Red:    { dark: "#C0392B", light: "#E74C3C" },
-  Gray:   { dark: "#616161", light: "#9E9E9E" },
-  Blue:   { dark: "#1565C0", light: "#64B5F6" },
+  Gray:   { dark: "#616161", light: "#BDBDBD" },
+  Blue:   { dark: "#1565C0", light: "#42A5F5" },
   Green:  { dark: "#2E7D32", light: "#66BB6A" },
-  Black:  { dark: "#212121", light: "#616161" },
+  Black:  { dark: "#212121", light: "#757575" },
   Yellow: { dark: "#F9A825", light: "#FFF176" },
   Golden: { dark: "#BF8C00", light: "#FFD54F" },
 };
@@ -13,14 +13,14 @@ const colorTones: Record<ColorName, { dark: string; light: string }> = {
 const clubPrimaryColor: Record<string, ColorName> = {
   "Vasco":         "Black",
   "Athletico":     "Red",
-  "Atlético":      "Black",
+  "Atlético":      "Gray",
   "Atlético GO":   "Red",
   "Bahia":         "Blue",
-  "Botafogo":      "Black",
-  "Corinthians":   "Black",
+  "Botafogo":      "Gray",
+  "Corinthians":   "Gray",
   "Criciúma":      "Yellow",
   "Cruzeiro":      "Blue",
-  "Cuiabá":        "Green",
+  "Cuiabá":        "Golden",
   "Flamengo":      "Red",
   "Fluminense":    "Green",
   "Fortaleza":     "Blue",
@@ -30,6 +30,10 @@ const clubPrimaryColor: Record<string, ColorName> = {
   "Palmeiras":     "Green",
   "São Paulo":     "Red",
   "Vitória":       "Red",
+  "Ceará":         "Black",
+  "Mirassol":      "Yellow",
+  "Santos":        "Black",
+  "Sport":         "Red",
 };
 
 export function resolveClubColors(

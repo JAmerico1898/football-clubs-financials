@@ -32,7 +32,13 @@
       "Bash(sed -i 's/Receita Total/Receita Operacional/g' data/Painel_Consolidado_Moeda_Cte.csv data/Índices.csv)",
       "Bash(cd:*)",
       "Bash(find public/radar -name '*.json' -exec sed -i 's/Receita Total/Receita Operacional/g' {} +)",
-      "Bash(find public/summaries -name '*.md' -exec sed -i 's/Receita Total/Receita Operacional/g' {} +)"
+      "Bash(find public/summaries -name '*.md' -exec sed -i 's/Receita Total/Receita Operacional/g' {} +)",
+      "Bash(npx next:*)",
+      "Bash(ls \"C:/Users/felip/OneDrive/Área de Trabalho/José Américo/financials/football-clubs-financials/.env\"*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"require\\(''react-markdown''\\); require\\(''rehype-raw''\\); console.log\\(''OK''\\)\")",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)"
     ]
   }
 }

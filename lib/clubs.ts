@@ -1,4 +1,7 @@
+import { clubs2025 } from "./clubs2025";
+
 export type Season = "2024" | "2025";
+export type ScatterPeriod = "2025" | "2024" | "2025 & 2024";
 
 export interface Club {
   name: string;
@@ -61,4 +64,15 @@ export function getSummaryUrl(club: Club, season: Season = "2024"): string {
 
 export function getBarChartCsvUrl(season: Season): string {
   return `/data/Painel_Consolidado_Moeda_Cte_${season}.csv`;
+}
+
+export function getScatterCsvUrls(period: ScatterPeriod): string[] {
+  if (period === "2025") return ["/data/Índices_2025.csv"];
+  if (period === "2024") return ["/data/Índices_2024.csv"];
+  return ["/data/Índices_2025.csv", "/data/Índices_2024.csv"];
+}
+
+export function getScatterClubs(period: ScatterPeriod): Club[] {
+  if (period === "2025") return clubs2025;
+  return [...clubs2024, ...extraChartClubs];
 }

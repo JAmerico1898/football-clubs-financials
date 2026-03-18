@@ -12,7 +12,7 @@ import {
   ReferenceLine,
 } from "recharts";
 import Papa from "papaparse";
-import { Club } from "@/lib/clubs";
+import { Club, Season } from "@/lib/clubs";
 import { compareMetrics } from "@/lib/compare-chart-config";
 import { categoryColors } from "@/lib/bar-chart-config";
 import { resolveClubColors } from "@/lib/clubColors";
@@ -20,6 +20,7 @@ import { resolveClubColors } from "@/lib/clubColors";
 interface CompareBarChartProps {
   club1: Club;
   club2: Club;
+  season: Season;
 }
 
 interface BarDatum {
@@ -59,7 +60,7 @@ function CustomTooltip({
   );
 }
 
-export default function CompareBarChart({ club1, club2 }: CompareBarChartProps) {
+export default function CompareBarChart({ club1, club2, season }: CompareBarChartProps) {
   const [data, setData] = useState<BarDatum[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -71,7 +72,7 @@ export default function CompareBarChart({ club1, club2 }: CompareBarChartProps) 
     setError(null);
     setData(null);
 
-    fetch("/data/Índices_2024.csv")
+    fetch(`/data/Índices_${season}.csv`)
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados CSV");
         return res.text();
@@ -94,7 +95,7 @@ export default function CompareBarChart({ club1, club2 }: CompareBarChartProps) 
 
         const barData: BarDatum[] = compareMetrics.map((m) => {
           const row = rows.find(
-            (r) => r[2]?.trim() === m.csvKey && r[0]?.trim() === "2024",
+            (r) => r[2]?.trim() === m.csvKey && r[0]?.trim() === season,
           );
           return {
             label: m.label,
@@ -108,7 +109,7 @@ export default function CompareBarChart({ club1, club2 }: CompareBarChartProps) 
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [club1, club2]);
+  }, [club1, club2, season]);
 
   if (loading)
     return (
@@ -185,7 +186,7 @@ export default function CompareBarChart({ club1, club2 }: CompareBarChartProps) 
     <div>
       <div className="text-center mb-4">
         <p style={{ fontSize: 25, fontWeight: "bold" }}>
-          {club1.name} vs. {club2.name}
+          {club1.name} vs. {club2.name} — {season}
         </p>
         <p style={{ fontSize: 16 }}>(em R$ milhões)</p>
       </div>

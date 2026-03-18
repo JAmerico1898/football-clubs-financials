@@ -5,7 +5,7 @@
 
 ## Overview
 
-Módulo 3 is named **"Análise Conjunta"**. It allows the user to select a period, a club, an X-axis metric, and a Y-axis metric, then renders a **scatter plot** where each point represents a club. The chart also shows the **linear regression line**, **R²**, and **Pearson correlation coefficient**.
+Módulo 3 is named **"Análise Conjunta"**. It allows the user to select a period, an X-axis metric, and a Y-axis metric, then renders a **scatter plot** where each point represents a club. The chart also shows the **linear regression line**, **R²**, and **Pearson correlation coefficient**.
 
 The module supports three period options with distinct behaviour:
 
@@ -57,7 +57,7 @@ const clubes_2025 = [
 - When period is **2025 & 2024**: show the club icon from `/public/clubs/` if available; otherwise omit (the club highlight on the chart uses color, not a badge)
 
 ### Prompt behaviour
-- If period is selected but club, X metric, or Y metric is not yet chosen, show: *"Selecione um clube e as métricas dos eixos para visualizar."*
+- If period is selected but X metric, or Y metric is not yet chosen, show: *"Selecione as métricas dos eixos para visualizar."*
 
 ---
 
@@ -74,7 +74,7 @@ const clubes_2025 = [
 ---
 
 ## Metric Selectors
-
+One for period and
 Two independent dropdowns — one for X-axis, one for Y-axis. These are the same across all periods.
 
 ### X-axis metrics (`variáveis_conjuntas_x`)
@@ -94,7 +94,7 @@ Two independent dropdowns — one for X-axis, one for Y-axis. These are the same
 - Bilheteria média Série A (R$ mil/jogo)
 - Receita c/ Match-Day + Sócio-Torcedor
 
-> The same metric can appear on both axes. The spec does not restrict this.
+> Prevent the same metric from appearing on both axes.
 
 ---
 
@@ -114,11 +114,6 @@ This section applies when the selected period is **2025** or **2024** (single-se
 - Each point is rendered using the club's **badge icon** from `/public/clubs/`
 - Render each club as a **separate single-point trace** with the image URL as the marker (most reliable Plotly approach)
 - Consistent icon size: 32–40px
-
-### Selected club highlight
-- The selected club's point is **larger** (1.5× standard size) with a visible **border/outline**
-- All other clubs display at standard size with no border
-- Switching the selected club updates the highlight without re-fetching data
 
 ### Regression line
 - Simple OLS linear regression computed from all valid `(x, y)` points in the selected season
@@ -162,7 +157,7 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
 ### Data
 - Load **both** `/public/data/Índices_2025.csv` and `/public/data/Índices_2024.csv`
 - Combine into a single dataset: each observation is a `(club, year, x, y)` tuple
-- Up to ~38 points total (19 clubs × 2 years; fewer if a club only appears in one season)
+- Up to ~38 points total (19 clubs per year)
 - Clubs with missing values for either metric are excluded observation-by-observation (a club may appear for one year but not the other)
 
 ### Markers — colored dots, no badges
@@ -171,13 +166,6 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
   - 2025 points: **blue** (suggested: `#1565C0`)
   - 2024 points: **orange** (suggested: `#E65100`)
 - All points use the same dot size (standard, no size distinction by default)
-
-### Selected club highlight
-- The selected club's points (one or two, depending on availability) are highlighted:
-  - **Larger dot size** (1.5× standard)
-  - **Visible border/outline** around the dot
-  - Both the 2025 and 2024 points for the selected club are highlighted simultaneously
-- All other clubs' points display at standard size with no border
 
 ### Regression line
 - Computed from **all valid observations across both years** (2025 + 2024 combined)
@@ -208,14 +196,9 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
 
 ## Tests — Módulo 3
 
-### Period and club selectors
+### Period selector
 - [ ] Period selector shows three options: 2025, 2024, 2025 & 2024
 - [ ] Default period is 2025
-- [ ] Period 2025 → club dropdown shows `clubes_2025` (Vasco first, then A–Z)
-- [ ] Period 2024 → club dropdown shows `clubes_2024` (Vasco first, then A–Z)
-- [ ] Period 2025 & 2024 → club dropdown shows union of both lists (Vasco first, then A–Z, deduplicated)
-- [ ] Changing period resets selected club and updates dropdown
-- [ ] Selecting a club in periods 2025 or 2024 shows its badge icon
 - [ ] If any selector is unset, prompt message is shown and no chart renders
 
 ### File loading
@@ -227,8 +210,6 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
 ### Scatter plot — single season (2025 or 2024)
 - [ ] All clubs for the selected season appear as one point each
 - [ ] Each point renders the club's badge icon as the marker
-- [ ] Selected club's point is larger with a visible border
-- [ ] Switching selected club updates highlight without re-fetching
 - [ ] Switching metrics reloads chart data and updates axis labels and title
 - [ ] Chart title includes the selected year
 
@@ -237,7 +218,6 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
 - [ ] **No badge icons** — plain dots only
 - [ ] 2025 points are blue, 2024 points are orange
 - [ ] A legend identifies the two colors (2025 / 2024)
-- [ ] Selected club's points (both years if available) are larger with a visible border
 - [ ] Tooltip shows club name, year, X value, Y value
 - [ ] Chart title reads "{Y metric} vs. {X metric} — 2025 & 2024"
 
@@ -256,7 +236,7 @@ This section applies **only** when the selected period is **2025 & 2024** (combi
 - [ ] X-axis label matches selected X metric
 - [ ] Y-axis label matches selected Y metric
 - [ ] Chart title format is correct for each period mode
-- [ ] Axis tick values formatted correctly (monetary, euro, ratio, integer)
+- [ ] Axis tick values formatted correctly (monetary, reais, ratio, integer)
 
 ### Robustness
 - [ ] Clubs with missing metric values are excluded per-observation (not per-club)
@@ -291,7 +271,7 @@ npm install react-plotly.js plotly.js
 
 ## Notes for claude-code
 
-- Reuse the club selector component from Módulos 1/2.
+- No club selector component in this module.
 - For single-season mode, render each club as a **separate single-point Plotly trace** with the badge image URL — most reliable approach for per-point icons in Plotly.js.
 - For 2025 & 2024 combined mode, switch to **two multi-point traces** (one per year), each using plain `marker: { color, size, line }` — no image markers. This is simpler and more performant for ~38 points.
 - Compute regression and correlation **after** filtering out observations with `null`, `undefined`, or `NaN` for either metric, across both datasets in combined mode.
