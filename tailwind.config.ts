@@ -5,13 +5,19 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        "brand-red": "#C62828",
-        "brand-blue": "#1565C0",
-        "brand-green": "#2E7D32",
-        "brand-gold": "#F9A825",
+        background: "var(--background)",
+        surface: "var(--surface)",
+        border: "var(--border)",
+        "text-primary": "var(--text-primary)",
+        "text-secondary": "var(--text-secondary)",
+        "brand-red": "var(--brand-red)",
+        "brand-blue": "var(--brand-blue)",
+        "brand-green": "var(--brand-green)",
+        "brand-gold": "var(--brand-gold)",
       },
     },
   },
