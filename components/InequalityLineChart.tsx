@@ -52,7 +52,7 @@ function CustomTooltip({ active, payload, label, lines, formatDecimals }: Toolti
   if (!active || !payload || payload.length === 0) return null;
 
   return (
-    <div className="bg-white border border-gray-200 rounded shadow-md px-3 py-2 text-xs">
+    <div className="rounded shadow-md px-3 py-2 text-xs" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-bold mb-1 text-sm">{label}</p>
       {payload.map((p) => {
         if (p.value == null) return null;
@@ -103,7 +103,7 @@ export default function InequalityLineChart({
       <h3 className="text-lg font-bold text-center mb-3">{title}</h3>
       <ResponsiveContainer width="100%" height={350}>
         <LineChart data={data} margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
-          <XAxis dataKey="season" tick={{ fontSize: 12 }} />
+          <XAxis dataKey="season" tick={{ fill: "var(--text-secondary)", fontSize: 12 }} />
           <YAxis
             label={{
               value: yAxisLabel,
@@ -111,7 +111,7 @@ export default function InequalityLineChart({
               position: "insideLeft",
               style: { fontSize: 16, fontWeight: 600, textAnchor: "middle" },
             }}
-            tick={{ fontSize: 12 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 12 }}
             width={70}
             tickFormatter={(v) =>
               formatDecimals <= 2
@@ -146,7 +146,7 @@ export default function InequalityLineChart({
         </LineChart>
       </ResponsiveContainer>
       {footnote && (
-        <div className="text-center text-gray-400 text-xs italic mt-1">
+        <div className="text-center text-xs italic mt-1" style={{ color: "var(--text-secondary)" }}>
           {footnote.split("\n").map((line, i) => (
             <p key={i}>{line}</p>
           ))}

@@ -48,7 +48,7 @@ function CustomTooltip({
 }: any) {
   if (!active || !payload || payload.length === 0) return null;
   return (
-    <div className="bg-white border border-gray-200 rounded shadow px-3 py-2 text-sm">
+    <div className="rounded shadow px-3 py-2 text-sm" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-semibold mb-1">{label}</p>
       {payload.map((entry: any) => (
         <p key={entry.dataKey} style={{ color: entry.fill || entry.color }}>
@@ -113,7 +113,7 @@ export default function CompareBarChart({ club1, club2, season }: CompareBarChar
 
   if (loading)
     return (
-      <p className="text-center text-gray-500 py-8">
+      <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>
         Carregando gráfico de barras...
       </p>
     );
@@ -175,7 +175,7 @@ export default function CompareBarChart({ club1, club2, season }: CompareBarChar
         dominantBaseline="middle"
         fontSize={13}
         fontWeight={500}
-        fill="#333"
+        fill="var(--text-secondary)"
       >
         {value}
       </text>
@@ -228,7 +228,7 @@ export default function CompareBarChart({ club1, club2, season }: CompareBarChar
           <XAxis
             type="number"
             tickFormatter={(v: number) => formatBRL(v)}
-            style={{ fontSize: 12 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 12 }}
           />
           <YAxis
             type="category"
@@ -244,7 +244,7 @@ export default function CompareBarChart({ club1, club2, season }: CompareBarChar
               />
             }
           />
-          <ReferenceLine x={0} stroke="#666" />
+          <ReferenceLine x={0} stroke="var(--text-secondary)" />
           <Bar dataKey="valClub1" name={club1.name} barSize={16}>
             {displayData.map((d, i) => (
               <Cell

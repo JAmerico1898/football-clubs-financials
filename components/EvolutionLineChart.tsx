@@ -47,14 +47,14 @@ function LineCustomTooltip({ active, payload, label, metric, selectedClub }: Lin
   );
 
   return (
-    <div className="bg-white border border-gray-200 rounded shadow-md px-3 py-2 text-xs max-h-[400px] overflow-y-auto">
+    <div className="rounded shadow-md px-3 py-2 text-xs max-h-[400px] overflow-y-auto" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-bold mb-1 text-sm">{label}</p>
       {entries.map((entry: { name: string; value: number }, idx: number) => {
         const isSelected = entry.name === selectedClub;
         return (
           <p
             key={entry.name}
-            style={{ fontWeight: isSelected ? 700 : 400, color: isSelected ? ACCENT : "#555" }}
+            style={{ fontWeight: isSelected ? 700 : 400, color: isSelected ? ACCENT : "var(--text-secondary)" }}
           >
             {idx + 1}. {entry.name}: {formatValue(entry.value, metric.format)}
           </p>
@@ -109,7 +109,7 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
     return (
       <div className="text-center py-12">
         <h2 className="text-[25px] font-bold mb-4">{metric.label}</h2>
-        <p className="text-gray-500 italic">
+        <p className="italic" style={{ color: "var(--text-secondary)" }}>
           Dados históricos não disponíveis para esta métrica
         </p>
       </div>
@@ -123,15 +123,15 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
       <h2 className="text-[25px] font-bold text-center mb-1">
         {metric.label} — 2021 a {season}
       </h2>
-      <p className="text-center text-gray-500 text-sm italic mb-4">
+      <p className="text-center text-sm italic mb-4" style={{ color: "var(--text-secondary)" }}>
         Valores em moeda constante (IPCA)
       </p>
       <ResponsiveContainer width="100%" height={450}>
         <LineChart data={data} margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
-          <XAxis dataKey="year" />
+          <XAxis dataKey="year" tick={{ fill: "var(--text-secondary)", fontSize: 12 }} />
           <YAxis
             tickFormatter={(v) => formatAxisValue(v, metric.format)}
-            tick={{ fontSize: 13 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 13 }}
             width={80}
           />
           <Tooltip

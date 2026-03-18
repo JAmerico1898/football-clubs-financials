@@ -47,10 +47,10 @@ function CustomTooltip({ active, payload, label, years }: any) {
     return 0;
   });
   return (
-    <div className="bg-white border border-gray-200 rounded shadow px-3 py-2 text-sm">
+    <div className="rounded shadow px-3 py-2 text-sm" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-semibold mb-1">{label}</p>
       {sorted.map((entry: any) => (
-        <p key={entry.dataKey} style={{ color: entry.dataKey === "valPrior" ? "#999" : entry.color }}>
+        <p key={entry.dataKey} style={{ color: entry.dataKey === "valPrior" ? "var(--text-secondary)" : entry.color }}>
           {entry.name}: {formatBRL(Number(entry.value))}
         </p>
       ))}
@@ -68,7 +68,7 @@ export default function HorizontalBarChart({
 }: HorizontalBarChartProps) {
   const years = yearLabels(season);
 
-  if (loading) return <p className="text-center text-gray-500 py-8">Carregando gráfico de barras...</p>;
+  if (loading) return <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>Carregando gráfico de barras...</p>;
   if (error) return <p className="text-center text-red-500 py-8">{error}</p>;
   if (!data) return null;
 
@@ -98,16 +98,16 @@ export default function HorizontalBarChart({
           <XAxis
             type="number"
             tickFormatter={(v: number) => formatBRL(v)}
-            style={{ fontSize: 12 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 12 }}
           />
           <YAxis
             type="category"
             dataKey="label"
             width={210}
-            tick={{ fontSize: 14, fontWeight: 500 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 14, fontWeight: 500 }}
           />
           <Tooltip content={<CustomTooltip years={years} />} />
-          <ReferenceLine x={0} stroke="#666" />
+          <ReferenceLine x={0} stroke="var(--text-secondary)" />
           <Bar dataKey="valCurrent" name={years.current} barSize={18}>
             {data.map((d, i) => (
               <Cell key={`cur-${i}`} fill={categoryColors[d.category].dark} />

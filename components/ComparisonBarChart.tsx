@@ -65,10 +65,10 @@ function CustomTooltip({ active, payload, metric }: CustomTooltipProps) {
   if (!active || !payload || !payload[0]) return null;
   const d = payload[0].payload;
   return (
-    <div className="bg-white border border-gray-200 rounded shadow-md px-3 py-2 text-sm">
+    <div className="rounded shadow-md px-3 py-2 text-sm" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-bold mb-1">{d.name}</p>
       <p>{formatValue(d.value, metric.format)}</p>
-      <p className="text-gray-500">Ranking: {d.rank}º</p>
+      <p style={{ color: "var(--text-secondary)" }}>Ranking: {d.rank}º</p>
     </div>
   );
 }
@@ -174,10 +174,10 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
           <YAxis
             domain={yDomain}
             tickFormatter={(v) => formatAxisValue(v, metric.format)}
-            tick={{ fontSize: 13 }}
+            tick={{ fill: "var(--text-secondary)", fontSize: 13 }}
             width={80}
           />
-          {hasNegatives && <ReferenceLine y={0} stroke="#999" strokeWidth={1} />}
+          {hasNegatives && <ReferenceLine y={0} stroke="var(--text-secondary)" strokeWidth={1} />}
           <Tooltip
             content={(props) => (
               <CustomTooltip
@@ -203,7 +203,7 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
       {missingClubs.length > 0 && (
         <div className="-mt-6 ml-[100px] space-y-0.5">
           {missingClubs.map((name) => (
-            <p key={name} className="text-gray-500 text-xs italic">
+            <p key={name} className="text-xs italic" style={{ color: "var(--text-secondary)" }}>
               {name} não reportou esse dado em suas Demonstrações Financeiras publicadas.
             </p>
           ))}
