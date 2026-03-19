@@ -25,6 +25,7 @@ interface InequalityLineChartProps {
   lines: LineConfig[];
   formatDecimals: number;
   footnote?: string;
+  yDomain?: [number, number];
 }
 
 function FlagImg({ code, size = 18 }: { code: string; size?: number }) {
@@ -97,6 +98,7 @@ export default function InequalityLineChart({
   lines,
   formatDecimals,
   footnote,
+  yDomain,
 }: InequalityLineChartProps) {
   return (
     <div>
@@ -105,6 +107,7 @@ export default function InequalityLineChart({
         <LineChart data={data} margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
           <XAxis dataKey="season" tick={{ fill: "var(--text-secondary)", fontSize: 12 }} />
           <YAxis
+            domain={yDomain}
             label={{
               value: yAxisLabel,
               angle: -90,

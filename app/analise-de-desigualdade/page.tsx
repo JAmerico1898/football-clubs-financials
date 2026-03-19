@@ -5,7 +5,19 @@ import Papa from "papaparse";
 import BackButton from "@/components/BackButton";
 import InequalityLineChart, { LineConfig } from "@/components/InequalityLineChart";
 
-const SEASONS = ["2020/21", "2021/22", "2022/23", "2023/24", "2024/25"];
+type MetricKey = "gini" | "maxMin" | "c3" | "c5";
+
+interface MetricData {
+  turnover: Record<string, string | number | null>[];
+  broadcast: Record<string, string | number | null>[];
+}
+
+const METRIC_LABELS: Record<MetricKey, string> = {
+  gini: "Gini Index",
+  maxMin: "Max/Min Ratio",
+  c3: "C3 Ratio",
+  c5: "C5 Ratio",
+};
 
 const TURNOVER_LINES: LineConfig[] = [
   { dataKey: "brasileirao", label: "Brasileirão", color: "#2E7D32", countryCode: "br" },
@@ -19,85 +31,116 @@ const BROADCAST_LINES: LineConfig[] = [
   { dataKey: "seriea", label: "Serie A", color: "#1565C0", countryCode: "it" },
 ];
 
-const TURNOVER_FOOTNOTE = "A comparação usa 2021 para o Brasil e 2020/21 para a Europa.\nReceita Operacional não disponível para as demais ligas europeias.";
+const TURNOVER_FOOTNOTE = "A comparação usa 2021 para o Brasil e 2020/21 para a Europa.\nReceita Total não disponível para as demais ligas europeias.";
 const BROADCAST_FOOTNOTE = "Receita de Transmissão não disponível para a liga brasileira.";
 
-// Column ranges for each league in the CSV
-// Brasileirão turnover: cols 0-3 (4 years: 2021-2024 → seasons[0]-[3])
-// EPL turnover: cols 4-8 (5 years)
-// La Liga broadcast: cols 9-13
-// Bundesliga broadcast: cols 14-18
-// Serie A broadcast: cols 19-23
-// EPL broadcast: cols 24-28
-
-function parseLeagueValues(row: string[], startCol: number, count: number): (number | null)[] {
-  const values: (number | null)[] = [];
-  for (let i = 0; i < count; i++) {
-    const raw = row[startCol + i];
-    const val = parseFloat(raw);
-    values.push(isNaN(val) ? null : val);
-  }
-  return values;
+interface SectionConfig {
+  key: MetricKey;
+  heading: string;
+  explanation: string;
+  yAxisLabel: string;
+  turnoverTitle: string;
+  broadcastTitle: string;
+  formatDecimals: number;
+  yDomain?: [number, number];
 }
 
-function buildChartData(
-  giniRow: string[],
-  maxMinRow: string[]
-): {
-  giniTurnover: Record<string, string | number | null>[];
-  giniBroadcast: Record<string, string | number | null>[];
-  maxMinTurnover: Record<string, string | number | null>[];
-  maxMinBroadcast: Record<string, string | number | null>[];
-} {
-  // Parse gini values per league
-  const giniBR = parseLeagueValues(giniRow, 0, 4);
-  const giniEPL_T = parseLeagueValues(giniRow, 4, 5);
-  const giniLaLiga = parseLeagueValues(giniRow, 9, 5);
-  const giniBundesliga = parseLeagueValues(giniRow, 14, 5);
-  const giniSerieA = parseLeagueValues(giniRow, 19, 5);
-  const giniEPL_B = parseLeagueValues(giniRow, 24, 5);
+const SECTIONS: SectionConfig[] = [
+  {
+    key: "gini",
+    heading: "Índice de Gini",
+    explanation:
+      "O Índice de Gini mede a desigualdade na distribuição de receitas entre os clubes de uma liga. O valor varia de 0 (igualdade perfeita) a 1 (desigualdade máxima). Quanto maior o índice, mais concentrada é a riqueza na liga.",
+    yAxisLabel: "Índice de Gini",
+    turnoverTitle: "Índice de Gini — Receita Total",
+    broadcastTitle: "Índice de Gini — Receita de TV",
+    formatDecimals: 4,
+  },
+  {
+    key: "maxMin",
+    heading: "Razão Máx/Mín",
+    explanation:
+      "O Índice Max-Min compara a receita do clube mais rico com a do clube mais pobre da liga. Quanto maior o valor, maior a disparidade entre o topo e a base da competição.",
+    yAxisLabel: "Razão Máx/Mín",
+    turnoverTitle: "Razão Máx/Mín — Receita Total",
+    broadcastTitle: "Razão Máx/Mín — Receita de TV",
+    formatDecimals: 2,
+  },
+  {
+    key: "c3",
+    heading: "Razão C3",
+    explanation:
+      "A Razão C3 divide a soma da receita dos três clubes de maior arrecadação pela receita total da competição. Quanto maior o valor, mais concentrada é a receita nos três maiores clubes.",
+    yAxisLabel: "Razão C3",
+    turnoverTitle: "Razão C3 — Receita Total",
+    broadcastTitle: "Razão C3 — Receita de TV",
+    formatDecimals: 4,
+    yDomain: [0, 1],
+  },
+  {
+    key: "c5",
+    heading: "Razão C5",
+    explanation:
+      "A Razão C5 divide a soma da receita dos cinco clubes de maior arrecadação pela receita total da competição. Quanto maior o valor, mais concentrada é a receita nos cinco maiores clubes.",
+    yAxisLabel: "Razão C5",
+    turnoverTitle: "Razão C5 — Receita Total",
+    broadcastTitle: "Razão C5 — Receita de TV",
+    formatDecimals: 4,
+    yDomain: [0, 1],
+  },
+];
 
-  // Parse max-min values per league
-  const mmBR = parseLeagueValues(maxMinRow, 0, 4);
-  const mmEPL_T = parseLeagueValues(maxMinRow, 4, 5);
-  const mmLaLiga = parseLeagueValues(maxMinRow, 9, 5);
-  const mmBundesliga = parseLeagueValues(maxMinRow, 14, 5);
-  const mmSerieA = parseLeagueValues(maxMinRow, 19, 5);
-  const mmEPL_B = parseLeagueValues(maxMinRow, 24, 5);
+function parseAllMetrics(rows: string[][]): Record<MetricKey, MetricData> {
+  const result = {} as Record<MetricKey, MetricData>;
 
-  const giniTurnover = SEASONS.map((season, i) => ({
-    season,
-    brasileirao: i < 4 ? giniBR[i] : null,
-    epl_turnover: giniEPL_T[i],
-  }));
+  for (const [key, label] of Object.entries(METRIC_LABELS) as [MetricKey, string][]) {
+    const labelIdx = rows.findIndex((r) => r[0]?.trim() === label);
+    if (labelIdx < 0) throw new Error(`Label "${label}" não encontrado no CSV`);
 
-  const giniBroadcast = SEASONS.map((season, i) => ({
-    season,
-    epl_broadcast: giniEPL_B[i],
-    laliga: giniLaLiga[i],
-    bundesliga: giniBundesliga[i],
-    seriea: giniSerieA[i],
-  }));
+    // Skip label row and header row, read 5 data rows
+    const dataRows = rows.slice(labelIdx + 2, labelIdx + 7);
 
-  const maxMinTurnover = SEASONS.map((season, i) => ({
-    season,
-    brasileirao: i < 4 ? mmBR[i] : null,
-    epl_turnover: mmEPL_T[i],
-  }));
+    const turnover: Record<string, string | number | null>[] = [];
+    const broadcast: Record<string, string | number | null>[] = [];
 
-  const maxMinBroadcast = SEASONS.map((season, i) => ({
-    season,
-    epl_broadcast: mmEPL_B[i],
-    laliga: mmLaLiga[i],
-    bundesliga: mmBundesliga[i],
-    seriea: mmSerieA[i],
-  }));
+    for (const row of dataRows) {
+      const seasonRaw = row[0]?.trim();
+      if (!seasonRaw) continue;
+      // Extract end year: "2020/21" → "2021"
+      const season = seasonRaw.includes("/")
+        ? "20" + seasonRaw.split("/")[1]
+        : seasonRaw;
 
-  return { giniTurnover, giniBroadcast, maxMinTurnover, maxMinBroadcast };
+      const parseVal = (col: number): number | null => {
+        const raw = row[col];
+        if (raw == null || raw.trim() === "") return null;
+        const val = parseFloat(raw);
+        return isNaN(val) ? null : val;
+      };
+
+      turnover.push({
+        season,
+        brasileirao: parseVal(1),
+        epl_turnover: parseVal(2),
+      });
+
+      broadcast.push({
+        season,
+        epl_broadcast: parseVal(3),
+        laliga: parseVal(4),
+        bundesliga: parseVal(5),
+        seriea: parseVal(6),
+      });
+    }
+
+    result[key] = { turnover, broadcast };
+  }
+
+  return result;
 }
 
 export default function AnaliseDeDesigualdade() {
-  const [chartData, setChartData] = useState<ReturnType<typeof buildChartData> | null>(null);
+  const [metrics, setMetrics] = useState<Record<MetricKey, MetricData> | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -110,23 +153,7 @@ export default function AnaliseDeDesigualdade() {
         const csvText = raw.replace(/^\uFEFF/, "");
         const parsed = Papa.parse(csvText, { header: false, skipEmptyLines: true });
         const rows = parsed.data as string[][];
-
-        // Find label rows dynamically
-        const giniLabelIdx = rows.findIndex((r) => r[0]?.trim() === "Gini Index");
-        const maxMinLabelIdx = rows.findIndex((r) => r[0]?.trim() === "Max/Min Ratio");
-
-        if (giniLabelIdx < 0 || maxMinLabelIdx < 0) {
-          throw new Error("CSV com formato inesperado: labels não encontrados");
-        }
-
-        const giniRow = rows[giniLabelIdx + 1];
-        const maxMinRow = rows[maxMinLabelIdx + 1];
-
-        if (!giniRow || !maxMinRow) {
-          throw new Error("CSV com formato inesperado: linhas de valores ausentes");
-        }
-
-        setChartData(buildChartData(giniRow, maxMinRow));
+        setMetrics(parseAllMetrics(rows));
       })
       .catch((err) => setError(err.message));
   }, []);
@@ -146,84 +173,49 @@ export default function AnaliseDeDesigualdade() {
         <p className="text-center py-8" style={{ color: "var(--brand-red)" }}>{error}</p>
       )}
 
-      {!chartData && !error && (
+      {!metrics && !error && (
         <p className="text-center py-8" style={{ color: "var(--text-secondary)" }}>Carregando...</p>
       )}
 
-      {chartData && (
+      {metrics && (
         <div className="space-y-12">
-          {/* Section 1: Gini Index */}
-          <section>
-            <h2
-              className="text-xl font-bold mb-2"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Índice de Gini
-            </h2>
-            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-              O Índice de Gini mede a desigualdade na distribuição de receitas entre os clubes de uma liga.
-              Valores mais próximos de 0 indicam maior igualdade, enquanto valores mais próximos de 1
-              indicam maior concentração de receita em poucos clubes.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="card-surface mb-6">
-                <InequalityLineChart
-                  title="Índice de Gini — Receita Operacional"
-                  yAxisLabel="Gini"
-                  data={chartData.giniTurnover}
-                  lines={TURNOVER_LINES}
-                  formatDecimals={4}
-                  footnote={TURNOVER_FOOTNOTE}
-                />
+          {SECTIONS.map((section) => (
+            <section key={section.key}>
+              <h2
+                className="text-xl font-bold mb-2"
+                style={{ color: "var(--text-primary)" }}
+              >
+                {section.heading}
+              </h2>
+              <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
+                {section.explanation}
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="card-surface mb-6">
+                  <InequalityLineChart
+                    title={section.turnoverTitle}
+                    yAxisLabel={section.yAxisLabel}
+                    data={metrics[section.key].turnover}
+                    lines={TURNOVER_LINES}
+                    formatDecimals={section.formatDecimals}
+                    footnote={TURNOVER_FOOTNOTE}
+                    yDomain={section.yDomain}
+                  />
+                </div>
+                <div className="card-surface mb-6">
+                  <InequalityLineChart
+                    title={section.broadcastTitle}
+                    yAxisLabel={section.yAxisLabel}
+                    data={metrics[section.key].broadcast}
+                    lines={BROADCAST_LINES}
+                    formatDecimals={section.formatDecimals}
+                    footnote={BROADCAST_FOOTNOTE}
+                    yDomain={section.yDomain}
+                  />
+                </div>
               </div>
-              <div className="card-surface mb-6">
-                <InequalityLineChart
-                  title="Índice de Gini — Receita de Transmissão"
-                  yAxisLabel="Gini"
-                  data={chartData.giniBroadcast}
-                  lines={BROADCAST_LINES}
-                  formatDecimals={4}
-                  footnote={BROADCAST_FOOTNOTE}
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* Section 2: Máx/Mín Ratio */}
-          <section>
-            <h2
-              className="text-xl font-bold mb-2"
-              style={{ color: "var(--text-primary)" }}
-            >
-              Razão Máx/Mín
-            </h2>
-            <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-              A Razão Máx/Mín divide a maior receita pela menor receita.
-              Quanto maior o valor, maior a disparidade entre o topo e a base da competição.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="card-surface mb-6">
-                <InequalityLineChart
-                  title="Razão Máx/Mín — Receita Operacional"
-                  yAxisLabel="Máx/Mín"
-                  data={chartData.maxMinTurnover}
-                  lines={TURNOVER_LINES}
-                  formatDecimals={2}
-                  footnote={TURNOVER_FOOTNOTE}
-                />
-              </div>
-              <div className="card-surface mb-6">
-                <InequalityLineChart
-                  title="Razão Máx/Mín — Receita de Transmissão"
-                  yAxisLabel="Máx/Mín"
-                  data={chartData.maxMinBroadcast}
-                  lines={BROADCAST_LINES}
-                  formatDecimals={2}
-                  footnote={BROADCAST_FOOTNOTE}
-                />
-              </div>
-            </div>
-          </section>
+            </section>
+          ))}
         </div>
       )}
     </main>
