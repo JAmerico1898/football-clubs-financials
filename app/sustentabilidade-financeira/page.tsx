@@ -35,7 +35,14 @@ export default function SustentabilidadeFinanceiraPage() {
   );
 
   return (
-    <main className="max-w-[1200px] mx-auto px-4 py-12">
+    <>
+      {/* Fixed grass background + light green overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img src="/grass-bg.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 light-page-bg-overlay" />
+      </div>
+
+      <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-12">
       <BackButton />
 
       <h1
@@ -161,5 +168,6 @@ export default function SustentabilidadeFinanceiraPage() {
         </>
       )}
     </main>
+    </>
   );
 }

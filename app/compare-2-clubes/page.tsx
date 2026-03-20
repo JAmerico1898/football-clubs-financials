@@ -35,7 +35,14 @@ export default function Compare2Clubes() {
   const club2 = clubList.find((c) => c.name === selected2) as Club | undefined;
 
   return (
-    <main className="max-w-[1200px] mx-auto px-4 py-8">
+    <>
+      {/* Fixed grass background + light green overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img src="/grass-bg.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 light-page-bg-overlay" />
+      </div>
+
+      <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
@@ -61,7 +68,7 @@ export default function Compare2Clubes() {
 
         <div className="flex flex-wrap justify-center items-start gap-8">
           {/* Club 1 selector */}
-          <div className="flex flex-col items-center gap-2 w-[200px]">
+          <div className="flex flex-col items-center gap-2 w-[250px]">
             <select
               value={selected1}
               onChange={(e) => setSelected1(e.target.value)}
@@ -88,7 +95,7 @@ export default function Compare2Clubes() {
           <span className="text-2xl font-bold mt-2" style={{ color: "var(--text-secondary)" }}>vs.</span>
 
           {/* Club 2 selector */}
-          <div className="flex flex-col items-center gap-2 w-[200px]">
+          <div className="flex flex-col items-center gap-2 w-[250px]">
             <select
               value={selected2}
               onChange={(e) => setSelected2(e.target.value)}
@@ -127,5 +134,6 @@ export default function Compare2Clubes() {
         </div>
       )}
     </main>
+    </>
   );
 }

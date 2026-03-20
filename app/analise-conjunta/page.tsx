@@ -32,7 +32,14 @@ export default function AnaliseConjunta() {
   }
 
   return (
-    <main className="max-w-[1200px] mx-auto px-4 py-8">
+    <>
+      {/* Fixed grass background + light green overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img src="/grass-bg.jpg" alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 light-page-bg-overlay" />
+      </div>
+
+      <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-6" style={{ color: "var(--text-primary)" }}>
@@ -107,5 +114,6 @@ export default function AnaliseConjunta() {
         </div>
       )}
     </main>
+    </>
   );
 }

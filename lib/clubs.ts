@@ -62,6 +62,10 @@ export function getSummaryUrl(club: Club, season: Season = "2024"): string {
   return `/summaries/resumo_${club.fileKey.toLowerCase()}_${season}.md`;
 }
 
+export function getBackdropUrl(club: Club): string {
+  return `/clubs_backdrop/${club.fileKey.toLowerCase()}_backdrop.jpg`;
+}
+
 export function getBarChartCsvUrl(season: Season): string {
   return `/data/Painel_Consolidado_Moeda_Cte_${season}.csv`;
 }

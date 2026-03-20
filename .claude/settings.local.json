@@ -38,7 +38,8 @@
       "Bash(npm install:*)",
       "Bash(node -e \"require\\(''react-markdown''\\); require\\(''rehype-raw''\\); console.log\\(''OK''\\)\")",
       "Bash(npx tsc:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(find /c/Users/felip/OneDrive -name *.css -o -name *.scss -o -name globals.css)"
     ]
   }
 }

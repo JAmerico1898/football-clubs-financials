@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { clubs2024, DEFAULT_CLUB, getIconUrl, type Club, type Season } from "@/lib/clubs";
+import { clubs2024, DEFAULT_CLUB, getIconUrl, getBackdropUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
 import BackButton from "@/components/BackButton";
 import SankeyChart from "@/components/SankeyChart";
@@ -64,10 +64,20 @@ export default function AnaliseIndividual() {
         Explore as finanças dos clubes do Brasileirão
       </p>
 
-      <div className="card-surface mb-6">
+      <div className="card-surface mb-6 relative overflow-hidden">
+        {/* Club backdrop watermark */}
+        {club && (
+          <img
+            key={club.fileKey}
+            src={getBackdropUrl(club)}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-[0.15] pointer-events-none blur-[1px]"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          />
+        )}
         {/* Season selector */}
-        <div className="flex justify-center mb-4">
-          <div className="pill-group">
+        <div className="relative z-10 flex justify-center mb-4">
+          <div className="pill-group shadow-md">
             {(["2025", "2024"] as Season[]).map((s) => (
               <button
                 key={s}
@@ -81,11 +91,11 @@ export default function AnaliseIndividual() {
         </div>
 
         {/* Club dropdown + icon */}
-        <div className="flex flex-col items-center gap-4">
+        <div className="relative z-10 flex flex-col items-center gap-4">
           <select
             value={selectedName ?? ""}
             onChange={(e) => setSelectedName(e.target.value || null)}
-            className="select-themed"
+            className="select-themed shadow-md"
           >
             <option value="">Selecione um clube</option>
             {clubList.map((c) => (
