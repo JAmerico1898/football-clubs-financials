@@ -8,6 +8,7 @@ import SankeyChart from "@/components/SankeyChart";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 import ClubSummary from "@/components/ClubSummary";
+import MetricHighlights from "@/components/MetricHighlights";
 import { useModulo1Data } from "@/hooks/useModulo1Data";
 
 function getClubsForSeason(season: Season): Club[] {
@@ -42,7 +43,18 @@ export default function AnaliseIndividual() {
   }
 
   return (
-    <main className="max-w-[1200px] mx-auto px-4 py-8">
+    <>
+      {/* Fixed grass background + light green overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img
+          src="/grass-bg.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 light-page-bg-overlay" />
+      </div>
+
+    <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
       <BackButton />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
@@ -104,9 +116,10 @@ export default function AnaliseIndividual() {
       {/* Content — only rendered when a club is selected */}
       {club && (
         <>
-          <ClubSummary content={resumoHtml} loading={resumoLoading} clubSelected={!!club} />
-
-          <hr className="mb-8" />
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 mb-8">
+            <MetricHighlights barData={barData} loading={barLoading} season={season} />
+            <ClubSummary content={resumoHtml} loading={resumoLoading} clubSelected={!!club} />
+          </div>
 
           <div className="flex flex-col gap-16">
             <section className="card-surface relative isolate">
@@ -140,5 +153,6 @@ export default function AnaliseIndividual() {
         </>
       )}
     </main>
+    </>
   );
 }

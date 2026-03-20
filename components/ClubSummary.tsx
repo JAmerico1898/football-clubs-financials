@@ -19,7 +19,7 @@ export default function ClubSummary({ content, loading, clubSelected }: ClubSumm
 
   return (
     <div
-      className="max-w-2xl mx-auto mb-6 px-5 py-4 rounded-lg text-sm leading-relaxed
+      className="w-full mb-6 px-5 py-4 rounded-lg text-sm leading-relaxed
         [&_h4]:font-semibold [&_h4]:text-base [&_h4]:mt-2 [&_h4]:mb-1
         [&_p]:my-1 [&_b]:font-semibold"
       style={{
