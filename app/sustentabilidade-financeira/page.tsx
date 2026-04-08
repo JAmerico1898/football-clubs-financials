@@ -6,7 +6,7 @@ import BackButton from "@/components/BackButton";
 import SSFBarChart from "@/components/SSFBarChart";
 import SSFDetailTable from "@/components/SSFDetailTable";
 import { useSSFData } from "@/hooks/useSSFData";
-import { ssfClubs } from "@/lib/ssf-clubs";
+import { clubs2025 } from "@/lib/clubs2025";
 import { getIconUrl } from "@/lib/clubs";
 
 const DEFAULT_CLUB = "Vasco";
@@ -21,11 +21,11 @@ function fmtPct(v: number): string {
 
 export default function SustentabilidadeFinanceiraPage() {
   const [selectedClubName, setSelectedClubName] = useState(DEFAULT_CLUB);
-  const { chartData1, chartData2, chartData3, getClubDetails, loading, error } =
+  const { chartData1, chartData2, chartData3, rows, getClubDetails, loading, error } =
     useSSFData();
 
   const selectedClub = useMemo(
-    () => ssfClubs.find((c) => c.name === selectedClubName) ?? ssfClubs[0],
+    () => clubs2025.find((c) => c.name === selectedClubName) ?? clubs2025[0],
     [selectedClubName]
   );
 
@@ -141,7 +141,7 @@ export default function SustentabilidadeFinanceiraPage() {
                 value={selectedClubName}
                 onChange={(e) => setSelectedClubName(e.target.value)}
               >
-                {ssfClubs.map((c) => (
+                {clubs2025.map((c) => (
                   <option key={c.name} value={c.name}>
                     {c.name}
                   </option>
@@ -159,7 +159,7 @@ export default function SustentabilidadeFinanceiraPage() {
 
           {/* Section 4: Detail table */}
           {clubDetails ? (
-            <SSFDetailTable detail={clubDetails} />
+            <SSFDetailTable detail={clubDetails} rows={rows} csvColumn={selectedClub.csvColumn} />
           ) : (
             <p style={{ color: "var(--text-secondary)" }}>
               Selecione um clube para ver os detalhes.

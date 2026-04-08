@@ -45,7 +45,10 @@
       "Bash(find public/radar -name \"*.json\" -exec grep -l \"Custo das Atividades Esportivas\" {} \\\\;)",
       "Bash(find public/radar -name \"*.json\" -exec sed -i 's/Custo das Atividades Esportivas/Custo da Atividade Esportiva/g' {} +)",
       "Bash(find specs:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ls:*)"
     ]
   }
 }

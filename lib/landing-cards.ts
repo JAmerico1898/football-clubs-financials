@@ -52,7 +52,7 @@ export const landingCards: LandingCard[] = [
   {
     title: "Análise de Desigualdade",
     description:
-      "Evolução do Índice de Gini e da concentração de receitas no Brasil e na Europa.",
+      "Evolução da desigualdade financeira e esportiva entre os clubes do Brasileirão (2021–2025).",
     materialIcon: "stacked_line_chart",
     href: "/analise-de-desigualdade",
   },

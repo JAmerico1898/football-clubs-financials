@@ -4,11 +4,11 @@ import { useEffect, useState, useCallback } from "react";
 import Papa from "papaparse";
 import { getIconUrl } from "@/lib/clubs";
 import {
-  ssfClubs,
   SSF_KEYS,
   resolveSSFData,
   type SSFClubDetail,
 } from "@/lib/ssf-clubs";
+import { clubs2025 } from "@/lib/clubs2025";
 import type { Club } from "@/lib/clubs";
 
 export interface SSFBarDatum {
@@ -22,12 +22,13 @@ export interface UseSSFDataReturn {
   chartData1: SSFBarDatum[];
   chartData2: SSFBarDatum[];
   chartData3: SSFBarDatum[];
+  rows: CsvRow[];
   getClubDetails: (club: Club) => SSFClubDetail | null;
   loading: boolean;
   error: string | null;
 }
 
-type CsvRow = Record<string, string>;
+export type CsvRow = Record<string, string>;
 
 function getVal(row: CsvRow | undefined, col: string): number {
   if (!row) return NaN;
@@ -45,9 +46,9 @@ export function useSSFData(): UseSSFDataReturn {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/data/SSF.csv")
+    fetch("/data/SSF_2025.csv")
       .then((res) => {
-        if (!res.ok) throw new Error("Não foi possível carregar SSF.csv");
+        if (!res.ok) throw new Error("Não foi possível carregar SSF_2025.csv");
         return res.text();
       })
       .then((text) => {
@@ -70,7 +71,7 @@ export function useSSFData(): UseSSFDataReturn {
         const rowReq3 = byDados.get(SSF_KEYS.reqEndividamento);
 
         // Chart 1: Requisito de Sustentabilidade — descending
-        const d1: SSFBarDatum[] = ssfClubs
+        const d1: SSFBarDatum[] = clubs2025
           .map((c) => {
             const v = getVal(rowReq1, c.csvColumn);
             if (isNaN(v)) return null;
@@ -86,7 +87,7 @@ export function useSSFData(): UseSSFDataReturn {
         setChartData1(d1);
 
         // Chart 2: Requisito de Custo com Elenco — ascending
-        const d2: SSFBarDatum[] = ssfClubs
+        const d2: SSFBarDatum[] = clubs2025
           .map((c) => {
             const v = getVal(rowReq2, c.csvColumn);
             if (isNaN(v)) return null;
@@ -102,7 +103,7 @@ export function useSSFData(): UseSSFDataReturn {
         setChartData2(d2);
 
         // Chart 3: Requisito de Endividamento — ascending
-        const d3: SSFBarDatum[] = ssfClubs
+        const d3: SSFBarDatum[] = clubs2025
           .map((c) => {
             const v = getVal(rowReq3, c.csvColumn);
             if (isNaN(v)) return null;
@@ -129,5 +130,5 @@ export function useSSFData(): UseSSFDataReturn {
     [rows]
   );
 
-  return { chartData1, chartData2, chartData3, getClubDetails, loading, error };
+  return { chartData1, chartData2, chartData3, rows, getClubDetails, loading, error };
 }
