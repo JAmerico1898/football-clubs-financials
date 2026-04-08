@@ -1,0 +1,1 @@
+clubes_2024 = ["Athletico", "Atlético GO", "Atlético", "Bahia", "Botafogo", "Corinthians", "Criciúma", "Cruzeiro", "Cuiabá", "Flamengo", "Fluminense", "Fortaleza", "Grêmio", "Internacional", "Juventude", "Palmeiras", "Red Bull Bragantino", "São Paulo", "Vasco", "Vitória"]

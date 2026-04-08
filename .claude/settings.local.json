@@ -39,7 +39,13 @@
       "Bash(node -e \"require\\(''react-markdown''\\); require\\(''rehype-raw''\\); console.log\\(''OK''\\)\")",
       "Bash(npx tsc:*)",
       "Bash(npm run:*)",
-      "Bash(find /c/Users/felip/OneDrive -name *.css -o -name *.scss -o -name globals.css)"
+      "Bash(find /c/Users/felip/OneDrive -name *.css -o -name *.scss -o -name globals.css)",
+      "Bash(grep:*)",
+      "Bash(wc:*)",
+      "Bash(find public/radar -name \"*.json\" -exec grep -l \"Custo das Atividades Esportivas\" {} \\\\;)",
+      "Bash(find public/radar -name \"*.json\" -exec sed -i 's/Custo das Atividades Esportivas/Custo da Atividade Esportiva/g' {} +)",
+      "Bash(find specs:*)",
+      "Bash(git add:*)"
     ]
   }
 }

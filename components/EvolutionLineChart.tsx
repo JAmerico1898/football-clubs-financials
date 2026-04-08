@@ -66,6 +66,7 @@ function LineCustomTooltip({ active, payload, label, metric, selectedClub }: Lin
 
 export default function EvolutionLineChart({ club, metric, season }: EvolutionLineChartProps) {
   const [data, setData] = useState<Record<string, string | number>[]>([]);
+  const [selectedClubMissing, setSelectedClubMissing] = useState(false);
   const hasHistory = hasHistoricalData(metric);
 
   const YEARS = season === "2025"
@@ -77,7 +78,7 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
   useEffect(() => {
     if (!hasHistory) return;
 
-    fetch(`/data/Painel_Consolidado_Moeda_Cte_${season}.csv`)
+    fetch(`/data/Painel_Consolidado_Moeda_Cte.csv`)
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");
@@ -86,6 +87,22 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
         if (rows.length === 0) return;
 
         const header = rows[0];
+
+        const selectedClub = chartClubs.find((c) => c.name === club.name);
+        const selectedColIdx = selectedClub
+          ? header.findIndex((h) => h.trim() === selectedClub.csvColumn)
+          : -1;
+
+        // Check if selected club has any non-empty, non-zero data across all years
+        const hasSelectedData = YEARS.some((year) => {
+          const row = rows.find(
+            (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
+          );
+          const raw = row && selectedColIdx >= 0 ? row[selectedColIdx]?.trim() : "";
+          const val = parseFloat(raw);
+          return raw !== "" && !isNaN(val) && val !== 0;
+        });
+        setSelectedClubMissing(!hasSelectedData);
 
         const chartData = YEARS.map((year) => {
           const row = rows.find(
@@ -165,6 +182,11 @@ export default function EvolutionLineChart({ club, metric, season }: EvolutionLi
           ))}
         </LineChart>
       </ResponsiveContainer>
+      {selectedClubMissing && (
+        <p className="ml-[100px] text-xs italic" style={{ color: "var(--text-secondary)" }}>
+          Nota: {club.name} não divulgou Demonstrações Financeiras completas em seu site oficial.
+        </p>
+      )}
     </div>
   );
 }

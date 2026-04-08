@@ -1,10 +1,11 @@
 <h4>Resumo:</h4>
-<p>O Juventude registrou um crescimento robusto de receitas (R$138 mi) sustentado por TV/premiações (68 %)
-e patrocínios (19 %), consequência do retorno à Série A. O superávit de R$ 34 mi, um dos poucos da Série A,
-indicam boa eficiência em 2024. O auditor ressalvou o balanço devido a inconsistências em parcelamento do FGTS. </p>
+<p>O Clube encerrou 2025 com Ativo Total de 92 milhões e Patrimônio Líquido positivo de
+62,7 milhões (↑ 69% vs. 37,2 milhões em 2024), consolidando trajetória de recuperação patrimonial iniciada
+em 2023. O exercício registrou superávit de 25,5 milhões (↓ 26% vs. 34,2 milhões em 2024). A ver como será 2025 com o rebaixamento para a Série B. Auditoria sem ressalvas.</p>
 <h4>Destaques:</h4>
-<p>1. Folha salarial e encargos representam 60 % de todas as despesas, principal custo. </p>
-<p>2. Negócios com atletas foram discretos em 2024 (apenas 3 % da receita), limitando a
-Receita total do clube. </p>
-<p>3. Resultado financeiro negativo modesto (-R$ 2 mi) indica endividamento baixo. </p>
+<p>1. Receita da atividade do desporto atingiu 118,7 milhões (↓ 9% vs. 130,5 milhões), ainda assim o maior faturamento da história do clube.</p>
+<p>2. Custo da atividade do desporto subiu para 95,9 milhões (↑ 13,5% vs. 84,5 milhões), comprimindo o superávit bruto para 22,8 milhões (↓ 50%).</p>
+<p>3. Dívida financeira residual de apenas 161 mil (↓ 93% vs. 2,3 milhões em 2024); nenhum novo empréstimo contraído em 2025.</p>
+<p>4. Parcelamentos fiscais (PGFN/ISSQN) totalizaram 5 milhões (↓ 43% vs. 8,8 milhões em 2024); saldo FGTS de 369 mil ainda sem conciliação oficial junto à CEF.</p>
+<p>5. Investimentos em imobilizado e intangível somaram 20 milhões (aquisições de campos, CFAC e direitos de atletas), elevando imobilizado a 56 milhões (↑ 21% vs. 46,5 milhões).</p>
 <p><b>Nota:</b> Utiliza apenas dados das demonstrações financeiras auditadas.</p>

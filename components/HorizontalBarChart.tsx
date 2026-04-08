@@ -76,7 +76,7 @@ export default function HorizontalBarChart({
     <div>
       <div className="text-center mb-4">
         <p style={{ fontSize: 25, fontWeight: "bold" }}>{clubName}</p>
-        <p style={{ fontSize: 20 }}>Comparativo {years.current} vs {years.prior}</p>
+        <p style={{ fontSize: 20 }}>Comparativo {years.current} vs {years.prior} <span style={{ fontSize: 16 }}>(ajustado pelo IPCA)</span></p>
       </div>
       {noPriorData && (
         <p className="text-center text-amber-600 text-sm mb-2">

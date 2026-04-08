@@ -25,7 +25,10 @@ export default function AnaliseComparativaSimples() {
 
   function handleSeasonChange(newSeason: Season) {
     setSeason(newSeason);
-    setSelected("Vasco");
+    const newClubs = getClubsForSeason(newSeason);
+    if (!newClubs.some((c) => c.name === selected)) {
+      setSelected("Vasco");
+    }
   }
 
   return (
@@ -40,7 +43,7 @@ export default function AnaliseComparativaSimples() {
       <BackButton />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
-        Análise Comparativa Simples
+        Análise Comparativa
       </h1>
       <p className="text-center mb-6" style={{ color: "var(--text-secondary)" }}>
         Explore as finanças dos clubes do Brasileirão

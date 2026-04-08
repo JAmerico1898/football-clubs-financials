@@ -95,7 +95,6 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
         const metricRow = rows.find((row) => row[2]?.trim() === metric.csvKey);
         if (!metricRow) return;
 
-        const extraNames = new Set(extraChartClubs.map((c) => c.name));
         const missing: string[] = [];
         const unsorted: Omit<BarDatum, "rank">[] = chartClubs
           .map((c) => {
@@ -103,7 +102,7 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
             const raw = colIdx >= 0 ? metricRow[colIdx]?.trim() : "";
             const value = parseFloat(raw);
             const isMissing =
-              raw === "" || isNaN(value) || (extraNames.has(c.name) && value === 0);
+              raw === "" || isNaN(value) || value === 0;
             if (isMissing) {
               missing.push(c.name);
               return null;
@@ -160,7 +159,12 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
 
   return (
     <div>
-      <h2 className="text-[25px] font-bold text-center mb-2">{metric.label} — {season}</h2>
+      <h2 className="text-[25px] font-bold text-center mb-0">{metric.label} — {season}</h2>
+      {season === "2024" && (
+        <p className="text-center text-sm italic mb-2" style={{ color: "var(--text-secondary)" }}>
+          (ajustado pelo IPCA)
+        </p>
+      )}
       <ResponsiveContainer width="100%" height={520}>
         <BarChart data={data} margin={{ top: 30, right: 20, left: 20, bottom: 50 }}>
           <XAxis
@@ -200,9 +204,14 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      {missingClubs.length > 0 && (
-        <div className="-mt-6 ml-[100px] space-y-0.5">
-          {missingClubs.map((name) => (
+      {missingClubs.includes(club.name) && (
+        <p className="ml-[100px] text-xs italic" style={{ color: "var(--text-secondary)" }}>
+          Nota: {club.name} não divulgou Demonstrações Financeiras completas em seu site oficial.
+        </p>
+      )}
+      {missingClubs.filter((name) => name !== club.name).length > 0 && (
+        <div className="-mt-2 ml-[100px] space-y-0.5">
+          {missingClubs.filter((name) => name !== club.name).map((name) => (
             <p key={name} className="text-xs italic" style={{ color: "var(--text-secondary)" }}>
               {name} não reportou esse dado em suas Demonstrações Financeiras publicadas.
             </p>

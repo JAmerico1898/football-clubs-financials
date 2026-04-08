@@ -37,9 +37,17 @@ export default function AnaliseIndividual() {
     barNoPriorData,
   } = useModulo1Data(club, season);
 
+  const allLoaded = !sankeyLoading && !radarLoading && !barLoading;
+  const barAllZero = barData != null && barData.every((d) => d.valCurrent === 0);
+  const noDataAvailable = allLoaded && !!club && !!sankeyError && !!radarError && barAllZero;
+
   function handleSeasonChange(newSeason: Season) {
     setSeason(newSeason);
-    setSelectedName("Vasco"); // Reset to default club when season changes
+    // Keep the current selection if the club exists in the new season; otherwise fall back to Vasco
+    const newClubs = getClubsForSeason(newSeason);
+    if (selectedName && !newClubs.find((c) => c.name === selectedName)) {
+      setSelectedName("Vasco");
+    }
   }
 
   return (
@@ -124,7 +132,18 @@ export default function AnaliseIndividual() {
       )}
 
       {/* Content — only rendered when a club is selected */}
-      {club && (
+      {club && noDataAvailable && (
+        <div
+          className="card-surface text-center py-8 px-4"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          <p className="text-lg font-semibold mb-1" style={{ color: "var(--text-primary)" }}>
+            Nota: {club.name} não disponibilizou suas Demonstrações Financeiras completas no site oficial.
+          </p>
+        </div>
+      )}
+
+      {club && !noDataAvailable && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 mb-8">
             <MetricHighlights barData={barData} loading={barLoading} season={season} />

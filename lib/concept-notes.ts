@@ -1,6 +1,6 @@
 /** Definitions for financial concepts that may not be obvious to users. */
 export const conceptDefinitions: Record<string, string> = {
-  "Receita Recorrente":
+  "Receita da Atividade Esportiva":
     "Receita Operacional − Receita c/ Negociação de Atletas.",
   "Receita Operacional":
     "Rec. Direitos de Transmissão + Rec. Premiações + Rec. Match-Day + Rec. Sócio-Torcedor + Rec. Publicidade e Patrocínio + Rec. Licenciamento da Marca + Rec. Negociação de Atletas + Outras Receitas.",

@@ -8,7 +8,7 @@ import {
   getSankeyUrl,
   getRadarUrl,
   getSummaryUrl,
-  getBarChartCsvUrl,
+  getBarChartCsvUrls,
 } from "@/lib/clubs";
 import { metrics } from "@/lib/bar-chart-config";
 
@@ -111,29 +111,49 @@ export function useModulo1Data(club: Club | null, season: Season): Modulo1Data {
     setBarData(null);
     setBarNoPriorData(false);
 
-    fetch(getBarChartCsvUrl(season))
-      .then((res) => {
-        if (!res.ok) throw new Error("Não foi possível carregar os dados CSV");
-        return res.text();
-      })
-      .then((csvText) => {
-        const parsed = Papa.parse(csvText, { header: false, skipEmptyLines: true });
-        const rows = parsed.data as string[][];
-        const header = rows[0];
-        const colIdx = header.indexOf(club.csvColumn);
+    const { current: urlCurrent, prior: urlPrior } = getBarChartCsvUrls(season);
 
-        if (colIdx === -1) {
-          throw new Error(`Coluna "${club.csvColumn}" não encontrada no CSV`);
-        }
+    Promise.all([
+      fetch(urlCurrent).then((res) => {
+        if (!res.ok) throw new Error("Não foi possível carregar os dados CSV (temporada atual)");
+        return res.text();
+      }),
+      fetch(urlPrior).then((res) => {
+        if (!res.ok) throw new Error("Não foi possível carregar os dados CSV (temporada anterior)");
+        return res.text();
+      }),
+    ])
+      .then(([csvCurrent, csvPrior]) => {
+        const buildLookup = (csvText: string): Map<string, number> => {
+          const parsed = Papa.parse(csvText, { header: false, skipEmptyLines: true });
+          const rows = parsed.data as string[][];
+          const header = rows[0];
+          const colIdx = header.indexOf(club.csvColumn);
+          const dadosIdx = header.indexOf("Dados");
+
+          if (colIdx === -1) {
+            throw new Error(`Coluna "${club.csvColumn}" não encontrada no CSV`);
+          }
+
+          const lookup = new Map<string, number>();
+          for (let i = 1; i < rows.length; i++) {
+            const key = rows[i][dadosIdx];
+            const val = parseFloat(rows[i][colIdx] || "0") || 0;
+            if (key) lookup.set(key, val);
+          }
+          return lookup;
+        };
+
+        const lookupCurrent = buildLookup(csvCurrent);
+        const lookupPrior = buildLookup(csvPrior);
 
         const result: BarDatum[] = metrics.map((m) => ({
           label: m.label,
-          valCurrent: parseFloat(rows[m.rowCurrent + 1]?.[colIdx] || "0") || 0,
-          valPrior: parseFloat(rows[m.rowPrior + 1]?.[colIdx] || "0") || 0,
+          valCurrent: lookupCurrent.get(m.csvKey) ?? 0,
+          valPrior: lookupPrior.get(m.csvKey) ?? 0,
           category: m.category,
         }));
 
-        // Check if all prior values are zero (club may not have existed in prior season)
         const allPriorZero = result.every((d) => d.valPrior === 0);
         setBarNoPriorData(allPriorZero);
         setBarData(result);

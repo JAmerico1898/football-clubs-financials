@@ -246,7 +246,7 @@ export const metrics: MetricDef[] = [
   { label: "Match-Day + Sócio-Torcedor", rowCurrent: 4, rowPrior: 41, category: "receita" },
   { label: "Negociação de Atletas", rowCurrent: 5, rowPrior: 42, category: "receita" },
   // Despesa (red)
-  { label: "Custo das Atividades Esportivas", rowCurrent: 9, rowPrior: 46, category: "despesa" },
+  { label: "Custo da Atividade Esportiva", rowCurrent: 9, rowPrior: 46, category: "despesa" },
   { label: "Folha do Futebol", rowCurrent: 6, rowPrior: 43, category: "despesa" },
   { label: "Folha + Amortização", rowCurrent: 7, rowPrior: 44, category: "despesa" },
   { label: "Aquisições de Atletas", rowCurrent: 16, rowPrior: 53, category: "despesa" },

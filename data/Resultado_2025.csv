@@ -1,0 +1,23 @@
+﻿Clubes,Rubrica,Atlético GO,Athletico,Atlético,Bahia,Botafogo,Ceará,Corinthians,Criciúma,Cruzeiro,Cuiabá,Flamengo,Fluminense,Fortaleza,Grêmio,Internacional,Juventude,Mirassol,Palmeiras,Red Bull Bragantino,Santos,São Paulo,Sport,Vasco,Vitória,Média da Liga
+Direitos de transmissão,(a),0,0,0,0,0,0,0,0,0,0,612,0,0,156.0,0,88,0,0,0,0,0,0,0,0,0
+Publicidade e patrocínio,(b),0,0,0,0,0,0,0,0,0,0,410,0,0,108.0,0,19,0,0,0,0,0,0,0,0,0
+Bilheteria,(c),0,0,0,0,0,0,0,0,0,0,142,0,0,6.0,0,3,0,0,0,0,0,0,0,0,0
+Sócio-torcedor,(d),0,0,0,0,0,0,0,0,0,0,88,0,0,68.0,0,7,0,0,0,0,0,0,0,0,0
+Premiações,(e),0,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0,0,0,0,0,0,0,0,0,0,0
+Licenciamento da marca,(f),0,0,0,0,0,0,0,0,0,0,131,0,0,8.0,0,0,0,0,0,0,0,0,0,0,0
+Outras receitas,(g),0,0,0,0,0,0,0,0,0,0,117,0,0,29.970000000000027,0,3,0,0,0,0,0,0,0,0,0
+RECEITA ATIVIDADE ESPORTIVA,(h)=(a)+(a')+(b)+(c)+(d)+(e)+(f)+(g),0,0,0,0,0,0,0,0,0,0,1500,0,0,376.0,0,120,0,0,0,0,0,0,0,0,0
+Pessoal e encargos sociais,(i),0,0,0,0,0,0,0,0,0,0,525,0,0,212.0,0,59,0,0,0,0,0,0,0,0,0
+Direitos de imagem,(j),0,0,0,0,0,0,0,0,0,0,171,0,0,111.0,0,0,0,0,0,0,0,0,0,0,0
+Amortização de direitos esportivos,(k),0,0,0,0,0,0,0,0,0,0,244,0,0,102.0,0,7,0,0,0,0,0,0,0,0,0
+Outros custos,(l),0,0,0,0,0,0,0,0,0,0,254,0,0,64.0,0,30,0,0,0,0,0,0,0,0,0
+CUSTO DA ATIVIDADE ESPORTIVA,(m) = (i)+(j)+(k)+(l),0,0,0,0,0,0,0,0,0,0,1194,0,0,489.0,0,96,0,0,0,0,0,0,0,0,0
+RESULTADO DA ATIVIDADE ESPORTIVA,(n) = (h) - (m),0,0,0,0,0,0,0,0,0,0,306,0,0,113.0,0,24,0,0,0,0,0,0,0,0,0
+Negociação de atletas,(o),0,0,0,0,0,0,0,0,0,0,267,0,0,127.0,0,8,0,0,0,0,0,0,0,0,0
+Outras receitas operacionais,(p),0,0,0,0,0,0,0,0,0,0,0,0,0,225.0,0,0,0,0,0,0,0,0,0,0,0
+Despesas gerais e administrativas,(q),0,0,0,0,0,0,0,0,0,0,182,0,0,118.0,0,10,0,0,0,0,0,0,0,0,0
+Outros,(r),0,0,0,0,0,0,0,0,0,0,126,0,0,10.0,0,0,0,0,0,0,0,0,0,0,0
+OUTRAS REC/DESP OPERACIONAIS,(s) = (o)+(p)+(q)+(r),0,0,0,0,0,0,0,0,0,0,41,0,0,244.0,0,2,0,0,0,0,0,0,0,0,0
+RESULTADO OPERACIONAL,(t)=(n)+(s),0,0,0,0,0,0,0,0,0,0,336,0,0,130.0,0,22,0,0,0,0,0,0,0,0,0
+RESULTADO FINANCEIRO,(u),0,0,0,0,0,0,0,0,0,0,7,0,0,95.0,0,3,0,0,0,0,0,0,0,0,0
+RESULTADO,(v)=(t)+(u),0,0,0,0,0,0,0,0,0,0,343,0,0,35.0,0,25,0,0,0,0,0,0,0,0,0

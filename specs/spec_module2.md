@@ -32,7 +32,7 @@ Módulo 2 is named **"Análise Comparativa Simples"**. It allows the user to sel
 - Receita Comercial
 - Receita c/ Match-Day + Sócio-Torcedor
 - Receita c/ Negociação de atletas
-- Custo das Atividades Esportivas
+- Custo da Atividade Esportiva
 - Resultado Operacional (Segmento Futebol)
 - Resultado
 - Dívida Líquida
@@ -56,7 +56,7 @@ Módulo 2 is named **"Análise Comparativa Simples"**. It allows the user to sel
 - Folha do futebol / Receita Operacional
 - (Folha futebol + Compra de Jogadores) / Receita Operacional
 - Folha do Futebol / Pontuação Série A
-- Custo das Atividades Esportivas / Receita Operacional
+- Custo da Atividade Esportiva / Receita Operacional
 - Ticket Médio
 
 ---

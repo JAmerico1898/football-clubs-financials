@@ -7,13 +7,13 @@ export interface CompareMetric {
 export const compareMetrics: CompareMetric[] = [
   // Receita
   { label: "Receita Operacional", csvKey: "Receita Operacional", category: "receita" },
-  { label: "Receita Recorrente", csvKey: "Receita Recorrente", category: "receita" },
+  { label: "Receita da Atividade Esportiva", csvKey: "Receita da Atividade Esportiva", category: "receita" },
   { label: "Transmissão + Premiações", csvKey: "Receita c/ Transmissão + Premiações", category: "receita" },
   { label: "Receita Comercial", csvKey: "Receita Comercial", category: "receita" },
   { label: "Match-Day + Sócio-Torcedor", csvKey: "Receita c/ Match-Day + Sócio-Torcedor", category: "receita" },
   { label: "Negociação de Atletas", csvKey: "Receita c/ Negociação de atletas", category: "receita" },
   // Despesa
-  { label: "Custo das Atividades Esportivas", csvKey: "Custo das Atividades Esportivas", category: "despesa" },
+  { label: "Custo da Atividade Esportiva", csvKey: "Custo da Atividade Esportiva", category: "despesa" },
   { label: "Folha do Futebol", csvKey: "Folha do Futebol", category: "despesa" },
   { label: "Folha + Amortização", csvKey: "Folha do Futebol + Amortização", category: "despesa" },
   { label: "Aquisições de Atletas", csvKey: "Aquisições de atletas", category: "despesa" },

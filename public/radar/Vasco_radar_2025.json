@@ -971,7 +971,7 @@
     {
       "fill": "toself",
       "fillcolor": "#E8A020",
-      "hovertemplate": "<b>Custo das Atividades Esportivas</b><br>Valor: R$382M<br>Média da Liga: R$439M<br>Percentil: 39º | Posição: 12º<br>Categoria: Despesa<extra></extra>",
+      "hovertemplate": "<b>Custo da Atividade Esportiva</b><br>Valor: R$382M<br>Média da Liga: R$439M<br>Percentil: 39º | Posição: 12º<br>Categoria: Despesa<extra></extra>",
       "legendgroup": "Despesa",
       "line": {
         "color": "white",

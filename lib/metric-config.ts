@@ -9,12 +9,12 @@ export interface Metric {
 export const metrics: Metric[] = [
   // Financeiras
   { label: "Receita Operacional", csvKey: "Receita Operacional", group: "financeiras", format: "currency" },
-  { label: "Receita Recorrente", csvKey: "Receita Recorrente", group: "financeiras", format: "currency" },
+  { label: "Receita da Atividade Esportiva", csvKey: "Receita da Atividade Esportiva", group: "financeiras", format: "currency" },
   { label: "Receita c/ Transmissão + Premiações", csvKey: "Receita c/ Transmissão + Premiações", group: "financeiras", format: "currency" },
   { label: "Receita Comercial", csvKey: "Receita Comercial", group: "financeiras", format: "currency" },
   { label: "Receita c/ Match-Day + Sócio-Torcedor", csvKey: "Receita c/ Match-Day + Sócio-Torcedor", group: "financeiras", format: "currency" },
   { label: "Receita c/ Negociação de atletas", csvKey: "Receita c/ Negociação de atletas", group: "financeiras", format: "currency" },
-  { label: "Custo das Atividades Esportivas", csvKey: "Custo das Atividades Esportivas", group: "financeiras", format: "currency" },
+  { label: "Custo da Atividade Esportiva", csvKey: "Custo da Atividade Esportiva", group: "financeiras", format: "currency" },
   { label: "Resultado Operacional (Segmento Futebol)", csvKey: "Resultado Operacional (Segmento Futebol)", group: "financeiras", format: "currency" },
   { label: "Resultado", csvKey: "Resultado", group: "financeiras", format: "currency" },
   { label: "Dívida Líquida", csvKey: "Dívida Líquida", group: "financeiras", format: "currency", inverse: true },
@@ -39,13 +39,13 @@ export const metrics: Metric[] = [
   { label: "(Folha futebol + Amortização)/ Receita Operacional", csvKey: "(Folha futebol + Amortização)/ Receita Operacional", group: "gerenciais", format: "ratio" },
   { label: "(Folha futebol + Compra de Jogadores) / Receita Operacional", csvKey: "Folha do Futebol + Compra de Jogadores / Receita Operacional", group: "gerenciais", format: "ratio" },
   { label: "Folha do Futebol / Pontuação Série A", csvKey: "Folha do Futebol / Pontuação Série A", group: "gerenciais", format: "ratio" },
-  { label: "Custo das Atividades Esportivas / Receita Operacional", csvKey: "Custo das Atividades Esportivas / Receita Operacional", group: "gerenciais", format: "ratio" },
+  { label: "Custo da Atividade Esportiva / Receita Operacional", csvKey: "Custo da Atividade Esportiva / Receita Operacional", group: "gerenciais", format: "ratio" },
   { label: "Ticket Médio", csvKey: "Ticket Médio", group: "gerenciais", format: "decimal" },
 ];
 
 const historicalMetricKeys = new Set([
   "Receita Operacional",
-  "Receita Recorrente",
+  "Receita da Atividade Esportiva",
   "Receita c/ Transmissão + Premiações",
   "Receita Comercial",
   "Receita c/ Match-Day + Sócio-Torcedor",
@@ -54,7 +54,7 @@ const historicalMetricKeys = new Set([
   "Folha do Futebol + Amortização",
   "Folha do Futebol + Compra de Jogadores",
   "Folha do Futebol + Compra de Jogadores / Receita Operacional",
-  "Custo das Atividades Esportivas",
+  "Custo da Atividade Esportiva",
   "Resultado Operacional (Segmento Futebol)",
   "Resultado",
   "Dívida Líquida",

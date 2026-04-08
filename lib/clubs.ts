@@ -31,17 +31,16 @@ export const clubs2024: Club[] = [
   { name: "Juventude", fileKey: "Juventude", iconFile: "Juventude.png", csvColumn: "Juventude" },
   { name: "Palmeiras", fileKey: "Palmeiras", iconFile: "Palmeiras.png", csvColumn: "Palmeiras" },
   { name: "São Paulo", fileKey: "Sao_Paulo", iconFile: "SaoPaulo.png", csvColumn: "São Paulo" },
+  { name: "Red Bull Bragantino", fileKey: "red_bull_bragantino", iconFile: "Red Bull Bragantino.png", csvColumn: "Red Bull Bragantino" },
   { name: "Vitória", fileKey: "Vitoria", iconFile: "Vitoria.png", csvColumn: "Vitória" },
 ];
 
 // Backward-compat alias — other modules import `clubs` and expect the 2024 list
 export const clubs = clubs2024;
 
-export const extraChartClubs: Club[] = [
-  { name: "Red Bull Bragantino", fileKey: "RedBullBragantino", iconFile: "Red Bull Bragantino.png", csvColumn: "Red Bull Bragantino" },
-];
+export const extraChartClubs: Club[] = [];
 
-export const allChartClubs: Club[] = [...clubs, ...extraChartClubs];
+export const allChartClubs: Club[] = [...clubs2024];
 
 export const DEFAULT_CLUB = "Vasco";
 
@@ -66,8 +65,11 @@ export function getBackdropUrl(club: Club): string {
   return `/clubs_backdrop/${club.fileKey.toLowerCase()}_backdrop.jpg`;
 }
 
-export function getBarChartCsvUrl(season: Season): string {
-  return `/data/Painel_Consolidado_Moeda_Cte_${season}.csv`;
+export function getBarChartCsvUrls(season: Season): { current: string; prior: string } {
+  if (season === "2025") {
+    return { current: "/data/índices_2025.csv", prior: "/data/índices_2024.csv" };
+  }
+  return { current: "/data/índices_2024.csv", prior: "/data/índices_2023.csv" };
 }
 
 export function getScatterCsvUrls(period: ScatterPeriod): string[] {

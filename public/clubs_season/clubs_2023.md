@@ -1,0 +1,1 @@
+clubes_2023 = ["América", "Athletico", "Atlético", "Bahia", "Botafogo", "Corinthians", "Coritiba", "Cruzeiro", "Cuiabá", "Flamengo", "Fluminense", "Fortaleza", "Goiás", "Grêmio", "Internacional", "Palmeiras", "Red Bull Bragantino", "Santos", "São Paulo", "Vasco"]

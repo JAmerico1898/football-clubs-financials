@@ -52,7 +52,7 @@ function CustomTooltip({ active, payload, label }: any) {
 function ClubBadgeTick({ x, y, payload, iconMap }: any) {
   const iconUrl = iconMap[payload.value];
   if (!iconUrl) return null;
-  const size = 44;
+  const size = 37;
   return (
     <g transform={`translate(${x},${y})`}>
       <image
@@ -91,7 +91,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
   return (
     <div>
       <h2 className="text-lg font-bold text-center mb-4">
-        Índice de Transparência das Demonstrações Financeiras — 2024
+        Índice de Transparência das Demonstrações Financeiras — 2025
       </h2>
       <ResponsiveContainer width="100%" height={500}>
         <BarChart

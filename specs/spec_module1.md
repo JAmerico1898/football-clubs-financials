@@ -106,7 +106,7 @@ Plot a **horizontal grouped bar chart** comparing financial metrics between **20
 | **Receita** | Receita Comercial | 3 | 40 |
 | **Receita** | Receita c/ Match-Day + Sócio-Torcedor | 4 | 41 |
 | **Receita** | Receita c/ Negociação de atletas | 5 | 42 |
-| **Despesa** | Custo das Atividades Esportivas | 9 | 46 |
+| **Despesa** | Custo da Atividade Esportiva | 9 | 46 |
 | **Despesa** | Folha do Futebol | 6 | 43 |
 | **Despesa** | Folha do Futebol + Amortização | 7 | 44 |
 | **Despesa** | Aquisições de atletas | 18 | 53 |

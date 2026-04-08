@@ -79,7 +79,7 @@ Two independent dropdowns — one for X-axis, one for Y-axis. These are the same
 
 ### X-axis metrics (`variáveis_conjuntas_x`)
 - Receita Operacional
-- Custo das Atividades Esportivas
+- Custo da Atividade Esportiva
 - Folha do Futebol
 - Folha do Futebol + Compra de Jogadores
 - Aquisições de atletas

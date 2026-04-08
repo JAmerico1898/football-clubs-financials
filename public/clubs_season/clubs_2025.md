@@ -1,0 +1,1 @@
+clubes_2025 = ["Atlético", "Bahia", "Botafogo", "Ceará", "Corinthians", "Cruzeiro", "Flamengo", "Fluminense", "Fortaleza", "Grêmio", "Internacional", "Juventude", "Mirassol", "Palmeiras", "Red Bull Bragantino", "Santos", "São Paulo", "Sport", "Vasco", "Vitória"]

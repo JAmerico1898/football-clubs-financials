@@ -1,0 +1,1 @@
+clubes_2022 = ["América", "Athletico", "Atlético", "Atlético GO", "Avaí", "Botafogo", "Ceará", "Corinthians", "Coritiba", "Cuiabá", "Flamengo", "Fluminense", "Fortaleza", "Goiás", "Internacional", "Juventude", "Palmeiras", "Red Bull Bragantino", "Santos", "São Paulo"]

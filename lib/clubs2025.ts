@@ -19,5 +19,6 @@ export const clubs2025: Club[] = [
   { name: "Santos", fileKey: "santos", iconFile: "Santos.png", csvColumn: "Santos" },
   { name: "São Paulo", fileKey: "Sao_Paulo", iconFile: "SaoPaulo.png", csvColumn: "São Paulo" },
   { name: "Sport", fileKey: "sport", iconFile: "Sport.png", csvColumn: "Sport" },
+  { name: "Red Bull Bragantino", fileKey: "red_bull_bragantino", iconFile: "Red Bull Bragantino.png", csvColumn: "Red Bull Bragantino" },
   { name: "Vitória", fileKey: "Vitoria", iconFile: "Vitoria.png", csvColumn: "Vitória" },
 ];

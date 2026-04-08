@@ -1,0 +1,1 @@
+clubes_2021 = ["América", "Athletico", "Atlético", "Atlético GO", "Bahia", "Ceará", "Corinthians", "Cuiabá", "Flamengo", "Fluminense", "Fortaleza", "Grêmio", "Internacional", "Juventude", "Palmeiras", "Red Bull Bragantino", "Santos", "São Paulo", "Sport", "Chapecoense"]

@@ -353,7 +353,7 @@
     {
       "fill": "toself",
       "fillcolor": "#1F6AA5",
-      "hovertemplate": "<b>Receita Operacional</b><br>Valor: R$134M<br>Média da Liga: R$529M<br>Percentil: 13º | Posição: 17º<br>Categoria: Receita<extra></extra>",
+      "hovertemplate": "<b>Receita Total</b><br>Valor: R$134M<br>Média da Liga: R$529M<br>Percentil: 13º | Posição: 17º<br>Categoria: Receita<extra></extra>",
       "legendgroup": "Receita",
       "line": {
         "color": "white",
@@ -971,7 +971,7 @@
     {
       "fill": "toself",
       "fillcolor": "#E8A020",
-      "hovertemplate": "<b>Custo das Atividades Esportivas</b><br>Valor: R$85M<br>Média da Liga: R$439M<br>Percentil: 8º | Posição: 19º<br>Categoria: Despesa<extra></extra>",
+      "hovertemplate": "<b>Custo da Atividade Esportiva</b><br>Valor: R$85M<br>Média da Liga: R$439M<br>Percentil: 8º | Posição: 19º<br>Categoria: Despesa<extra></extra>",
       "legendgroup": "Despesa",
       "line": {
         "color": "white",
@@ -2776,7 +2776,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Receita<br>Total</span>"
+        "<span style='font-size:13.5px;color:#222222'>Receita Total</span>"
       ],
       "textfont": {
         "color": "#222222",
@@ -2796,7 +2796,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Receita<br>Recorrente</span>"
+        "<span style='font-size:13.5px;color:#222222'>Receita Recorrente</span>"
       ],
       "textfont": {
         "color": "#222222",
@@ -2896,7 +2896,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Custo das<br>Atividades<br>Esportivas</span>"
+        "<span style='font-size:13.5px;color:#222222'>Custo da<br>Atividade<br>Esportiva</span>"
       ],
       "textfont": {
         "color": "#222222",
@@ -2976,7 +2976,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Resultado<br>Operacional</span>"
+        "<span style='font-size:13.5px;color:#222222'>Resultado<br>Atividade<br>Esportiva</span>"
       ],
       "textfont": {
         "color": "#222222",

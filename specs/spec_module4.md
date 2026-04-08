@@ -37,7 +37,7 @@ Metrics are grouped into 4 categories. Use the same row indices from `Painel_Con
 | Category | Metrics |
 |---|---|
 | **Receita** | Receita Operacional, Receita Recorrente, Receita c/ Transmissão + Premiações, Receita Comercial, Receita c/ Match-Day + Sócio-Torcedor, Receita c/ Negociação de atletas |
-| **Despesa** | Custo das Atividades Esportivas, Folha do Futebol, Folha do Futebol + Amortização, Aquisições de atletas |
+| **Despesa** | Custo da Atividade Esportiva, Folha do Futebol, Folha do Futebol + Amortização, Aquisições de atletas |
 | **Resultado** | Resultado Operacional (Segmento Futebol), Resultado |
 | **Passivo** | Dívida Líquida |
 

@@ -8,6 +8,10 @@ import TransparencyChart, {
 } from "@/components/TransparencyChart";
 import TransparencyTable from "@/components/TransparencyTable";
 import { clubs, getIconUrl } from "@/lib/clubs";
+import { clubs2025 } from "@/lib/clubs2025";
+
+const SEASON_CLUB_NAMES = new Set(clubs2025.map((c) => c.name));
+const SEASON_CLUB_CSV = new Set(clubs2025.map((c) => c.csvColumn));
 
 export default function IndiceDeTransparencia() {
   const [data, setData] = useState<TransparencyDatum[] | null>(null);
@@ -15,7 +19,7 @@ export default function IndiceDeTransparencia() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/data/Transparencia.csv")
+    fetch("/data/Transparência.csv")
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados");
         return res.text();
@@ -28,18 +32,55 @@ export default function IndiceDeTransparencia() {
         });
         const rows = parsed.data as string[][];
 
-        if (rows.length < 5) throw new Error("CSV com formato inesperado");
+        if (rows.length < 2) throw new Error("CSV com formato inesperado");
 
-        const clubNames = rows[0];
+        // Row 0 is the header: Ano, Nível de Transparência, Rubrica, Club1, Club2, ...
+        const header = rows[0];
+        // Club columns start at index 3 (column D)
+        const clubIndices: { col: number; name: string }[] = [];
+        for (let c = 3; c < header.length; c++) {
+          const name = header[c]?.trim();
+          if (name && name !== "Média da Liga") clubIndices.push({ col: c, name });
+        }
+
+        // Aggregate scores per level per club
+        const accum: Record<string, { nivel1: number; nivel2: number; nivel3: number }> = {};
+        for (const ci of clubIndices) {
+          accum[ci.name] = { nivel1: 0, nivel2: 0, nivel3: 0 };
+        }
+
+        for (let r = 1; r < rows.length; r++) {
+          const nivel = (rows[r][1] || "").trim();
+          let key: "nivel1" | "nivel2" | "nivel3" | null = null;
+          if (nivel.startsWith("Nível 1")) key = "nivel1";
+          else if (nivel.startsWith("Nível 2")) key = "nivel2";
+          else if (nivel.startsWith("Nível 3")) key = "nivel3";
+          if (!key) continue;
+
+          for (const ci of clubIndices) {
+            const val = parseFloat((rows[r][ci.col] || "").replace(",", "."));
+            if (!isNaN(val)) accum[ci.name][key] += val;
+          }
+        }
+
+        // Build items, filtering to 2025 season clubs
         const items: TransparencyDatum[] = [];
+        for (const ci of clubIndices) {
+          const a = accum[ci.name];
+          // Match against clubs2025 list via clubs registry
+          const clubEntry = clubs.find(
+            (c) => c.csvColumn === ci.name || c.name === ci.name
+          );
+          if (!SEASON_CLUB_CSV.has(ci.name) && !SEASON_CLUB_NAMES.has(ci.name) &&
+              !(clubEntry && (SEASON_CLUB_NAMES.has(clubEntry.name) || SEASON_CLUB_CSV.has(clubEntry.csvColumn)))) continue;
 
-        for (let i = 1; i < clubNames.length; i++) {
+          const total = a.nivel1 + a.nivel2 + a.nivel3;
           items.push({
-            club: clubNames[i].trim(),
-            nivel1: parseFloat(rows[1][i]) || 0,
-            nivel2: parseFloat(rows[2][i]) || 0,
-            nivel3: parseFloat(rows[3][i]) || 0,
-            total: parseFloat(rows[4][i]) || 0,
+            club: ci.name,
+            nivel1: a.nivel1,
+            nivel2: a.nivel2,
+            nivel3: a.nivel3,
+            total,
           });
         }
 

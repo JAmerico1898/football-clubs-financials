@@ -29,7 +29,7 @@ export const routes: Route[] = [
     accent: "#1565C0",
   },
   {
-    label: "Análise Comparativa Simples",
+    label: "Análise Comparativa",
     href: "/analise-comparativa-simples",
     description: "Compare indicadores financeiros entre clubes",
     available: true,
