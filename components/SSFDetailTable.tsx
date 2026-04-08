@@ -142,16 +142,47 @@ export default function SSFDetailTable({ detail, rows, csvColumn }: Props) {
     };
   }, [rows, csvColumn]);
 
-  const sub = (item: string, dados: string) => {
-    const val = lookup(item, dados);
-    return { value: fmtBRL(val), negative: isNeg(val) };
+  /**
+   * Given a parent total and its sub-item raw values, find the sign assignment
+   * (+1 or -1) for each sub-item so that the signed sum matches the parent.
+   * Tries all 2^n combinations (n = non-zero items, capped at 15).
+   */
+  const inferSigns = (parentTotal: number, rawValues: number[]): number[] => {
+    const defaults = rawValues.map(() => 1);
+    if (isNaN(parentTotal)) return defaults;
+
+    const active = rawValues
+      .map((v, i) => ({ v, i }))
+      .filter((x) => !isNaN(x.v) && x.v !== 0);
+    const n = active.length;
+    if (n === 0 || n > 15) return defaults;
+
+    for (let mask = 0; mask < 1 << n; mask++) {
+      let sum = 0;
+      for (let j = 0; j < n; j++) {
+        sum += mask & (1 << j) ? -active[j].v : active[j].v;
+      }
+      if (Math.abs(sum - parentTotal) < 0.5) {
+        const signs = [...defaults];
+        for (let j = 0; j < n; j++) {
+          if (mask & (1 << j)) signs[active[j].i] = -1;
+        }
+        return signs;
+      }
+    }
+    return defaults;
   };
 
-  /** Like sub(), but negates the value (for deductions stored as positive in CSV). */
-  const subNeg = (item: string, dados: string) => {
-    const raw = lookup(item, dados);
-    const val = isNaN(raw) ? raw : -Math.abs(raw);
-    return { value: fmtBRL(val), negative: isNeg(val) };
+  type SubKey = [string, string]; // [item, dados]
+
+  /** Build a signed sub-metric group: infer signs from parent total, return display helpers. */
+  const buildGroup = (parentTotal: number, keys: SubKey[]) => {
+    const rawValues = keys.map(([item, dados]) => lookup(item, dados));
+    const signs = inferSigns(parentTotal, rawValues);
+    return keys.map((_key, i) => {
+      const signed = isNaN(rawValues[i]) ? rawValues[i] : rawValues[i] * signs[i];
+      return { value: fmtBRL(signed), negative: isNeg(signed) };
+    });
   };
 
   return (
@@ -180,39 +211,105 @@ export default function SSFDetailTable({ detail, rows, csvColumn }: Props) {
           {/* --- Req 1: Sustentabilidade --- */}
           <SectionHeader label="Req. Sustentabilidade" />
 
-          <MetricRow label="Receitas Relevantes" value={fmtBRL(d.receitasRelevantes)} negative={isNeg(d.receitasRelevantes)} />
-          <SubMetricRow label="Receitas Operacionais" {...sub("Receitas Operacionais", "Receitas Operacionais")} />
-          <SubMetricRow label="Receitas Financeiras" {...sub("Receitas Financeiras", "Receitas Financeiras")} />
-          <SubMetricRow label="Receitas com Transferências de Atletas" {...sub("Receitas com Transferências de Atletas.", "Receitas com Transferências de Atletas")} />
-          <SubMetricRow label="Ajustes e Deduções da Receita Relevante" {...subNeg("Ajustes e Deduções da Receita Relevante", "Ajustes e Deduções da Receita Relevante")} />
+          {(() => {
+            const recRelKeys: SubKey[] = [
+              ["Receitas Operacionais", "Receitas Operacionais"],
+              ["Receitas Financeiras", "Receitas Financeiras"],
+              ["Receitas com Transferências de Atletas.", "Receitas com Transferências de Atletas"],
+              ["Ajustes e Deduções da Receita Relevante", "Ajustes e Deduções da Receita Relevante"],
+            ];
+            const recRelLabels = [
+              "Receitas Operacionais",
+              "Receitas Financeiras",
+              "Receitas com Transferências de Atletas",
+              "Ajustes e Deduções da Receita Relevante",
+            ];
+            const recRel = buildGroup(d.receitasRelevantes, recRelKeys);
+            return (
+              <>
+                <MetricRow label="Receitas Relevantes" value={fmtBRL(d.receitasRelevantes)} negative={isNeg(d.receitasRelevantes)} />
+                {recRel.map((props, i) => (
+                  <SubMetricRow key={recRelLabels[i]} label={recRelLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
-          <MetricRow label="Despesas Relevantes" value={fmtBRL(d.despesasRelevantes)} negative={isNeg(d.despesasRelevantes)} />
-          <SubMetricRow label="Despesas Operacionais" {...sub("Despesas Operacionais", "Despesas Operacionais")} />
-          <SubMetricRow label="Amortizações, imparidade e custos de registros de atletas" {...sub("Amortizações, imparidade e custos de registros de atletas", "Amortizações, imparidade e custos de registros de atletas")} />
-          <SubMetricRow label="Baixa de registro de atletas" {...sub("Baixa de registro de atletas", "Baixa de registro de atletas")} />
-          <SubMetricRow label="Despesas Financeiras" {...sub("Despesas Financeiras", "Despesas Financeiras")} />
-          <SubMetricRow label="Provisão para devedores duvidosos" {...sub("Provisão para devedores duvidosos", "Provisão para devedores duvidosos")} />
-          <SubMetricRow label="Dividendos" {...sub("Dividendos", "Dividendos")} />
-          <SubMetricRow label="Descontos das despesas" {...subNeg("Descontos das despesas", "Descontos das despesas")} />
+          {(() => {
+            const despRelKeys: SubKey[] = [
+              ["Despesas Operacionais", "Despesas Operacionais"],
+              ["Amortizações, imparidade e custos de registros de atletas", "Amortizações, imparidade e custos de registros de atletas"],
+              ["Baixa de registro de atletas", "Baixa de registro de atletas"],
+              ["Despesas Financeiras", "Despesas Financeiras"],
+              ["Provisão para devedores duvidosos", "Provisão para devedores duvidosos"],
+              ["Dividendos", "Dividendos"],
+              ["Descontos das despesas", "Descontos das despesas"],
+            ];
+            const despRelLabels = [
+              "Despesas Operacionais",
+              "Amortizações, imparidade e custos de registros de atletas",
+              "Baixa de registro de atletas",
+              "Despesas Financeiras",
+              "Provisão para devedores duvidosos",
+              "Dividendos",
+              "Descontos das despesas",
+            ];
+            const despRel = buildGroup(d.despesasRelevantes, despRelKeys);
+            return (
+              <>
+                <MetricRow label="Despesas Relevantes" value={fmtBRL(d.despesasRelevantes)} negative={isNeg(d.despesasRelevantes)} />
+                {despRel.map((props, i) => (
+                  <SubMetricRow key={despRelLabels[i]} label={despRelLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
-          <MetricRow
-            label="Exclusões do Resultado da Operação"
-            value={fmtBRL(d.exclusoes)}
-            negative={isNeg(d.exclusoes)}
-          />
-          <SubMetricRow label="(+) Ganho ou (-) Perda com ativos imobilizados" {...sub("Exclusões do Resultado da Operação", "(+) Ganho ou (-) Perda com ativos imobilizados")} />
-          <SubMetricRow label="(+) Ganho ou (-) Perda com Ativos Intangíveis" {...sub("Exclusões do Resultado da Operação", "(+) Ganho ou (-) Perda com Ativos Intangíveis")} />
-          <SubMetricRow label="(+) Ganhos ou (-) Perdas Diversos" {...sub("Exclusões do Resultado da Operação", "(+) Ganhos ou (-) Perdas Diversos")} />
-          <SubMetricRow label="Impostos sobre o lucro (IRPJ e CSLL)" {...sub("Exclusões do Resultado da Operação", "Impostos sobre o lucro (IRPJ e CSLL)")} />
+          {(() => {
+            const exclKeys: SubKey[] = [
+              ["Exclusões do Resultado da Operação", "(+) Ganho ou (-) Perda com ativos imobilizados"],
+              ["Exclusões do Resultado da Operação", "(+) Ganho ou (-) Perda com Ativos Intangíveis"],
+              ["Exclusões do Resultado da Operação", "(+) Ganhos ou (-) Perdas Diversos"],
+              ["Exclusões do Resultado da Operação", "Impostos sobre o lucro (IRPJ e CSLL)"],
+            ];
+            const exclLabels = [
+              "(+) Ganho ou (-) Perda com ativos imobilizados",
+              "(+) Ganho ou (-) Perda com Ativos Intangíveis",
+              "(+) Ganhos ou (-) Perdas Diversos",
+              "Impostos sobre o lucro (IRPJ e CSLL)",
+            ];
+            const excl = buildGroup(d.exclusoes, exclKeys);
+            return (
+              <>
+                <MetricRow label="Exclusões do Resultado da Operação" value={fmtBRL(d.exclusoes)} negative={isNeg(d.exclusoes)} />
+                {excl.map((props, i) => (
+                  <SubMetricRow key={exclLabels[i]} label={exclLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
-          <MetricRow
-            label="Contribuições Patrimoniais"
-            value={fmtBRL(d.contribuicoes)}
-            negative={isNeg(d.contribuicoes)}
-          />
-          <SubMetricRow label="Aportes de capital feitos pelo acionista" {...sub("Contribuições Patrimoniais", "Aportes de capital feitos pelo acionista")} />
-          <SubMetricRow label="Doações incondicionais ou renúncia de obrigação" {...sub("Contribuições Patrimoniais", "Doações incondicionais ou renúncia de obrigação")} />
-          <SubMetricRow label="Conversão de dívida em capital" {...sub("Contribuições Patrimoniais", "Conversão de dívida em capital")} />
+          {(() => {
+            const contribKeys: SubKey[] = [
+              ["Contribuições Patrimoniais", "Aportes de capital feitos pelo acionista"],
+              ["Contribuições Patrimoniais", "Doações incondicionais ou renúncia de obrigação"],
+              ["Contribuições Patrimoniais", "Conversão de dívida em capital"],
+            ];
+            const contribLabels = [
+              "Aportes de capital feitos pelo acionista",
+              "Doações incondicionais ou renúncia de obrigação",
+              "Conversão de dívida em capital",
+            ];
+            const contrib = buildGroup(d.contribuicoes, contribKeys);
+            return (
+              <>
+                <MetricRow label="Contribuições Patrimoniais" value={fmtBRL(d.contribuicoes)} negative={isNeg(d.contribuicoes)} />
+                {contrib.map((props, i) => (
+                  <SubMetricRow key={contribLabels[i]} label={contribLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
           <MetricRow
             label="Resultado Operacional"
@@ -237,19 +334,49 @@ export default function SSFDetailTable({ detail, rows, csvColumn }: Props) {
           {/* --- Req 2: Custo com Elenco --- */}
           <SectionHeader label="Req. Custo com Elenco" />
 
-          <MetricRow label="Custo com Elenco" value={fmtBRL(d.custoElenco)} negative={isNeg(d.custoElenco)} />
-          <SubMetricRow label="Salários, Encargos, Benefícios, Direitos de Imagem" {...sub("Custo com Elenco de um Clube", "Salários, Encargos, Benefícios, Direitos de Imagem")} />
-          <SubMetricRow label="Amortizações de direitos (compra de jogadores) e custo de registro" {...sub("Custo com Elenco de um Clube", "Amortizações de direitos (compra de jogadores) e custo de registro")} />
-          <SubMetricRow label="Custos com agentes e intermediários" {...sub("Custo com Elenco de um Clube", "Custos com agentes e intermediários")} />
+          {(() => {
+            const custoKeys: SubKey[] = [
+              ["Custo com Elenco de um Clube", "Salários, Encargos, Benefícios, Direitos de Imagem"],
+              ["Custo com Elenco de um Clube", "Amortizações de direitos (compra de jogadores) e custo de registro"],
+              ["Custo com Elenco de um Clube", "Custos com agentes e intermediários"],
+            ];
+            const custoLabels = [
+              "Salários, Encargos, Benefícios, Direitos de Imagem",
+              "Amortizações de direitos (compra de jogadores) e custo de registro",
+              "Custos com agentes e intermediários",
+            ];
+            const custo = buildGroup(d.custoElenco, custoKeys);
+            return (
+              <>
+                <MetricRow label="Custo com Elenco" value={fmtBRL(d.custoElenco)} negative={isNeg(d.custoElenco)} />
+                {custo.map((props, i) => (
+                  <SubMetricRow key={custoLabels[i]} label={custoLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
-          <MetricRow
-            label="Financiamento do Elenco"
-            value={fmtBRL(d.financiamentoElenco)}
-            negative={isNeg(d.financiamentoElenco)}
-          />
-          <SubMetricRow label="Receita Operacional" {...sub("Financiamento do Elenco de um clube", "Receita Operacional")} />
-          <SubMetricRow label="Resultado Líquido Médio de Transferências (RLMT)" {...sub("Financiamento do Elenco de um clube", "Resultado Líquido Médio de Transferências (RLMT)")} />
-          <SubMetricRow label="Contribuições Patrimoniais" {...sub("Financiamento do Elenco de um clube", "Contribuições Patrimoniais")} />
+          {(() => {
+            const finKeys: SubKey[] = [
+              ["Financiamento do Elenco de um clube", "Receita Operacional"],
+              ["Financiamento do Elenco de um clube", "Resultado Líquido Médio de Transferências (RLMT)"],
+              ["Financiamento do Elenco de um clube", "Contribuições Patrimoniais"],
+            ];
+            const finLabels = [
+              "Receita Operacional",
+              "Resultado Líquido Médio de Transferências (RLMT)",
+              "Contribuições Patrimoniais",
+            ];
+            const fin = buildGroup(d.financiamentoElenco, finKeys);
+            return (
+              <>
+                <MetricRow label="Financiamento do Elenco" value={fmtBRL(d.financiamentoElenco)} negative={isNeg(d.financiamentoElenco)} />
+                {fin.map((props, i) => (
+                  <SubMetricRow key={finLabels[i]} label={finLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
           <MetricRow label="Indicador" value={fmtPct(d.indicadorCusto)} bold />
           <tr>
@@ -277,14 +404,27 @@ export default function SSFDetailTable({ detail, rows, csvColumn }: Props) {
           {/* --- Req 3: Endividamento --- */}
           <SectionHeader label="Req. Endividamento" />
 
-          <MetricRow
-            label="Obrigações Líquidas de Curto Prazo"
-            value={fmtBRL(d.olcp)}
-            negative={isNeg(d.olcp)}
-          />
-          <SubMetricRow label="OGCP - Obrigações gerais de curto prazo" {...sub("Obrigações Líquidas de Curto Prazo (OLCP)", "OGCP - Obrigações gerais de curto prazo")} />
-          <SubMetricRow label="OT - Obrigações de Transferência" {...sub("Obrigações Líquidas de Curto Prazo (OLCP)", "OT - Obrigações de Transferência")} />
-          <SubMetricRow label="ALCP - Ativos líquidos de curto prazo" {...subNeg("Obrigações Líquidas de Curto Prazo (OLCP)", "ALCP - Ativos líquidos de curto prazo")} />
+          {(() => {
+            const olcpKeys: SubKey[] = [
+              ["Obrigações Líquidas de Curto Prazo (OLCP)", "OGCP - Obrigações gerais de curto prazo"],
+              ["Obrigações Líquidas de Curto Prazo (OLCP)", "OT - Obrigações de Transferência"],
+              ["Obrigações Líquidas de Curto Prazo (OLCP)", "ALCP - Ativos líquidos de curto prazo"],
+            ];
+            const olcpLabels = [
+              "OGCP - Obrigações gerais de curto prazo",
+              "OT - Obrigações de Transferência",
+              "ALCP - Ativos líquidos de curto prazo",
+            ];
+            const olcp = buildGroup(d.olcp, olcpKeys);
+            return (
+              <>
+                <MetricRow label="Obrigações Líquidas de Curto Prazo" value={fmtBRL(d.olcp)} negative={isNeg(d.olcp)} />
+                {olcp.map((props, i) => (
+                  <SubMetricRow key={olcpLabels[i]} label={olcpLabels[i]} {...props} />
+                ))}
+              </>
+            );
+          })()}
 
           <MetricRow
             label="Receitas Relevantes"
