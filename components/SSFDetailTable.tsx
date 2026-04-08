@@ -284,7 +284,7 @@ export default function SSFDetailTable({ detail, rows, csvColumn }: Props) {
           />
           <SubMetricRow label="OGCP - Obrigações gerais de curto prazo" {...sub("Obrigações Líquidas de Curto Prazo (OLCP)", "OGCP - Obrigações gerais de curto prazo")} />
           <SubMetricRow label="OT - Obrigações de Transferência" {...sub("Obrigações Líquidas de Curto Prazo (OLCP)", "OT - Obrigações de Transferência")} />
-          <SubMetricRow label="ALCP - Ativos líquidos de curto prazo" {...sub("Obrigações Líquidas de Curto Prazo (OLCP)", "ALCP - Ativos líquidos de curto prazo")} />
+          <SubMetricRow label="ALCP - Ativos líquidos de curto prazo" {...subNeg("Obrigações Líquidas de Curto Prazo (OLCP)", "ALCP - Ativos líquidos de curto prazo")} />
 
           <MetricRow
             label="Receitas Relevantes"
