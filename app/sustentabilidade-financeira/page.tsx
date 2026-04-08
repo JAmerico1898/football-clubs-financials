@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Image from "next/image";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import SSFBarChart from "@/components/SSFBarChart";
 import SSFDetailTable from "@/components/SSFDetailTable";
 import { useSSFData } from "@/hooks/useSSFData";
@@ -43,7 +43,7 @@ export default function SustentabilidadeFinanceiraPage() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-12">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1
         className="text-3xl font-bold tracking-tight mb-4"
@@ -167,6 +167,7 @@ export default function SustentabilidadeFinanceiraPage() {
           )}
         </>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

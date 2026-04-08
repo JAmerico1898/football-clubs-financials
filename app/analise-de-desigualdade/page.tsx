@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import CategorySelector from "@/components/CategorySelector";
 import InequalityChart from "@/components/InequalityChart";
 import {
@@ -133,7 +133,7 @@ export default function AnaliseDeDesigualdade() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-        <BackButton />
+        <ModuleNavbar />
 
         <h1
           className="text-3xl font-bold tracking-tight text-center mb-8"
@@ -199,6 +199,7 @@ export default function AnaliseDeDesigualdade() {
             ))}
           </div>
         )}
+        <ModuleNavbar />
       </main>
     </>
   );

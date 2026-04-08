@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { clubs2024, getIconUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import CompareBarChart from "@/components/CompareBarChart";
 import ConceptNotes from "@/components/ConceptNotes";
 import { compareMetrics } from "@/lib/compare-chart-config";
@@ -43,7 +43,7 @@ export default function Compare2Clubes() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Compare 2 Clubes
@@ -133,6 +133,7 @@ export default function Compare2Clubes() {
           <ConceptNotes metricKeys={compareMetrics.flatMap((m) => [m.label, m.csvKey])} />
         </div>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

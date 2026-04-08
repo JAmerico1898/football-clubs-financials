@@ -63,6 +63,13 @@ export const landingCards: LandingCard[] = [
     materialIcon: "account_balance",
     href: "/sustentabilidade-financeira",
   },
+  {
+    title: "Evolução Financeira da Liga",
+    description:
+      "Evolução dos principais agregados financeiros da liga entre 2021 e 2025.",
+    materialIcon: "show_chart",
+    href: "/evolucao-liga",
+  },
 ];
 
 export const spiralBadges: SpiralBadge[] = [

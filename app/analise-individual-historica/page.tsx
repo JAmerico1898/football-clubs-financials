@@ -1,4 +1,4 @@
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 
 export default function AnaliseIndividualHistorica() {
   return (
@@ -10,7 +10,7 @@ export default function AnaliseIndividualHistorica() {
       </div>
 
       <main className="relative z-10 max-w-[800px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
       <div className="text-center mt-16">
         <h1
           className="text-3xl font-bold tracking-tight mb-4"
@@ -20,6 +20,7 @@ export default function AnaliseIndividualHistorica() {
         </h1>
         <p style={{ color: "var(--text-secondary)" }}>Em breve</p>
       </div>
+      <ModuleNavbar />
     </main>
     </>
   );

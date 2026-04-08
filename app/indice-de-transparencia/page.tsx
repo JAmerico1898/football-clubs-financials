@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import TransparencyChart, {
   TransparencyDatum,
 } from "@/components/TransparencyChart";
@@ -87,9 +87,10 @@ export default function IndiceDeTransparencia() {
         items.sort((a, b) => b.total - a.total);
         setData(items);
 
+        const allClubs = [...clubs, ...clubs2025];
         const icons: Record<string, string> = {};
         for (const item of items) {
-          const match = clubs.find(
+          const match = allClubs.find(
             (c) =>
               c.csvColumn === item.club ||
               c.name === item.club
@@ -110,7 +111,7 @@ export default function IndiceDeTransparencia() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1
         className="text-3xl font-bold tracking-tight text-center mb-8"
@@ -137,6 +138,7 @@ export default function IndiceDeTransparencia() {
           </div>
         </div>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

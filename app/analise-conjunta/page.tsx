@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { type ScatterPeriod } from "@/lib/clubs";
 import { xAxisMetrics, yAxisMetrics } from "@/lib/scatter-config";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import ScatterPlotChart from "@/components/ScatterPlotChart";
 import ConceptNotes from "@/components/ConceptNotes";
 
@@ -40,7 +40,7 @@ export default function AnaliseConjunta() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-6" style={{ color: "var(--text-primary)" }}>
         Análise Conjunta
@@ -113,6 +113,7 @@ export default function AnaliseConjunta() {
           <ConceptNotes metricKeys={[xMetric.label, xMetric.csvKey, yMetric.label, yMetric.csvKey]} />
         </div>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

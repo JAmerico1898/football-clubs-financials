@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 
 export default function ContatoPage() {
   const [name, setName] = useState("");
@@ -33,7 +33,7 @@ export default function ContatoPage() {
 
   return (
     <main className="max-w-[960px] mx-auto px-4 py-12">
-      <BackButton />
+      <ModuleNavbar />
       <h1 className="text-3xl font-bold tracking-tight mb-4" style={{ color: "var(--text-primary)" }}>
         Dúvidas, Sugestões, Bugs
       </h1>
@@ -100,6 +100,7 @@ export default function ContatoPage() {
           )}
         </form>
       </div>
+      <ModuleNavbar />
     </main>
   );
 }

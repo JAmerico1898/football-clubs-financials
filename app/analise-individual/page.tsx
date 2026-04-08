@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { clubs2024, DEFAULT_CLUB, getIconUrl, getBackdropUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import SankeyChart from "@/components/SankeyChart";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
@@ -63,7 +63,7 @@ export default function AnaliseIndividual() {
       </div>
 
     <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Análise Individual
@@ -181,6 +181,7 @@ export default function AnaliseIndividual() {
           </div>
         </>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

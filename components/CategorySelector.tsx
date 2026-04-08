@@ -12,6 +12,11 @@ interface CategorySelectorProps {
   setSelected: (cats: string[]) => void;
   activated: boolean;
   setActivated: (v: boolean) => void;
+  allCategories?: string[];
+  categoryColors?: Record<string, string>;
+  maxSelected?: number;
+  minSelected?: number;
+  defaultDescription?: string;
 }
 
 export default function CategorySelector({
@@ -19,6 +24,11 @@ export default function CategorySelector({
   setSelected,
   activated,
   setActivated,
+  allCategories = ALL_CATEGORIES,
+  categoryColors = CATEGORY_COLORS,
+  maxSelected = MAX_SELECTED,
+  minSelected = 0,
+  defaultDescription = "Receita da Atividade Esportiva e Custo da Atividade Esportiva são exibidas por padrão.",
 }: CategorySelectorProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -42,17 +52,19 @@ export default function CategorySelector({
 
   function toggleCategory(cat: string) {
     if (selected.includes(cat)) {
+      if (selected.length <= minSelected) return;
       setSelected(selected.filter((c) => c !== cat));
-    } else if (selected.length < MAX_SELECTED) {
+    } else if (selected.length < maxSelected) {
       setSelected([...selected, cat]);
     }
   }
 
   function removeCategory(cat: string) {
+    if (selected.length <= minSelected) return;
     setSelected(selected.filter((c) => c !== cat));
   }
 
-  const atLimit = selected.length >= MAX_SELECTED;
+  const atLimit = selected.length >= maxSelected;
 
   return (
     <div ref={ref} className="relative">
@@ -73,8 +85,7 @@ export default function CategorySelector({
             className="text-xs mt-2"
             style={{ color: "var(--text-secondary)" }}
           >
-            Receita da Atividade Esportiva e Custo da Atividade Esportiva são
-            exibidas por padrão.
+            {defaultDescription}
           </p>
         </div>
       ) : (
@@ -89,7 +100,7 @@ export default function CategorySelector({
             }}
           >
             <span>
-              Variáveis selecionadas ({selected.length}/{MAX_SELECTED})
+              Variáveis selecionadas ({selected.length}/{maxSelected})
             </span>
             <span
               className="material-symbols-outlined text-[20px] transition-transform"
@@ -108,9 +119,10 @@ export default function CategorySelector({
                 borderColor: "var(--border)",
               }}
             >
-              {ALL_CATEGORIES.map((cat) => {
+              {allCategories.map((cat) => {
                 const isSelected = selected.includes(cat);
                 const isDisabled = !isSelected && atLimit;
+                const isLastSelected = isSelected && selected.length <= minSelected;
 
                 return (
                   <li key={cat}>
@@ -119,8 +131,10 @@ export default function CategorySelector({
                       disabled={isDisabled}
                       title={
                         isDisabled
-                          ? "Máximo de 3 variáveis atingido"
-                          : undefined
+                          ? `Máximo de ${maxSelected} variáveis atingido`
+                          : isLastSelected
+                            ? "Selecione ao menos 1 métrica"
+                            : undefined
                       }
                       className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-left transition-colors disabled:opacity-40 disabled:cursor-not-allowed hover:bg-black/5"
                       style={{ color: "var(--text-primary)" }}
@@ -128,9 +142,9 @@ export default function CategorySelector({
                       <span
                         className="flex items-center justify-center w-4 h-4 rounded border flex-shrink-0"
                         style={{
-                          borderColor: CATEGORY_COLORS[cat],
+                          borderColor: categoryColors[cat],
                           backgroundColor: isSelected
-                            ? CATEGORY_COLORS[cat]
+                            ? categoryColors[cat]
                             : "transparent",
                         }}
                       >
@@ -142,7 +156,7 @@ export default function CategorySelector({
                       </span>
                       <span
                         className="w-3 h-3 rounded-full flex-shrink-0"
-                        style={{ backgroundColor: CATEGORY_COLORS[cat] }}
+                        style={{ backgroundColor: categoryColors[cat] }}
                       />
                       {cat}
                     </button>
@@ -155,30 +169,34 @@ export default function CategorySelector({
           {/* Chips */}
           {selected.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
-              {selected.map((cat) => (
-                <span
-                  key={cat}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-                  style={{
-                    backgroundColor: CATEGORY_COLORS[cat] + "18",
-                    color: CATEGORY_COLORS[cat],
-                    border: `1px solid ${CATEGORY_COLORS[cat]}40`,
-                  }}
-                >
+              {selected.map((cat) => {
+                const isLast = selected.length <= minSelected;
+                return (
                   <span
-                    className="w-2 h-2 rounded-full"
-                    style={{ backgroundColor: CATEGORY_COLORS[cat] }}
-                  />
-                  {cat}
-                  <button
-                    onClick={() => removeCategory(cat)}
-                    className="ml-0.5 hover:opacity-70"
-                    aria-label={`Remover ${cat}`}
+                    key={cat}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
+                    style={{
+                      backgroundColor: categoryColors[cat] + "18",
+                      color: categoryColors[cat],
+                      border: `1px solid ${categoryColors[cat]}40`,
+                    }}
                   >
-                    ✕
-                  </button>
-                </span>
-              ))}
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: categoryColors[cat] }}
+                    />
+                    {cat}
+                    <button
+                      onClick={() => removeCategory(cat)}
+                      className={`ml-0.5 ${isLast ? "opacity-30 cursor-not-allowed" : "hover:opacity-70"}`}
+                      title={isLast ? "Selecione ao menos 1 métrica" : undefined}
+                      aria-label={`Remover ${cat}`}
+                    >
+                      ✕
+                    </button>
+                  </span>
+                );
+              })}
             </div>
           )}
         </div>

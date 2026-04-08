@@ -4,7 +4,7 @@ import { useState } from "react";
 import { clubs2024, DEFAULT_CLUB, getIconUrl, getBackdropUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
 import { metrics } from "@/lib/metric-config";
-import BackButton from "@/components/BackButton";
+import ModuleNavbar from "@/components/ModuleNavbar";
 import MetricSelector from "@/components/MetricSelector";
 import ComparisonBarChart from "@/components/ComparisonBarChart";
 import EvolutionLineChart from "@/components/EvolutionLineChart";
@@ -40,7 +40,7 @@ export default function AnaliseComparativaSimples() {
       </div>
 
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
-      <BackButton />
+      <ModuleNavbar />
 
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Análise Comparativa
@@ -117,6 +117,7 @@ export default function AnaliseComparativaSimples() {
           </section>
         </div>
       )}
+      <ModuleNavbar />
     </main>
     </>
   );

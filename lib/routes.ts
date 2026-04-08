@@ -79,7 +79,7 @@ export const routes: Route[] = [
   {
     label: "Dúvidas, Sugestões, Bugs",
     href: "/contato",
-    description: "Entre em contato",
+    description: "Dúvidas? Sugestões? Entre em contato!",
     available: true,
     icon: Mail,
     accent: "#C62828",
