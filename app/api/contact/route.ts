@@ -14,15 +14,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Pushover não configurado" }, { status: 500 });
   }
 
+  const body = new URLSearchParams({
+    token,
+    user,
+    title: `Contato${name ? `: ${name}` : ""}`,
+    message: `${message}${email ? `\n\nE-mail: ${email}` : ""}`,
+  });
+
   const res = await fetch("https://api.pushover.net/1/messages.json", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      token,
-      user,
-      title: `Contato${name ? `: ${name}` : ""}`,
-      message: `${message}${email ? `\n\nE-mail: ${email}` : ""}`,
-    }),
+    body,
   });
 
   if (!res.ok) {
