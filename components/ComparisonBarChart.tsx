@@ -84,7 +84,7 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
   );
 
   useEffect(() => {
-    fetch(`/data/Índices_${season}.csv`)
+    fetch(`/data/índices_${season}.csv`)
       .then((r) => r.text())
       .then((text) => {
         const clean = text.replace(/^\uFEFF/, "");

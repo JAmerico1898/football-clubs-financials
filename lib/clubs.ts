@@ -73,9 +73,9 @@ export function getBarChartCsvUrls(season: Season): { current: string; prior: st
 }
 
 export function getScatterCsvUrls(period: ScatterPeriod): string[] {
-  if (period === "2025") return ["/data/Índices_2025.csv"];
-  if (period === "2024") return ["/data/Índices_2024.csv"];
-  return ["/data/Índices_2025.csv", "/data/Índices_2024.csv"];
+  if (period === "2025") return ["/data/índices_2025.csv"];
+  if (period === "2024") return ["/data/índices_2024.csv"];
+  return ["/data/índices_2025.csv", "/data/índices_2024.csv"];
 }
 
 export function getScatterClubs(period: ScatterPeriod): Club[] {
