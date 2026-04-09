@@ -50,7 +50,7 @@ export default function EvolucaoLiga() {
   const [selected, setSelected] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch("/data/evolução_liga.csv")
+    fetch("/data/evolucao_liga.csv")
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados");
         return res.text();
