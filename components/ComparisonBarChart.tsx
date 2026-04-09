@@ -16,6 +16,7 @@ import Papa from "papaparse";
 import { Club, clubs2024, extraChartClubs, getIconUrl, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
 import { Metric, formatValue, formatAxisValue } from "@/lib/metric-config";
+import { getMatchingConcepts } from "@/lib/concept-notes";
 
 interface ComparisonBarChartProps {
   club: Club;
@@ -105,16 +106,14 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
               raw === "" || isNaN(value) || value === 0;
             if (isMissing) {
               missing.push(c.name);
-              return null;
             }
             return {
               name: c.name,
-              value,
+              value: isMissing ? 0 : value,
               isSelected: c.name === club.name,
               iconUrl: getIconUrl(c),
             };
-          })
-          .filter((item): item is Omit<BarDatum, "rank"> => item !== null);
+          });
 
         const sorted = [...unsorted].sort((a, b) =>
           metric.inverse ? a.value - b.value : b.value - a.value
@@ -204,19 +203,15 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
           </Bar>
         </BarChart>
       </ResponsiveContainer>
-      {missingClubs.includes(club.name) && (
-        <p className="ml-[100px] text-xs italic" style={{ color: "var(--text-secondary)" }}>
-          Nota: {club.name} não divulgou Demonstrações Financeiras completas em seu site oficial.
+      {getMatchingConcepts([metric.label, metric.csvKey]).map(([concept, definition]) => (
+        <p key={concept} className="ml-[100px] text-xs italic" style={{ color: "var(--text-secondary)" }}>
+          <strong>{concept}:</strong> {definition}
         </p>
-      )}
-      {missingClubs.filter((name) => name !== club.name).length > 0 && (
-        <div className="-mt-2 ml-[100px] space-y-0.5">
-          {missingClubs.filter((name) => name !== club.name).map((name) => (
-            <p key={name} className="text-xs italic" style={{ color: "var(--text-secondary)" }}>
-              {name} não reportou esse dado em suas Demonstrações Financeiras publicadas.
-            </p>
-          ))}
-        </div>
+      ))}
+      {missingClubs.length > 0 && (
+        <p className="ml-[100px] text-xs italic" style={{ color: "var(--text-secondary)" }}>
+          Nota: {missingClubs.join(", ")} não reportou/reportaram esse dado em suas Demonstrações Financeiras publicadas.
+        </p>
       )}
     </div>
   );

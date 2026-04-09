@@ -8,7 +8,6 @@ import ModuleNavbar from "@/components/ModuleNavbar";
 import MetricSelector from "@/components/MetricSelector";
 import ComparisonBarChart from "@/components/ComparisonBarChart";
 import EvolutionLineChart from "@/components/EvolutionLineChart";
-import ConceptNotes from "@/components/ConceptNotes";
 
 function getClubsForSeason(season: Season): Club[] {
   return season === "2025" ? clubs2025 : clubs2024;
@@ -110,7 +109,6 @@ export default function AnaliseComparativaSimples() {
         <div className="flex flex-col gap-16">
           <section className="card-surface mb-6">
             <ComparisonBarChart club={club} metric={metric} season={season} />
-            <ConceptNotes metricKeys={[metric.label, metric.csvKey]} />
           </section>
           <section className="card-surface mb-6">
             <EvolutionLineChart club={club} metric={metric} season={season} />
