@@ -67,15 +67,15 @@ export function getBackdropUrl(club: Club): string {
 
 export function getBarChartCsvUrls(season: Season): { current: string; prior: string } {
   if (season === "2025") {
-    return { current: "/data/índices_2025.csv", prior: "/data/índices_2024.csv" };
+    return { current: "/data/indices_2025.csv", prior: "/data/indices_2024.csv" };
   }
-  return { current: "/data/índices_2024.csv", prior: "/data/índices_2023.csv" };
+  return { current: "/data/indices_2024.csv", prior: "/data/indices_2023.csv" };
 }
 
 export function getScatterCsvUrls(period: ScatterPeriod): string[] {
-  if (period === "2025") return ["/data/índices_2025.csv"];
-  if (period === "2024") return ["/data/índices_2024.csv"];
-  return ["/data/índices_2025.csv", "/data/índices_2024.csv"];
+  if (period === "2025") return ["/data/indices_2025.csv"];
+  if (period === "2024") return ["/data/indices_2024.csv"];
+  return ["/data/indices_2025.csv", "/data/indices_2024.csv"];
 }
 
 export function getScatterClubs(period: ScatterPeriod): Club[] {

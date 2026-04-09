@@ -72,7 +72,7 @@ export default function CompareBarChart({ club1, club2, season }: CompareBarChar
     setError(null);
     setData(null);
 
-    fetch(`/data/índices_${season}.csv`)
+    fetch(`/data/indices_${season}.csv`)
       .then((res) => {
         if (!res.ok) throw new Error("Não foi possível carregar os dados CSV");
         return res.text();

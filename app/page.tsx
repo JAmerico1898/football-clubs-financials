@@ -15,8 +15,8 @@ const CLUBS_2025_CSV = new Set([
 function computeFooterKPIs() {
   const dataDir = path.join(process.cwd(), "public", "data");
 
-  // --- índices_2025.csv ---
-  const indicesRaw = fs.readFileSync(path.join(dataDir, "índices_2025.csv"), "utf-8").replace(/^\uFEFF/, "");
+  // --- indices_2025.csv ---
+  const indicesRaw = fs.readFileSync(path.join(dataDir, "indices_2025.csv"), "utf-8").replace(/^\uFEFF/, "");
   const indicesRows = indicesRaw.split("\n").map((r) => r.split(","));
   const indicesHeader = indicesRows[0];
 
@@ -35,8 +35,8 @@ function computeFooterKPIs() {
   const custo = sumRow("Custo da Atividade Esportiva");
   const divida = sumRow("Dívida Líquida");
 
-  // --- Transparência.csv ---
-  const transpRaw = fs.readFileSync(path.join(dataDir, "Transparência.csv"), "utf-8").replace(/^\uFEFF/, "");
+  // --- transparencia.csv ---
+  const transpRaw = fs.readFileSync(path.join(dataDir, "transparencia.csv"), "utf-8").replace(/^\uFEFF/, "");
   const parsed = Papa.parse(transpRaw, { header: false, skipEmptyLines: true });
   const transpRows = parsed.data as string[][];
   const transpHeader = transpRows[0];
