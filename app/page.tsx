@@ -227,7 +227,7 @@ export default function FrontPage() {
                 href="/contato"
                 className="font-headline text-xs tracking-wider uppercase text-[#115cb9] font-semibold hover:opacity-80 transition-opacity duration-200"
               >
-                Dúvidas? Sugestões?<br />Entre em contato!
+                Dúvidas, Erros, Sugestões?<br />Entre em contato!
               </Link>
             </div>
           </div>

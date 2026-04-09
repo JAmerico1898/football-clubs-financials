@@ -34,12 +34,12 @@ export const metrics: Metric[] = [
 
   // Gerenciais
   { label: "Público Médio / Sócios-Torcedores", csvKey: "Público Médio / Sócios-Torcedores", group: "gerenciais", format: "ratio" },
-  { label: "Dívida/Receita Operacional", csvKey: "Dívida/Receita Operacional", group: "gerenciais", format: "ratio", inverse: true },
-  { label: "Folha do futebol / Receita Operacional", csvKey: "Folha do futebol / Receita Operacional", group: "gerenciais", format: "ratio" },
-  { label: "(Folha futebol + Amortização)/ Receita Operacional", csvKey: "(Folha futebol + Amortização)/ Receita Operacional", group: "gerenciais", format: "ratio" },
-  { label: "(Folha futebol + Compra de Jogadores) / Receita Operacional", csvKey: "Folha do Futebol + Compra de Jogadores / Receita Operacional", group: "gerenciais", format: "ratio" },
+  { label: "Dívida/Receita Total", csvKey: "Dívida/Receita Total", group: "gerenciais", format: "ratio", inverse: true },
+  { label: "Folha do futebol / Receita Total", csvKey: "Folha do futebol / Receita Total", group: "gerenciais", format: "ratio" },
+  { label: "(Folha futebol + Amortização)/ Receita Total", csvKey: "(Folha futebol + Amortização)/ Receita Total", group: "gerenciais", format: "ratio" },
+  { label: "(Folha futebol + Compra de Jogadores) / Receita Total", csvKey: "Folha do Futebol + Compra de Jogadores / Receita Total", group: "gerenciais", format: "ratio" },
   { label: "Folha do Futebol / Pontuação Série A", csvKey: "Folha do Futebol / Pontuação Série A", group: "gerenciais", format: "ratio" },
-  { label: "Custo da Atividade Esportiva / Receita Operacional", csvKey: "Custo da Atividade Esportiva / Receita Operacional", group: "gerenciais", format: "ratio" },
+  { label: "Custo da Atividade Esportiva / Receita Total", csvKey: "Custo da Atividade Esportiva / Receita Total", group: "gerenciais", format: "ratio" },
   { label: "Ticket Médio", csvKey: "Ticket Médio", group: "gerenciais", format: "decimal" },
 ];
 
@@ -53,7 +53,6 @@ const historicalMetricKeys = new Set([
   "Folha do Futebol",
   "Folha do Futebol + Amortização",
   "Folha do Futebol + Compra de Jogadores",
-  "Folha do Futebol + Compra de Jogadores / Receita Operacional",
   "Custo da Atividade Esportiva",
   "Resultado Operacional (Segmento Futebol)",
   "Resultado",

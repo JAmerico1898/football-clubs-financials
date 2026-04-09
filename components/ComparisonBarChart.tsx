@@ -159,11 +159,6 @@ export default function ComparisonBarChart({ club, metric, season }: ComparisonB
   return (
     <div>
       <h2 className="text-[25px] font-bold text-center mb-0">{metric.label} — {season}</h2>
-      {season === "2024" && (
-        <p className="text-center text-sm italic mb-2" style={{ color: "var(--text-secondary)" }}>
-          (ajustado pelo IPCA)
-        </p>
-      )}
       <ResponsiveContainer width="100%" height={520}>
         <BarChart data={data} margin={{ top: 30, right: 20, left: 20, bottom: 50 }}>
           <XAxis

@@ -67,85 +67,115 @@ function LineCustomTooltip({ active, payload, label, metric, selectedClub }: Lin
 export default function EvolutionLineChart({ club, metric, season }: EvolutionLineChartProps) {
   const [data, setData] = useState<Record<string, string | number>[]>([]);
   const [selectedClubMissing, setSelectedClubMissing] = useState(false);
-  const hasHistory = hasHistoricalData(metric);
+  const usePainel = hasHistoricalData(metric);
 
-  const YEARS = season === "2025"
-    ? ["2021", "2022", "2023", "2024", "2025"]
-    : ["2021", "2022", "2023", "2024"];
+  const YEARS = usePainel
+    ? (season === "2025"
+        ? ["2021", "2022", "2023", "2024", "2025"]
+        : ["2021", "2022", "2023", "2024"])
+    : ["2023", "2024", "2025"];
 
   const chartClubs = season === "2025" ? clubs2025 : clubs2024;
 
   useEffect(() => {
-    if (!hasHistory) return;
+    if (usePainel) {
+      // Load from Painel_Consolidado_Moeda_Cte.csv (IPCA-adjusted, 2021–season)
+      fetch(`/data/Painel_Consolidado_Moeda_Cte.csv`)
+        .then((r) => r.text())
+        .then((text) => {
+          const clean = text.replace(/^\uFEFF/, "");
+          const parsed = Papa.parse<string[]>(clean, { header: false });
+          const rows = parsed.data;
+          if (rows.length === 0) return;
 
-    fetch(`/data/Painel_Consolidado_Moeda_Cte.csv`)
-      .then((r) => r.text())
-      .then((text) => {
-        const clean = text.replace(/^\uFEFF/, "");
-        const parsed = Papa.parse<string[]>(clean, { header: false });
-        const rows = parsed.data;
-        if (rows.length === 0) return;
+          const header = rows[0];
 
-        const header = rows[0];
+          const selectedClub = chartClubs.find((c) => c.name === club.name);
+          const selectedColIdx = selectedClub
+            ? header.findIndex((h) => h.trim() === selectedClub.csvColumn)
+            : -1;
 
-        const selectedClub = chartClubs.find((c) => c.name === club.name);
-        const selectedColIdx = selectedClub
-          ? header.findIndex((h) => h.trim() === selectedClub.csvColumn)
-          : -1;
-
-        // Check if selected club has any non-empty, non-zero data across all years
-        const hasSelectedData = YEARS.some((year) => {
-          const row = rows.find(
-            (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
-          );
-          const raw = row && selectedColIdx >= 0 ? row[selectedColIdx]?.trim() : "";
-          const val = parseFloat(raw);
-          return raw !== "" && !isNaN(val) && val !== 0;
-        });
-        setSelectedClubMissing(!hasSelectedData);
-
-        const chartData = YEARS.map((year) => {
-          const row = rows.find(
-            (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
-          );
-          const point: Record<string, string | number> = { year };
-          chartClubs.forEach((c) => {
-            const colIdx = header.findIndex((h) => h.trim() === c.csvColumn);
-            const raw = row && colIdx >= 0 ? row[colIdx] : "";
-            point[c.name] = parseFloat(raw) || 0;
+          const hasSelectedData = YEARS.some((year) => {
+            const row = rows.find(
+              (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
+            );
+            const raw = row && selectedColIdx >= 0 ? row[selectedColIdx]?.trim() : "";
+            const val = parseFloat(raw);
+            return raw !== "" && !isNaN(val) && val !== 0;
           });
-          return point;
+          setSelectedClubMissing(!hasSelectedData);
+
+          const chartData = YEARS.map((year) => {
+            const row = rows.find(
+              (r) => r[0]?.trim() === year && r[2]?.trim() === metric.csvKey
+            );
+            const point: Record<string, string | number> = { year };
+            chartClubs.forEach((c) => {
+              const colIdx = header.findIndex((h) => h.trim() === c.csvColumn);
+              const raw = row && colIdx >= 0 ? row[colIdx] : "";
+              point[c.name] = parseFloat(raw) || 0;
+            });
+            return point;
+          });
+
+          setData(chartData);
         });
+    } else {
+      // Load from indices files (2023–2025)
+      const files = [
+        "/data/indices_2023.csv",
+        "/data/indices_2024.csv",
+        "/data/indices_2025.csv",
+      ];
+      Promise.all(files.map((f) => fetch(f).then((r) => r.text())))
+        .then((texts) => {
+          const years = ["2023", "2024", "2025"];
 
-        setData(chartData);
-      });
+          const chartData = years.map((year, i) => {
+            const clean = texts[i].replace(/^\uFEFF/, "");
+            const parsed = Papa.parse<string[]>(clean, { header: false });
+            const rows = parsed.data;
+            const header = rows[0];
+            const metricRow = rows.find((r) => r[2]?.trim() === metric.csvKey);
+
+            const point: Record<string, string | number> = { year };
+            chartClubs.forEach((c) => {
+              const colIdx = header.findIndex((h) => h.trim() === c.csvColumn);
+              const raw = metricRow && colIdx >= 0 ? metricRow[colIdx]?.trim() : "";
+              point[c.name] = parseFloat(raw) || 0;
+            });
+            return point;
+          });
+
+          const hasSelectedData = chartData.some((point) => {
+            const val = Number(point[club.name]);
+            return !isNaN(val) && val !== 0;
+          });
+          setSelectedClubMissing(!hasSelectedData);
+
+          setData(chartData);
+        });
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [metric, hasHistory, season]);
-
-  if (!hasHistory) {
-    return (
-      <div className="text-center py-12">
-        <h2 className="text-[25px] font-bold mb-4">{metric.label}</h2>
-        <p className="italic" style={{ color: "var(--text-secondary)" }}>
-          Dados históricos não disponíveis para esta métrica
-        </p>
-      </div>
-    );
-  }
+  }, [metric, usePainel, season]);
 
   if (data.length === 0) return null;
+
+  const yearRange = usePainel ? `2021 a ${season}` : "2023 a 2025";
 
   return (
     <div>
       <h2 className="text-[25px] font-bold text-center mb-1">
-        {metric.label} — 2021 a {season}
+        {metric.label} — {yearRange}
       </h2>
       <p className="text-center italic" style={{ color: "var(--text-secondary)", fontSize: 16, fontWeight: 600 }}>
         Clube em destaque: {club.name}
       </p>
-      <p className="text-center text-sm italic mb-4" style={{ color: "var(--text-secondary)" }}>
-        Valores em moeda constante (IPCA)
-      </p>
+      {usePainel && (
+        <p className="text-center text-sm italic mb-4" style={{ color: "var(--text-secondary)" }}>
+          Valores em moeda constante (IPCA)
+        </p>
+      )}
       <ResponsiveContainer width="100%" height={450}>
         <LineChart data={data} margin={{ top: 10, right: 20, left: 20, bottom: 10 }}>
           <XAxis dataKey="year" tick={{ fill: "var(--text-secondary)", fontSize: 12 }} />
