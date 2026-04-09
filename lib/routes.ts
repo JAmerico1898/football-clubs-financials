@@ -6,6 +6,7 @@ import {
   Eye,
   Scale,
   Leaf,
+  Mail,
   type LucideIcon,
 } from "lucide-react";
 
@@ -74,5 +75,13 @@ export const routes: Route[] = [
     available: true,
     icon: Leaf,
     accent: "#F9A825",
+  },
+  {
+    label: "Dúvidas, Sugestões, Bugs",
+    href: "/contato",
+    description: "Dúvidas, Erros, Sugestões? Entre em contato!",
+    available: true,
+    icon: Mail,
+    accent: "#C62828",
   },
 ];

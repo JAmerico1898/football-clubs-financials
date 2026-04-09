@@ -221,6 +221,15 @@ export default function FrontPage() {
               </div>
             </div>
 
+            {/* Contact link */}
+            <div>
+              <Link
+                href="/contato"
+                className="font-headline text-xs tracking-wider uppercase text-[#115cb9] font-semibold hover:opacity-80 transition-opacity duration-200"
+              >
+                Dúvidas, Erros, Sugestões?<br />Entre em contato!
+              </Link>
+            </div>
           </div>
         </footer>
       </div>
