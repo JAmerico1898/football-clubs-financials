@@ -49,7 +49,17 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(ls:*)",
-      "Bash(git -C /d/jose_americo/financials/football-clubs-financials log --oneline --all)"
+      "Bash(git -C /d/jose_americo/financials/football-clubs-financials log --oneline --all)",
+      "Bash(vercel --version)",
+      "Bash(python3:*)",
+      "Bash(mv \"índices_2023.csv\" \"indices_2023.csv\")",
+      "Bash(mv \"índices_2024.csv\" \"indices_2024.csv\")",
+      "Bash(mv \"índices_2025.csv\" \"indices_2025.csv\")",
+      "Bash(mv:*)",
+      "Bash(vercel env:*)",
+      "Bash(vercel --prod)",
+      "Bash(curl:*)",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }

@@ -136,8 +136,6 @@ export default function SSFBarChart({
       >
         {compliantCount} de {data.length} clubes conformes
       </p>
-      <div className="overflow-x-auto">
-        <div style={{ minWidth: 900 }}>
           <ResponsiveContainer width="100%" height={520}>
             <BarChart
               data={data}
@@ -234,8 +232,6 @@ export default function SSFBarChart({
               </Bar>
             </BarChart>
           </ResponsiveContainer>
-        </div>
-      </div>
       {referenceLines && referenceLines.length > 0 && (
         <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-2">
           {referenceLines.map((rl) => (

@@ -90,15 +90,13 @@ export function useSSFData(): UseSSFDataReturn {
         const d2: SSFBarDatum[] = clubs2025
           .map((c) => {
             const v = getVal(rowReq2, c.csvColumn);
-            if (isNaN(v)) return null;
             return {
               name: c.name,
-              value: v,
-              compliant: v <= 0.9,
+              value: isNaN(v) ? 0 : v,
+              compliant: isNaN(v) ? true : v <= 0.9,
               iconUrl: getIconUrl(c),
             };
           })
-          .filter((x): x is SSFBarDatum => x !== null)
           .sort((a, b) => a.value - b.value);
         setChartData2(d2);
 
@@ -106,15 +104,13 @@ export function useSSFData(): UseSSFDataReturn {
         const d3: SSFBarDatum[] = clubs2025
           .map((c) => {
             const v = getVal(rowReq3, c.csvColumn);
-            if (isNaN(v)) return null;
             return {
               name: c.name,
-              value: v,
-              compliant: v <= 0.7,
+              value: isNaN(v) ? 0 : v,
+              compliant: isNaN(v) ? true : v <= 0.7,
               iconUrl: getIconUrl(c),
             };
           })
-          .filter((x): x is SSFBarDatum => x !== null)
           .sort((a, b) => a.value - b.value);
         setChartData3(d3);
       })
