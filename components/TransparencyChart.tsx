@@ -68,9 +68,12 @@ function ClubBadgeTick({ x, y, payload, iconMap }: any) {
 }
 
 function renderTopLabel(props: any) {
-  const { x, y, width, index, data, fillColor } = props;
+  const { x, y, width, index, data, fillColor, levelKey } = props;
   if (!data || !data[index]) return null;
-  const total = data[index].total;
+  const d = data[index];
+  const topKey =
+    d.nivel3 > 0 ? "nivel3" : d.nivel2 > 0 ? "nivel2" : d.nivel1 > 0 ? "nivel1" : null;
+  if (topKey !== levelKey) return null;
   return (
     <text
       x={x + width / 2}
@@ -80,7 +83,7 @@ function renderTopLabel(props: any) {
       fontWeight="bold"
       fill={fillColor || "#333"}
     >
-      {total.toFixed(1)}
+      {d.total.toFixed(1)}
     </text>
   );
 }
@@ -120,13 +123,21 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             name="Nível 1 – Reportes Obrigatórios"
             stackId="a"
             fill={COLORS.nivel1}
-          />
+          >
+            <LabelList
+              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel1" })}
+            />
+          </Bar>
           <Bar
             dataKey="nivel2"
             name="Nível 2 – Reportes Discricionários"
             stackId="a"
             fill={COLORS.nivel2}
-          />
+          >
+            <LabelList
+              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel2" })}
+            />
+          </Bar>
           <Bar
             dataKey="nivel3"
             name="Nível 3 – Indicadores de Qualidade"
@@ -134,7 +145,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             fill={COLORS.nivel3}
           >
             <LabelList
-              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary })}
+              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel3" })}
             />
           </Bar>
         </BarChart>

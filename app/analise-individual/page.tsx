@@ -8,7 +8,7 @@ import SankeyChart from "@/components/SankeyChart";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 import ClubSummary from "@/components/ClubSummary";
-import MetricHighlights from "@/components/MetricHighlights";
+import VariationCards from "@/components/VariationCards";
 import { useModulo1Data } from "@/hooks/useModulo1Data";
 
 function getClubsForSeason(season: Season): Club[] {
@@ -145,8 +145,8 @@ export default function AnaliseIndividual() {
 
       {club && !noDataAvailable && (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 mb-8">
-            <MetricHighlights barData={barData} loading={barLoading} season={season} />
+          <VariationCards club={club} season={season} />
+          <div className="mb-8">
             <ClubSummary content={resumoHtml} loading={resumoLoading} clubSelected={!!club} />
           </div>
 

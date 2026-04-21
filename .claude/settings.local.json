@@ -60,7 +60,13 @@
       "Bash(vercel --prod)",
       "Bash(curl:*)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(rtk git *)"
+      "Bash(rtk git *)",
+      "Bash(vercel deploy *)",
+      "Bash(awk -F',' 'NR==1 || $2 ~ /Receita|Custo|Geração|Dívida|Resultado/' public/data/Painel_Consolidado_Moeda_Cte.csv)",
+      "Bash(awk -F',' 'NR<=2 || $2 ~ /[Rr]eceita/ || $2 ~ /[Cc]usto/ || $2 ~ /[Gg]era[çc]/ || $2 ~ /[Dd][íi]vida/ || $2 ~ /[Rr]esultado/' public/data/Painel_Consolidado_Moeda_Cte.csv)",
+      "Bash(awk -F',' '{print NR\": \"$1\" | \"$2\" | \"$3}')",
+      "Bash(awk 'NR<=5' public/data/Painel_Consolidado_Moeda_Cte.csv)",
+      "Bash(rtk tsc *)"
     ]
   }
 }
