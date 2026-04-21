@@ -59,7 +59,8 @@
       "Bash(vercel env:*)",
       "Bash(vercel --prod)",
       "Bash(curl:*)",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "Bash(rtk git *)"
     ]
   }
 }

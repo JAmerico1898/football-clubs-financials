@@ -353,7 +353,7 @@
     {
       "fill": "toself",
       "fillcolor": "#1F6AA5",
-      "hovertemplate": "<b>Receita Total</b><br>Valor: R$1056M<br>Média da Liga: R$529M<br>Percentil: 87º | Posição: 3º<br>Categoria: Receita<extra></extra>",
+      "hovertemplate": "<b>Receita Operacional</b><br>Valor: R$1056M<br>Média da Liga: R$529M<br>Percentil: 87º | Posição: 3º<br>Categoria: Receita<extra></extra>",
       "legendgroup": "Receita",
       "line": {
         "color": "white",
@@ -456,7 +456,7 @@
     {
       "fill": "toself",
       "fillcolor": "#1F6AA5",
-      "hovertemplate": "<b>Receita Recorrente</b><br>Valor: R$718M<br>Média da Liga: R$397M<br>Percentil: 87º | Posição: 3º<br>Categoria: Receita<extra></extra>",
+      "hovertemplate": "<b>Receita da Atividade Esportiva</b><br>Valor: R$718M<br>Média da Liga: R$397M<br>Percentil: 87º | Posição: 3º<br>Categoria: Receita<extra></extra>",
       "legendgroup": "Receita",
       "line": {
         "color": "white",
@@ -1074,7 +1074,7 @@
     {
       "fill": "toself",
       "fillcolor": "#E8A020",
-      "hovertemplate": "<b>Folha do Futebol</b><br>Valor: R$368M<br>Média da Liga: R$237M<br>Percentil: 76º | Posição: 5º<br>Categoria: Despesa<extra></extra>",
+      "hovertemplate": "<b>Folha do Futebol</b><br>Valor: R$368M<br>Média da Liga: R$241M<br>Percentil: 76º | Posição: 5º<br>Categoria: Despesa<extra></extra>",
       "legendgroup": "Despesa",
       "line": {
         "color": "white",
@@ -1177,7 +1177,7 @@
     {
       "fill": "toself",
       "fillcolor": "#E8A020",
-      "hovertemplate": "<b>Folha do Futebol + Amortização</b><br>Valor: R$450M<br>Média da Liga: R$304M<br>Percentil: 76º | Posição: 5º<br>Categoria: Despesa<extra></extra>",
+      "hovertemplate": "<b>Folha do Futebol + Amortização</b><br>Valor: R$450M<br>Média da Liga: R$308M<br>Percentil: 76º | Posição: 5º<br>Categoria: Despesa<extra></extra>",
       "legendgroup": "Despesa",
       "line": {
         "color": "white",
@@ -2316,7 +2316,7 @@
       "type": "scatter"
     },
     {
-      "hovertemplate": "<b>Média da Liga</b><br>R$237M<extra></extra>",
+      "hovertemplate": "<b>Média da Liga</b><br>R$241M<extra></extra>",
       "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
@@ -2373,7 +2373,7 @@
       "type": "scatter"
     },
     {
-      "hovertemplate": "<b>Média da Liga</b><br>R$304M<extra></extra>",
+      "hovertemplate": "<b>Média da Liga</b><br>R$308M<extra></extra>",
       "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
@@ -2384,48 +2384,48 @@
       "opacity": 0.4,
       "showlegend": false,
       "x": [
-        -0.2654289060764895,
-        -0.2581182703533475,
-        -0.250719115951375,
-        -0.24323398032509308,
-        -0.23566543041529053,
-        -0.22801606176872094,
-        -0.2202884976479904,
-        -0.21248538813193923,
-        -0.2046094092068278,
-        -0.19666326184863905,
-        -0.18864967109680952,
-        -0.18057138511970797,
-        -0.17243117427218352,
-        -0.16423183014550416,
-        -0.15597616461001282,
-        -0.1476670088508289,
-        -0.13930721239692603,
-        -0.13089964214391908,
-        -0.12244718137089543,
-        -0.1139527287516276
+        -0.294921006751655,
+        -0.2867980781703861,
+        -0.2785767955015278,
+        -0.27025997813899233,
+        -0.2618504782392117,
+        -0.2533511797430233,
+        -0.244764997386656,
+        -0.2360948757021547,
+        -0.22734378800758645,
+        -0.21851473538737673,
+        -0.20961074566312168,
+        -0.2006348723552311,
+        -0.19159019363575946,
+        -0.1824798112727824,
+        -0.1733068495666809,
+        -0.16407445427869877,
+        -0.15478579155214003,
+        -0.14544404682657674,
+        -0.13605242374543935,
+        -0.126614143057364
       ],
       "y": [
-        -0.3923317819409704,
-        -0.39717966943404254,
-        -0.40189134874801674,
-        -0.40646520406690567,
-        -0.41089966683986845,
-        -0.4151932163191276,
-        -0.41934438008149144,
-        -0.42335173453330527,
-        -0.42721390539865617,
-        -0.43092956819066464,
-        -0.4344974486657023,
-        -0.4379163232603795,
-        -0.4411850195111513,
-        -0.4443024164564011,
-        -0.4472674450208613,
-        -0.45007908838224003,
-        -0.45273638231992885,
-        -0.45523841554567096,
-        -0.457584330016077,
-        -0.45977332122688136
+        -0.4359242021566338,
+        -0.4413107438156028,
+        -0.44654594305335193,
+        -0.4516280045187841,
+        -0.45655518537763157,
+        -0.4613257959101418,
+        -0.46593820009054604,
+        -0.47039081614811695,
+        -0.47468211710961794,
+        -0.4788106313229607,
+        -0.48277494296189144,
+        -0.48657369251153276,
+        -0.49020557723461256,
+        -0.4936693516182235,
+        -0.49696382780095705,
+        -0.5000878759802667,
+        -0.503040424799921,
+        -0.5058204617174121,
+        -0.5084270333511967,
+        -0.510859245807646
       ],
       "type": "scatter"
     },
@@ -2776,7 +2776,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Receita Total</span>"
+        "<span style='font-size:13.5px;color:#222222'>Receita<br>Operacional</span>"
       ],
       "textfont": {
         "color": "#222222",
@@ -2796,7 +2796,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Receita Recorrente</span>"
+        "<span style='font-size:13.5px;color:#222222'>Receita<br>Atividade<br>Esportiva</span>"
       ],
       "textfont": {
         "color": "#222222",
@@ -2896,7 +2896,7 @@
       "mode": "text",
       "showlegend": false,
       "text": [
-        "<span style='font-size:13.5px;color:#222222'>Custo da<br>Atividade<br>Esportiva</span>"
+        "<span style='font-size:13.5px;color:#222222'>Custo da Atividade Esportiva</span>"
       ],
       "textfont": {
         "color": "#222222",

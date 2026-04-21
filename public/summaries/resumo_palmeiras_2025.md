@@ -1,11 +1,16 @@
-<h4>Resumo:</h4>
-<p>Em 2024 o Palmeiras alcançou superávit contábil de R$ 198,2 milhões (vs. R$ 8,5 mi em 2023),
-impulsionado pelo recorde de R$ 440 mi em vendas de atletas e crescimento de 41 % na receita
-bruta para R$ 1,27 bi. O fluxo de caixa operacional subiu para R$ 383 mi, sustentando investimentos
-de R$ 296 mi em CAPEX e elenco. </p>
-<h4>Destaques:</h4>
-<p>1. Transações de atletas catapultaram as receitas: +135% a/a, correspondendo a 35 % da Receita total. </p>
-<p>2. Folha salarial (salários + imagens) consumiu 39,6 % da receita – patamar confortável (< 50 %) para clubes brasileiros. </p>
-<p>3. 97 % do consumo de caixa destinado a investimentos referem‑se a aquisição de atletas (R$ 185 mi) e benfeitorias do estádio. </p>
-<p>4. Financiamento líquido negativo: clube quitou R$ 113 mi de principal e R$ 9 mi de juros, captando apenas R$ 80 mi em novos empréstimos. </p>
-<p><b>Nota:</b> Utiliza apenas dados das demonstrações financeiras auditadas.</p>
+# Resumo das Demonstrações Financeiras — Palmeiras 2025
+
+```
+RESUMO DAS DEMONSTRAÇÕES FINANCEIRAS — SOCIEDADE ESPORTIVA PALMEIRAS (Exercício 2025)
+
+Visão Geral: O Palmeiras encerrou 2025 com Ativo Total de R$ 2.154 milhões e Patrimônio Líquido
+positivo de R$ 569 milhões (↑ 106% vs. 2024, de R$ 277 milhões). O exercício registrou superávit
+líquido de R$ 292 milhões (↑ 47% vs. R$ 198 milhões em 2024).
+
+Destaques:
+1. Receita Operacional Bruta atingiu R$ 1.696 milhões (↑ 33% vs. 2024), maior da história do clube.
+2. Negociação de atletas (Vitor Reis, Estevão, Richard Rios) gerou R$ 602 milhões, 40% da receita.
+3. EBITDA ajustado de R$ 681 milhões com margem de 42% (↑ de R$ 463 milhões e 38% em 2024).
+4. Dívida Total de R$ 1.132 milhões (Operacional R$ 986 mi + Histórica R$ 146 mi), rep. 0,67x receita.
+5. Premiações saltaram 374% para R$ 327 milhões, impulsionadas pela Copa do Mundo de Clubes FIFA.
+```
