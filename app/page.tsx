@@ -3,7 +3,7 @@ import path from "path";
 import Papa from "papaparse";
 import Image from "next/image";
 import Link from "next/link";
-import { landingCards, spiralBadges } from "@/lib/landing-cards";
+import { landingCards } from "@/lib/landing-cards";
 import type { LandingCard } from "@/lib/landing-cards";
 
 const CLUBS_2025_CSV = new Set([
@@ -127,7 +127,7 @@ export default function FrontPage() {
                 </p>
                 <div className="mt-12 flex justify-center md:justify-start">
                   <Image
-                    src="/brasileirao-logo.jpg"
+                    src="/clubs_frontpage/brasileirao.png"
                     alt="Brasileirão Badge"
                     width={176}
                     height={176}
@@ -137,24 +137,19 @@ export default function FrontPage() {
               </div>
             </div>
 
-            {/* Spiral Badges — desktop only */}
+            {/* Spiral Badges — desktop only (animated HyperFrames video) */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="spiral-container">
-                {spiralBadges.map((badge) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={badge.alt}
-                    alt={badge.alt}
-                    src={`/clubs_frontpage/${badge.file}`}
-                    className="spiral-badge aspect-square"
-                    style={{
-                      width: `${badge.width}px`,
-                      top: badge.top,
-                      left: badge.left,
-                    }}
-                  />
-                ))}
-              </div>
+              <video
+                src="/spiral.webm"
+                width={480}
+                height={440}
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                aria-label="Clubes do Brasileirão em espiral"
+                style={{ background: "transparent" }}
+              />
             </div>
           </div>
         </section>

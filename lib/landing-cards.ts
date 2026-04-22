@@ -91,6 +91,6 @@ export const spiralBadges: SpiralBadge[] = [
   { alt: "Santos", file: "santos.png", width: 80, top: "80%", left: "35%" },
   { alt: "São Paulo", file: "sao_paulo.png", width: 84, top: "75%", left: "50%" },
   { alt: "Sport", file: "sport.png", width: 88, top: "55%", left: "60%" },
-  { alt: "Vitória", file: "vitoria.png", width: 92, top: "25%", left: "62%" },
+  { alt: "Vitória", file: "vitoria.png", width: 92, top: "31%", left: "62%" },
   { alt: "Vasco", file: "vasco.png", width: 96, top: "10%", left: "50%" },
 ];

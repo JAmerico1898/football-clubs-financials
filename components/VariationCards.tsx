@@ -4,24 +4,34 @@ import { useEffect, useState } from "react";
 import Papa from "papaparse";
 import type { Club, Season } from "@/lib/clubs";
 
-interface Props {
-  club: Club;
-  season: Season;
-}
-
 interface MetricDef {
   label: string;
   dadosKey: string;
   higherIsBetter: boolean;
 }
 
-const METRICS: MetricDef[] = [
+interface Props {
+  club: Club;
+  season: Season;
+  metrics?: MetricDef[];
+}
+
+const DEFAULT_METRICS: MetricDef[] = [
   { label: "Receita Operacional", dadosKey: "Receita Operacional", higherIsBetter: true },
   { label: "Receita da Atividade Esportiva", dadosKey: "Receita da Atividade Esportiva", higherIsBetter: true },
   { label: "Custo da Atividade Esportiva", dadosKey: "Custo da Atividade Esportiva", higherIsBetter: true },
   { label: "Geração de Caixa Operacional", dadosKey: "Geração de Caixa Operacional", higherIsBetter: true },
   { label: "Dívida Líquida", dadosKey: "Dívida Líquida", higherIsBetter: false },
   { label: "Resultado", dadosKey: "Resultado", higherIsBetter: true },
+];
+
+export const BREAKDOWN_METRICS: MetricDef[] = [
+  { label: "Receita c/ Transmissão + Premiações", dadosKey: "Receita c/ Transmissão + Premiações", higherIsBetter: true },
+  { label: "Receita Comercial", dadosKey: "Receita Comercial", higherIsBetter: true },
+  { label: "Receita c/ Match-Day + Sócio-Torcedor", dadosKey: "Receita c/ Match-Day + Sócio-Torcedor", higherIsBetter: true },
+  { label: "Receita c/ Negociação de atletas", dadosKey: "Receita c/ Negociação de atletas", higherIsBetter: true },
+  { label: "Folha do Futebol", dadosKey: "Folha do Futebol", higherIsBetter: true },
+  { label: "Aquisições de Atletas", dadosKey: "Aquisições de atletas", higherIsBetter: true },
 ];
 
 interface Row {
@@ -43,7 +53,7 @@ function formatPct(pct: number): string {
   return `${sign}${pct.toFixed(1).replace(".", ",")}%`;
 }
 
-export default function VariationCards({ club, season }: Props) {
+export default function VariationCards({ club, season, metrics = DEFAULT_METRICS }: Props) {
   const currentYear = season;
   const priorYear = season === "2025" ? "2024" : "2023";
   const [rows, setRows] = useState<Row[] | null>(null);
@@ -102,7 +112,7 @@ export default function VariationCards({ club, season }: Props) {
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
-      {METRICS.map((m) => {
+      {metrics.map((m) => {
         const vCurrent = getValue(currentYear, m.dadosKey);
         const vPrior = getValue(priorYear, m.dadosKey);
         const hasPrior = isFinite(vPrior) && vPrior !== 0;

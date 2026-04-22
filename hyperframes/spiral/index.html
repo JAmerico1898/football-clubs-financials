@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=960, height=880" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        width: 960px;
+        height: 880px;
+        overflow: hidden;
+        background: transparent;
+      }
+      /* Canvas = 960x880 (2x the 480x400 design, plus 40px vertical bleed so
+         tall outer badges like Vasco are not clipped). */
+      #root { position: relative; width: 960px; height: 880px; }
+      /* #inner = scaled-up 480x400 design area, shifted down 40px. */
+      #inner { position: absolute; left: 0; top: 40px; width: 960px; height: 800px; }
+      .badge {
+        position: absolute;
+        transform-origin: center center;
+        filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.12));
+        object-fit: contain;
+        aspect-ratio: 1 / 1;
+        image-rendering: -webkit-optimize-contrast;
+        will-change: transform, opacity;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="3.3"
+      data-width="960"
+      data-height="880"
+    >
+      <div id="inner">
+        <!-- Widths doubled from the original 480x400 design. top/left percentages
+             are relative to the 960x800 inner area, unchanged from the original. -->
+        <img class="badge" data-i="0"  src="assets/clubs/flamengo.png"             alt="Flamengo"            style="width:40px;  top:50%; left:30%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="1"  src="assets/clubs/bahia.png"                alt="Bahia"               style="width:48px;  top:45%; left:34%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="2"  src="assets/clubs/botafogo.png"             alt="Botafogo"            style="width:56px;  top:38%; left:31%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="3"  src="assets/clubs/ceara.png"                alt="Ceará"               style="width:64px;  top:42%; left:24%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="4"  src="assets/clubs/corinthians.png"          alt="Corinthians"         style="width:72px;  top:52%; left:22%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="5"  src="assets/clubs/atletico.png"             alt="Atlético"            style="width:80px;  top:60%; left:28%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="6"  src="assets/clubs/cruzeiro.png"             alt="Cruzeiro"            style="width:88px;  top:58%; left:38%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="7"  src="assets/clubs/fluminense.png"           alt="Fluminense"          style="width:96px;  top:48%; left:45%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="8"  src="assets/clubs/fortaleza.png"            alt="Fortaleza"           style="width:104px; top:35%; left:42%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="9"  src="assets/clubs/gremio.png"               alt="Grêmio"              style="width:112px; top:25%; left:32%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="10" src="assets/clubs/internacional.png"        alt="Internacional"       style="width:120px; top:15%; left:22%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="11" src="assets/clubs/juventude.png"            alt="Juventude"           style="width:128px; top:22%; left:12%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="12" src="assets/clubs/mirassol.png"             alt="Mirassol"            style="width:136px; top:38%; left:8%;  transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="13" src="assets/clubs/palmeiras.png"            alt="Palmeiras"           style="width:144px; top:55%; left:10%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="14" src="assets/clubs/red_bull_bragantino.png"  alt="Red Bull Bragantino" style="width:152px; top:70%; left:20%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="15" src="assets/clubs/santos.png"               alt="Santos"              style="width:160px; top:80%; left:35%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="16" src="assets/clubs/sao_paulo.png"            alt="São Paulo"           style="width:168px; top:75%; left:50%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="17" src="assets/clubs/sport.png"                alt="Sport"               style="width:176px; top:55%; left:60%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="18" src="assets/clubs/vitoria.png"              alt="Vitória"             style="width:184px; top:31%; left:62%; transform: translate(-50%,-50%);" />
+        <img class="badge" data-i="19" src="assets/clubs/vasco.png"                alt="Vasco"               style="width:192px; top:10%; left:50%; transform: translate(-50%,-50%);" />
+      </div>
+    </div>
+
+    <script>
+      // Inner design area is 960x800. Flamengo (smallest badge) anchors center.
+      const INNER_W = 960;
+      const INNER_H = 800;
+      const CENTER_X = INNER_W * 0.30; // 288
+      const CENTER_Y = INNER_H * 0.50; // 400
+
+      const badges = Array.from(document.querySelectorAll(".badge"));
+
+      const offsets = badges.map((el) => {
+        const leftPct = parseFloat(el.style.left);
+        const topPct  = parseFloat(el.style.top);
+        const finalX = (leftPct / 100) * INNER_W;
+        const finalY = (topPct  / 100) * INNER_H;
+        return { dx: CENTER_X - finalX, dy: CENTER_Y - finalY };
+      });
+
+      const tl = gsap.timeline({ paused: true });
+
+      const TOTAL_SPIRAL = 3.0;
+      const TRAVEL = 0.85;
+      const stagger = (TOTAL_SPIRAL - TRAVEL) / (badges.length - 1);
+
+      badges.forEach((el, i) => {
+        const { dx, dy } = offsets[i];
+        tl.from(
+          el,
+          {
+            x: dx,
+            y: dy,
+            scale: 0.1,
+            rotation: -540,
+            opacity: 0,
+            duration: TRAVEL,
+            ease: "power2.out",
+          },
+          i * stagger
+        );
+      });
+
+      // Freeze tail: hold final frame to full 3.3s composition length.
+      tl.to({}, { duration: 0.01 }, 3.29);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

@@ -8,7 +8,7 @@ import SankeyChart from "@/components/SankeyChart";
 import RadarChart from "@/components/RadarChart";
 import HorizontalBarChart from "@/components/HorizontalBarChart";
 import ClubSummary from "@/components/ClubSummary";
-import VariationCards from "@/components/VariationCards";
+import VariationCards, { BREAKDOWN_METRICS } from "@/components/VariationCards";
 import { useModulo1Data } from "@/hooks/useModulo1Data";
 
 function getClubsForSeason(season: Season): Club[] {
@@ -146,6 +146,7 @@ export default function AnaliseIndividual() {
       {club && !noDataAvailable && (
         <>
           <VariationCards club={club} season={season} />
+          <VariationCards club={club} season={season} metrics={BREAKDOWN_METRICS} />
           <div className="mb-8">
             <ClubSummary content={resumoHtml} loading={resumoLoading} clubSelected={!!club} />
           </div>
