@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { landingCards } from "@/lib/landing-cards";
 import type { LandingCard } from "@/lib/landing-cards";
+import SpiralVideo from "@/components/SpiralVideo";
 
 const CLUBS_2025_CSV = new Set([
   "Vasco","Atlético","Bahia","Botafogo","Ceará","Corinthians","Cruzeiro",
@@ -137,19 +138,9 @@ export default function FrontPage() {
               </div>
             </div>
 
-            {/* Spiral Badges — desktop only (animated HyperFrames video) */}
-            <div className="hidden lg:flex items-center justify-center">
-              <video
-                src="/spiral.webm"
-                width={480}
-                height={440}
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                aria-label="Clubes do Brasileirão em espiral"
-                style={{ background: "transparent" }}
-              />
+            {/* Spiral Badges (animated HyperFrames video) */}
+            <div className="flex items-center justify-center w-full md:w-auto">
+              <SpiralVideo />
             </div>
           </div>
         </section>
