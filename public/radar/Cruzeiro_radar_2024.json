@@ -1589,7 +1589,7 @@
     {
       "fill": "toself",
       "fillcolor": "#8B0000",
-      "hovertemplate": "<b>Dívida Líquida</b><br>Valor: R$1168M<br>Média da Liga: R$663M<br>Percentil: 87º | Posição: 3º<br>Categoria: Passivo<extra></extra>",
+      "hovertemplate": "<b>Dívida Líquida</b><br>Valor: R$1168M<br>Média da Liga: R$648M<br>Percentil: 87º | Posição: 3º<br>Categoria: Passivo<extra></extra>",
       "legendgroup": "Passivo",
       "line": {
         "color": "white",
@@ -2601,7 +2601,7 @@
       "type": "scatter"
     },
     {
-      "hovertemplate": "<b>Média da Liga</b><br>R$663M<extra></extra>",
+      "hovertemplate": "<b>Média da Liga</b><br>R$648M<extra></extra>",
       "legendgroup": "media_da_liga",
       "line": {
         "color": "#E53935",
