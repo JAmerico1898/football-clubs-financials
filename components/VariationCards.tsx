@@ -64,34 +64,42 @@ export default function VariationCards({ club, season, metrics = DEFAULT_METRICS
     setLoading(true);
     setError(null);
     setRows(null);
-    fetch("/data/Painel_Consolidado_Moeda_Cte.csv")
-      .then((res) => {
-        if (!res.ok) throw new Error("Falha ao carregar painel consolidado");
+
+    const parseIndicesCsv = (csvText: string): Row[] => {
+      const parsed = Papa.parse(csvText, { header: false, skipEmptyLines: true });
+      const data = parsed.data as string[][];
+      const header = data[0].map((h) => h.replace(/^﻿/, ""));
+      const anoIdx = header.indexOf("Ano");
+      const dadosIdx = header.indexOf("Dados");
+      const colIdx = header.indexOf(club.csvColumn);
+      if (colIdx === -1) {
+        throw new Error(`Coluna "${club.csvColumn}" não encontrada`);
+      }
+      const out: Row[] = [];
+      for (let i = 1; i < data.length; i++) {
+        const r = data[i];
+        if (!r[anoIdx]) continue;
+        const raw = r[colIdx];
+        const value = raw === undefined || raw === "" ? NaN : parseFloat(raw);
+        out.push({ ano: r[anoIdx], dados: r[dadosIdx], value });
+      }
+      return out;
+    };
+
+    const fetchYear = (year: string) =>
+      fetch(`/data/indices_${year}.csv`).then((res) => {
+        if (!res.ok) throw new Error(`Falha ao carregar indices_${year}.csv`);
         return res.text();
-      })
-      .then((csvText) => {
-        const parsed = Papa.parse(csvText, { header: false, skipEmptyLines: true });
-        const data = parsed.data as string[][];
-        const header = data[0].map((h) => h.replace(/^﻿/, ""));
-        const anoIdx = header.indexOf("Ano");
-        const dadosIdx = header.indexOf("Dados");
-        const colIdx = header.indexOf(club.csvColumn);
-        if (colIdx === -1) {
-          throw new Error(`Coluna "${club.csvColumn}" não encontrada`);
-        }
-        const out: Row[] = [];
-        for (let i = 1; i < data.length; i++) {
-          const r = data[i];
-          if (!r[anoIdx]) continue;
-          const raw = r[colIdx];
-          const value = raw === undefined || raw === "" ? NaN : parseFloat(raw);
-          out.push({ ano: r[anoIdx], dados: r[dadosIdx], value });
-        }
+      });
+
+    Promise.all([fetchYear(currentYear), fetchYear(priorYear)])
+      .then(([currentCsv, priorCsv]) => {
+        const out = [...parseIndicesCsv(currentCsv), ...parseIndicesCsv(priorCsv)];
         setRows(out);
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [club]);
+  }, [club, currentYear, priorYear]);
 
   if (loading) {
     return (

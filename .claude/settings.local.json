@@ -66,7 +66,24 @@
       "Bash(awk -F',' 'NR<=2 || $2 ~ /[Rr]eceita/ || $2 ~ /[Cc]usto/ || $2 ~ /[Gg]era[çc]/ || $2 ~ /[Dd][íi]vida/ || $2 ~ /[Rr]esultado/' public/data/Painel_Consolidado_Moeda_Cte.csv)",
       "Bash(awk -F',' '{print NR\": \"$1\" | \"$2\" | \"$3}')",
       "Bash(awk 'NR<=5' public/data/Painel_Consolidado_Moeda_Cte.csv)",
-      "Bash(rtk tsc *)"
+      "Bash(rtk tsc *)",
+      "Bash(awk -F',' 'NR>1 {print $2}' public/data/Painel_Consolidado_Moeda_Cte.csv)",
+      "Bash(awk -F',' 'NR>1 {print $3}' public/data/Painel_Consolidado_Moeda_Cte.csv)",
+      "Bash(npm ls *https://github.com/heygen-com/hyperframes)",
+      "Bash(npm ls *)",
+      "Read(//c/Users/tesou/.claude/plugins/**)",
+      "Read(//c/Users/tesou/AppData/Roaming/npm/**)",
+      "Read(//c/Users/tesou/.agents/skills/hyperframes/**)",
+      "Bash(npx hyperframes *)",
+      "Read(//d/jose_americo/**)",
+      "Bash(magick --version)",
+      "Bash(vercel --prod --yes)",
+      "Bash(sed -n '67,76p' app/globals.css)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -encoders)",
+      "Bash(ffmpeg -y -f lavfi -i \"color=c=0x12502a:s=960x880:r=30:d=3.3\" -i public/spiral.webm -filter_complex \"[0:v][1:v]overlay=format=auto:shortest=1,format=yuv420p[v]\" -map \"[v]\" -c:v libx264 -crf 20 -preset medium -movflags +faststart -an public/spiral.mp4)",
+      "Bash(rtk npx *)",
+      "Bash(npx *)"
     ]
   }
 }
