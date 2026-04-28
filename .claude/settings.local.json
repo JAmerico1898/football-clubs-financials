@@ -83,7 +83,8 @@
       "Bash(ffmpeg -encoders)",
       "Bash(ffmpeg -y -f lavfi -i \"color=c=0x12502a:s=960x880:r=30:d=3.3\" -i public/spiral.webm -filter_complex \"[0:v][1:v]overlay=format=auto:shortest=1,format=yuv420p[v]\" -map \"[v]\" -c:v libx264 -crf 20 -preset medium -movflags +faststart -an public/spiral.mp4)",
       "Bash(rtk npx *)",
-      "Bash(npx *)"
+      "Bash(npx *)",
+      "Bash(rtk grep *)"
     ]
   }
 }
