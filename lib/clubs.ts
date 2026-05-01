@@ -44,13 +44,26 @@ export const allChartClubs: Club[] = [...clubs2024];
 
 export const DEFAULT_CLUB = "Vasco";
 
+/**
+ * Convenção: nomes de arquivo em `public/sankey/`, `public/radar/`,
+ * `public/summaries/` e `public/clubs_backdrop/` são SEMPRE lowercase
+ * ASCII (sem diacríticos). Esta função normaliza qualquer chave
+ * (fileKey ou radarFileKey) para esse formato.
+ */
+function toFileSlug(key: string): string {
+  return key
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+}
+
 export function getSankeyUrl(club: Club, season: Season = "2024"): string {
-  return `/sankey/${club.fileKey}_sankey_${season}.json`;
+  return `/sankey/${toFileSlug(club.fileKey)}_sankey_${season}.json`;
 }
 
 export function getRadarUrl(club: Club, season: Season = "2024"): string {
   const key = club.radarFileKey || club.fileKey;
-  return `/radar/${key}_radar_${season}.json`;
+  return `/radar/${toFileSlug(key)}_radar_${season}.json`;
 }
 
 export function getIconUrl(club: Club): string {
