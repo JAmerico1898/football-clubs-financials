@@ -123,7 +123,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
               dataKey="labelOnNivel1"
               position="top"
               offset={6}
-              formatter={(v: number | undefined) =>
+              formatter={(v: any) =>
                 typeof v === "number" ? v.toFixed(1) : ""
               }
               fill={colors.textPrimary}
@@ -141,7 +141,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
               dataKey="labelOnNivel2"
               position="top"
               offset={6}
-              formatter={(v: number | undefined) =>
+              formatter={(v: any) =>
                 typeof v === "number" ? v.toFixed(1) : ""
               }
               fill={colors.textPrimary}
@@ -159,7 +159,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
               dataKey="labelOnNivel3"
               position="top"
               offset={6}
-              formatter={(v: number | undefined) =>
+              formatter={(v: any) =>
                 typeof v === "number" ? v.toFixed(1) : ""
               }
               fill={colors.textPrimary}
