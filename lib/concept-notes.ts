@@ -1,9 +1,11 @@
 /** Definitions for financial concepts that may not be obvious to users. */
 export const conceptDefinitions: Record<string, string> = {
   "Receita da Atividade Esportiva":
-    "Receita Operacional − Receita c/ Negociação de Atletas.",
+    "Receita Operacional Líquida, contemplando Direitos de Transmissão, Premiações, Match-Day, Sócio-Torcedor, Publicidade e Patrocínio, Licenciamento da Marca e afins.",
   "Receita Operacional":
-    "Rec. Direitos de Transmissão + Rec. Premiações + Rec. Match-Day + Rec. Sócio-Torcedor + Rec. Publicidade e Patrocínio + Rec. Licenciamento da Marca + Rec. Negociação de Atletas + Outras Receitas.",
+    "Receita Operacional Líquida + Receita de Venda de Jogadores, onde Receita Operacional Líquida: Receita da Atividade Esportiva, contemplando Direitos de Transmissão, Premiações, Match-Day, Sócio-Torcedor, Publicidade e Patrocínio, Licenciamento da Marca e afins.",
+  "Receita Operacional Líquida":
+    "Receita da Atividade Esportiva, contemplando Direitos de Transmissão, Premiações, Match-Day, Sócio-Torcedor, Publicidade e Patrocínio, Licenciamento da Marca e afins.",
   "Receita Comercial":
     "Rec. Publicidade e Patrocínio + Rec. Licenciamento da Marca.",
   "Dívida Líquida":

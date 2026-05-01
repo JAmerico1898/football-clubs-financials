@@ -46,6 +46,14 @@ function CustomTooltip({ active, payload, label, years }: any) {
     if (b.dataKey === "valCurrent") return 1;
     return 0;
   });
+  const datum = payload[0]?.payload;
+  const cur = Number(datum?.valCurrent ?? 0);
+  const prior = Number(datum?.valPrior ?? 0);
+  const variation = prior !== 0 ? ((cur - prior) / Math.abs(prior)) * 100 : null;
+  const variationLabel =
+    variation == null
+      ? "—"
+      : `${variation >= 0 ? "+" : ""}${variation.toFixed(1)}%`;
   return (
     <div className="rounded shadow px-3 py-2 text-sm" style={{ backgroundColor: "var(--surface)", border: "1px solid var(--border)", color: "var(--text-primary)" }}>
       <p className="font-semibold mb-1">{label}</p>
@@ -54,6 +62,9 @@ function CustomTooltip({ active, payload, label, years }: any) {
           {entry.name}: {formatBRL(Number(entry.value))}
         </p>
       ))}
+      <p className="mt-1 pt-1" style={{ borderTop: "1px solid var(--border)", color: "var(--text-primary)" }}>
+        Variação {years.current} vs {years.prior}: <span style={{ fontWeight: 600 }}>{variationLabel}</span>
+      </p>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import Papa from "papaparse";
 import Image from "next/image";
 import Link from "next/link";
 import { landingCards } from "@/lib/landing-cards";
@@ -35,38 +34,9 @@ function computeFooterKPIs() {
   const receita = sumRow("Receita Operacional");
   const custo = sumRow("Custo da Atividade Esportiva");
   const divida = sumRow("Dívida Líquida");
+  const folhaFutebol = sumRow("Folha do Futebol");
 
-  // --- transparencia.csv ---
-  const transpRaw = fs.readFileSync(path.join(dataDir, "transparencia.csv"), "utf-8").replace(/^\uFEFF/, "");
-  const parsed = Papa.parse(transpRaw, { header: false, skipEmptyLines: true });
-  const transpRows = parsed.data as string[][];
-  const transpHeader = transpRows[0];
-
-  const transpClubCols: number[] = [];
-  for (let i = 3; i < transpHeader.length; i++) {
-    const name = transpHeader[i]?.trim();
-    if (name && name !== "Média da Liga" && CLUBS_2025_CSV.has(name)) transpClubCols.push(i);
-  }
-
-  const clubTotals: Record<number, number> = {};
-  for (const col of transpClubCols) clubTotals[col] = 0;
-
-  for (let r = 1; r < transpRows.length; r++) {
-    const nivel = (transpRows[r][1] || "").trim();
-    if (!nivel.startsWith("Nível")) continue;
-    for (const col of transpClubCols) {
-      const val = parseFloat((transpRows[r][col] || "").replace(",", "."));
-      if (!isNaN(val)) clubTotals[col] += val;
-    }
-  }
-
-  const totals = Object.values(clubTotals);
-  const clubsWithData = totals.filter((t) => t !== 0);
-  const meanTransp = clubsWithData.length > 0
-    ? clubsWithData.reduce((a, b) => a + b, 0) / clubsWithData.length
-    : 0;
-
-  return { receita, custo, divida, meanTransp };
+  return { receita, custo, divida, folhaFutebol };
 }
 
 function formatBRL(millions: number): string {
@@ -97,7 +67,7 @@ function LandingCardComponent({ card }: { card: LandingCard }) {
 }
 
 export default function FrontPage() {
-  const { receita, custo, divida, meanTransp } = computeFooterKPIs();
+  const { receita, custo, divida, folhaFutebol } = computeFooterKPIs();
 
   return (
     <>
@@ -177,6 +147,9 @@ export default function FrontPage() {
               <span className="font-headline font-bold text-[#2b3437] uppercase tracking-widest text-xs">
                 Almanaque Financeiro da Série A - 2025
               </span>
+              <span className="font-body text-[#586064] text-xs">
+                José Américo Antunes
+              </span>
             </div>
 
             {/* KPIs */}
@@ -195,9 +168,9 @@ export default function FrontPage() {
               </div>
               <div className="flex flex-col items-center">
                 <span className="font-label text-[10px] uppercase tracking-widest text-[#586064] opacity-60">
-                  Transparência
+                  Folha do Futebol
                 </span>
-                <span className="font-headline font-bold text-[#115cb9]">{meanTransp.toFixed(1)}/19</span>
+                <span className="font-headline font-bold text-[#115cb9]">{formatBRL(folhaFutebol)}</span>
               </div>
               <div className="flex flex-col items-center">
                 <span className="font-label text-[10px] uppercase tracking-widest text-[#586064] opacity-60">

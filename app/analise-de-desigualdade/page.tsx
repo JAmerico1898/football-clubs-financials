@@ -136,11 +136,23 @@ export default function AnaliseDeDesigualdade() {
         <ModuleNavbar />
 
         <h1
-          className="text-3xl font-bold tracking-tight text-center mb-8"
+          className="text-3xl font-bold tracking-tight text-center mb-2"
           style={{ color: "var(--text-primary)" }}
         >
           Análise de Desigualdade
         </h1>
+
+        <p
+          className="text-sm text-center mb-8 max-w-2xl mx-auto leading-relaxed"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          Evolução da desigualdade financeira entre os clubes do Brasileirão
+          entre 2021 e 2025, medida por quatro indicadores complementares:
+          Índice de Gini, Razão Max/Min, Concentração C3 e Concentração C5.
+          Cada métrica mostra, sob ângulos distintos, o quanto receitas,
+          custos e demais grandezas estão distribuídos — ou concentrados —
+          nas mãos dos maiores clubes da liga.
+        </p>
 
         {error && (
           <p

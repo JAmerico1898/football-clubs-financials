@@ -18,6 +18,10 @@ export interface TransparencyDatum {
   nivel2: number;
   nivel3: number;
   total: number;
+  /** Total a ser exibido como rótulo somente na barra cuja chave é o topo do empilhamento. As demais ficam undefined. */
+  labelOnNivel1?: number;
+  labelOnNivel2?: number;
+  labelOnNivel3?: number;
 }
 
 interface Props {
@@ -67,29 +71,20 @@ function ClubBadgeTick({ x, y, payload, iconMap }: any) {
   );
 }
 
-function renderTopLabel(props: any) {
-  const { x, y, width, index, data, fillColor, levelKey } = props;
-  if (!data || !data[index]) return null;
-  const d = data[index];
-  const topKey =
-    d.nivel3 > 0 ? "nivel3" : d.nivel2 > 0 ? "nivel2" : d.nivel1 > 0 ? "nivel1" : null;
-  if (topKey !== levelKey) return null;
-  return (
-    <text
-      x={x + width / 2}
-      y={y - 6}
-      textAnchor="middle"
-      fontSize={11}
-      fontWeight="bold"
-      fill={fillColor || "#333"}
-    >
-      {d.total.toFixed(1)}
-    </text>
-  );
+function withTopLabels(items: TransparencyDatum[]): TransparencyDatum[] {
+  return items.map((d) => {
+    const out: TransparencyDatum = { ...d };
+    if (d.total <= 0) return out;
+    if (d.nivel3 > 0) out.labelOnNivel3 = d.total;
+    else if (d.nivel2 > 0) out.labelOnNivel2 = d.total;
+    else if (d.nivel1 > 0) out.labelOnNivel1 = d.total;
+    return out;
+  });
 }
 
 export default function TransparencyChart({ data, iconMap }: Props) {
   const colors = useThemeColors();
+  const dataWithLabels = withTopLabels(data);
 
   return (
     <div>
@@ -98,7 +93,7 @@ export default function TransparencyChart({ data, iconMap }: Props) {
       </h2>
       <ResponsiveContainer width="100%" height={500}>
         <BarChart
-          data={data}
+          data={dataWithLabels}
           margin={{ top: 45, right: 30, bottom: 50, left: 20 }}
         >
           <XAxis
@@ -125,7 +120,15 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             fill={COLORS.nivel1}
           >
             <LabelList
-              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel1" })}
+              dataKey="labelOnNivel1"
+              position="top"
+              offset={6}
+              formatter={(v: number | undefined) =>
+                typeof v === "number" ? v.toFixed(1) : ""
+              }
+              fill={colors.textPrimary}
+              fontSize={11}
+              fontWeight="bold"
             />
           </Bar>
           <Bar
@@ -135,7 +138,15 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             fill={COLORS.nivel2}
           >
             <LabelList
-              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel2" })}
+              dataKey="labelOnNivel2"
+              position="top"
+              offset={6}
+              formatter={(v: number | undefined) =>
+                typeof v === "number" ? v.toFixed(1) : ""
+              }
+              fill={colors.textPrimary}
+              fontSize={11}
+              fontWeight="bold"
             />
           </Bar>
           <Bar
@@ -145,7 +156,15 @@ export default function TransparencyChart({ data, iconMap }: Props) {
             fill={COLORS.nivel3}
           >
             <LabelList
-              content={(props: any) => renderTopLabel({ ...props, data, fillColor: colors.textPrimary, levelKey: "nivel3" })}
+              dataKey="labelOnNivel3"
+              position="top"
+              offset={6}
+              formatter={(v: number | undefined) =>
+                typeof v === "number" ? v.toFixed(1) : ""
+              }
+              fill={colors.textPrimary}
+              fontSize={11}
+              fontWeight="bold"
             />
           </Bar>
         </BarChart>

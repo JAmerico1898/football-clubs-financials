@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Info } from "lucide-react";
 import Papa from "papaparse";
 import ModuleNavbar from "@/components/ModuleNavbar";
 import TransparencyChart, {
@@ -114,11 +116,22 @@ export default function IndiceDeTransparencia() {
       <ModuleNavbar />
 
       <h1
-        className="text-3xl font-bold tracking-tight text-center mb-8"
+        className="text-3xl font-bold tracking-tight text-center mb-3"
         style={{ color: "var(--text-primary)" }}
       >
         Índice de Transparência
       </h1>
+
+      <div className="flex justify-center mb-8">
+        <Link
+          href="/indice-de-transparencia/metodologia"
+          className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-medium bg-white/70 hover:bg-white hover:shadow-sm transition-all"
+          style={{ color: "var(--brand-blue)" }}
+        >
+          <Info size={13} />
+          Como é calculado? Ver metodologia
+        </Link>
+      </div>
 
       {error && (
         <p className="text-center py-8" style={{ color: "var(--brand-red)" }}>{error}</p>

@@ -62,6 +62,14 @@ export default function SustentabilidadeFinanceiraPage() {
           resultado definitivo, mas de um indicativo da conformidade dos clubes
           com a regulação.
         </p>
+        <p className="mt-4" style={{ color: "var(--text-secondary)" }}>
+          Como não há um relatório específico dos clubes sobre o tema e como as
+          variáveis nem sempre encontram correspondência direta nas
+          demonstrações, há um grau de subjetividade grande na análise, a qual
+          pode conter imprecisões. Por esse motivo, todas as rubricas estão
+          abertas ao máximo, apresentando o racional utilizado e que pode ser
+          reproduzido livremente.
+        </p>
       </div>
 
       {loading && (
