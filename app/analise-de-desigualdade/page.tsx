@@ -32,7 +32,7 @@ const SECTIONS: SectionConfig[] = [
     chartTitle: "Índice de Gini — Brasileirão (2021–2025)",
     yAxisLabel: "Índice de Gini",
     yDomain: [0, 1],
-    yTickDecimals: 4,
+    yTickDecimals: 2,
     premierLeagueComparison: {
       prefix:
         "Nota: Para efeito de comparação, o Índice de Gini da Premier League na temporada 2024/25 foi de ",
@@ -47,7 +47,7 @@ const SECTIONS: SectionConfig[] = [
     chartTitle: "Razão Max/Min — Brasileirão (2021–2025)",
     yAxisLabel: "Razão Max/Min",
     yDomain: "auto",
-    yTickDecimals: 2,
+    yTickDecimals: 0,
     premierLeagueComparison: {
       prefix:
         "Nota: Para efeito de comparação, a Razão Max/Min da Premier League na temporada 2024/25 foi de ",
@@ -62,7 +62,7 @@ const SECTIONS: SectionConfig[] = [
     chartTitle: "Concentração C5 — Brasileirão (2021–2025)",
     yAxisLabel: "Concentração C5",
     yDomain: [0, 1],
-    yTickDecimals: 4,
+    yTickDecimals: 2,
     premierLeagueComparison: {
       prefix:
         "Nota: Para efeito de comparação, a Concentração C5 na Premier League na temporada 2024/25 foi de ",
@@ -77,7 +77,7 @@ const SECTIONS: SectionConfig[] = [
     chartTitle: "Concentração C3 — Brasileirão (2021–2025)",
     yAxisLabel: "Concentração C3",
     yDomain: [0, 1],
-    yTickDecimals: 4,
+    yTickDecimals: 2,
     premierLeagueComparison: {
       prefix:
         "Nota: Para efeito de comparação, a Concentração C3 na Premier League na temporada 2024/25 foi de ",
