@@ -46,11 +46,11 @@ Valor:
 2025,Nível 2 - Reportes Discricionários,"Publicou demonstrações financeiras trimestrais no exercício anterior?
 Valor:
 - Sim: 1 ponto
-- Não: 0 ponto",,0.0,0.0,0,0.0,0,0,0,,0,0,0.0,0.0,,0.0,1,0,0,0.0,0,0,,0.0,0.0,
+- Não: 0 ponto",,0.0,0.0,0,0.0,0,0,0,,1,0,0.0,1.0,,1.0,1,0,0,0.0,0,0,,0.0,0.0,
 2025,Nível 2 - Reportes Discricionários,"Publicou orçamento para o exercício seguinte?
 Valor:
 - Sim: 1 ponto
-- Não: 0 ponto",,0.0,0.0,0,0.0,0,0,0,,0,0,0.0,0.0,,0.0,1,0,0,0.0,0,0,,0.0,0.0,
+- Não: 0 ponto",,0.0,0.0,0,0.0,0,0,0,,0,0,1.0,1.0,,1.0,1,0,0,0.0,0,0,,1.0,0.0,
 2025,Nível 2 - Reportes Discricionários,"Detalhou receitas de transmissão por competição disputada?
 Valor:
 - Sim: 1 ponto
@@ -63,9 +63,9 @@ Valor:
 - Não: 0 ponto",,0.5,0.5,0,0.5,1,0,0,,0,0,0.5,0.5,,0.5,1,0,0,0.5,0,0,,0.5,0.0,
 2025,Nível 3 - Indicadores de Qualidade,"Auditoria externa fez ressalvas em relação ao balanço anual ou absteve-se de opinar?
 Valor:
-- Se ressalvou: -2 pontos
-- Se absteve-se de opinar: - 1 ponto
-- Se emitiu parecer positivo: 1 ponto",,1.0,-2.0,1,-1.0,-2,1,-2,,1,-2,1.0,1.0,,-2.0,1,1,-2,-2.0,-1,1,,1.0,1.0,
+- Se absteve-se de opinar: -2 pontos
+- Se ressalvou: - 1 ponto
+- Se emitiu parecer positivo: 1 ponto",,1.0,-1.0,1,-2.0,-1,1,-1,,1,-1,1.0,1.0,,-1.0,1,1,-1,-1.0,-2,1,,1.0,1.0,
 2025,Nível 3 - Indicadores de Qualidade,"Alterou o resultado líquido do ano anterior em reapresentação?
 Valor:
 - Sim: -1 ponto
