@@ -93,9 +93,49 @@ Five groups, in this exact order:
 
 Six terms reuse the strings already in `lib/concept-notes.ts` (Receita Operacional, Receita Operacional Líquida, Receita da Atividade Esportiva, Receita Comercial, Dívida Líquida, Folha do Futebol). The Glossário imports them — does not duplicate.
 
-The 14 remaining terms get fresh definitions in `lib/glossary.ts`. These are drafted by the assistant from codebase context (CSV column names in `metric-config.ts`, formulas in `SSFDetailTable.tsx`, parent/child relationships among metrics) and reviewed by the user before merge.
+The 14 remaining terms have the following final, user-approved definitions, to be placed verbatim in `lib/glossary.ts`:
 
-The exact definition strings are not pinned in this spec; they are produced during implementation and reviewed by the user as part of the implementation review checkpoint.
+**Receita c/ Transmissão + Premiações**
+Soma das receitas com Direitos de Transmissão (TV) e Premiações esportivas (CBF, Conmebol e demais). Compõe a Receita da Atividade Esportiva.
+
+**Receita c/ Match-Day + Sócio-Torcedor**
+Soma das receitas de Match-Day (bilheteria, hospitalidade e demais receitas de jogo) e do programa Sócio-Torcedor. Compõe a Receita da Atividade Esportiva.
+
+**Receita c/ Negociação de atletas**
+Receita obtida com a venda definitiva ou cessão de direitos econômicos de atletas. Não compõe a Receita da Atividade Esportiva, mas integra a Receita Operacional.
+
+**Custo da Atividade Esportiva**
+Soma da Folha do Futebol (Salários, Encargos e Direitos de Imagem), das despesas com a operação do departamento de futebol, da Amortização do custo de aquisição de atletas e dos demais custos diretos da atividade esportiva.
+
+**Resultado Operacional (Segmento Futebol)**
+Resultado do segmento de futebol, equivalente a Receita da Atividade Esportiva − Custo da Atividade Esportiva. Não considera receitas e despesas não-operacionais nem o resultado da venda de atletas.
+
+**Resultado**
+Resultado do exercício — lucro ou prejuízo do clube/SAF após todas as receitas, custos, despesas (operacionais e financeiras), resultado da venda de atletas e impostos.
+
+**Folha do Futebol + Amortização**
+Folha do Futebol (Salários, Encargos e Direitos de Imagem) + Amortização do custo de aquisição de atletas (parcela do contrato de cada jogador reconhecida como despesa no período).
+
+**Folha do Futebol + Compra de Jogadores**
+Folha do Futebol (Salários, Encargos e Direitos de Imagem) + Aquisições de atletas no período. Aproxima o total comprometido com o elenco no exercício.
+
+**Aquisições de atletas**
+Valor comprometido com a compra de direitos federativos e/ou econômicos de atletas no exercício.
+
+**Pontuação Série A**
+Pontos conquistados pelo clube na temporada do Campeonato Brasileiro Série A.
+
+**Dívida / Receita Total**
+Razão entre Dívida Líquida e Receita Operacional. Indica quantos anos de Receita Operacional seriam necessários para quitar a Dívida Líquida.
+
+**Folha do Futebol / Receita Total**
+Razão entre Folha do Futebol e Receita Operacional. Mede o peso da folha de atletas sobre as receitas do clube.
+
+**(Folha do Futebol + Amortização) / Receita Total**
+Razão entre Folha do Futebol + Amortização do custo de aquisição de atletas e Receita Operacional.
+
+**Custo da Atividade Esportiva / Receita Total**
+Razão entre Custo da Atividade Esportiva e Receita Operacional. Mede o peso do custo total da operação esportiva sobre as receitas do clube.
 
 ## Page Layout
 
