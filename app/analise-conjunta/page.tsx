@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { type ScatterPeriod } from "@/lib/clubs";
 import { xAxisMetrics, yAxisMetrics } from "@/lib/scatter-config";
@@ -42,9 +43,18 @@ export default function AnaliseConjunta() {
       <main className="relative z-10 max-w-[1200px] mx-auto px-4 py-8">
       <ModuleNavbar />
 
-      <h1 className="text-3xl font-bold tracking-tight text-center mb-6" style={{ color: "var(--text-primary)" }}>
+      <h1 className="text-3xl font-bold tracking-tight text-center mb-2" style={{ color: "var(--text-primary)" }}>
         Análise Conjunta
       </h1>
+      <p className="text-center mb-6 text-sm">
+        <Link
+          href="/glossario"
+          className="font-semibold hover:underline"
+          style={{ color: "var(--brand-blue)" }}
+        >
+          Ver Glossário
+        </Link>
+      </p>
 
       <div className="card-surface mb-6">
         {/* Period selector */}
