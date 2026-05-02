@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Papa from "papaparse";
 import ModuleNavbar from "@/components/ModuleNavbar";
 import CategorySelector from "@/components/CategorySelector";
@@ -80,13 +81,22 @@ export default function EvolucaoLiga() {
         </h1>
 
         <p
-          className="text-sm text-center mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm text-center mb-2 max-w-2xl mx-auto leading-relaxed"
           style={{ color: "var(--text-secondary)" }}
         >
           Evolução dos principais agregados financeiros da liga entre 2021 e
           2025. Os valores representam a soma das métricas de todos os clubes
           participantes do Brasileirão em cada temporada, expressos em R$
           milhões.
+        </p>
+        <p className="text-center mb-8 text-sm">
+          <Link
+            href="/glossario"
+            className="font-semibold hover:underline"
+            style={{ color: "var(--brand-blue)" }}
+          >
+            Ver Glossário
+          </Link>
         </p>
 
         {error && (
