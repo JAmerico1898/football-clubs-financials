@@ -11,8 +11,7 @@ export const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export const DEFAULT_CATEGORIES = [
-  'Receita da Atividade Esportiva',
-  'Custo da Atividade Esportiva',
+  'Receita Operacional',
 ];
 
 export const ALL_CATEGORIES = [

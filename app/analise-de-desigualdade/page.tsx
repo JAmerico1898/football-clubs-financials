@@ -20,6 +20,7 @@ interface SectionConfig {
   yAxisLabel: string;
   yDomain: [number, number] | "auto";
   yTickDecimals: number;
+  premierLeagueComparison: { prefix: string; value: string };
 }
 
 const SECTIONS: SectionConfig[] = [
@@ -32,6 +33,11 @@ const SECTIONS: SectionConfig[] = [
     yAxisLabel: "Índice de Gini",
     yDomain: [0, 1],
     yTickDecimals: 4,
+    premierLeagueComparison: {
+      prefix:
+        "Nota: Para efeito de comparação, o Índice de Gini da Premier League na temporada 2024/25 foi de ",
+      value: "0,32",
+    },
   },
   {
     metricLabel: METRIC_LABELS[1],
@@ -42,6 +48,11 @@ const SECTIONS: SectionConfig[] = [
     yAxisLabel: "Razão Max/Min",
     yDomain: "auto",
     yTickDecimals: 2,
+    premierLeagueComparison: {
+      prefix:
+        "Nota: Para efeito de comparação, a Razão Max/Min da Premier League na temporada 2024/25 foi de ",
+      value: "4,62",
+    },
   },
   {
     metricLabel: METRIC_LABELS[2],
@@ -52,6 +63,11 @@ const SECTIONS: SectionConfig[] = [
     yAxisLabel: "Concentração C5",
     yDomain: [0, 1],
     yTickDecimals: 4,
+    premierLeagueComparison: {
+      prefix:
+        "Nota: Para efeito de comparação, a Concentração C5 na Premier League na temporada 2024/25 foi de ",
+      value: "0,49",
+    },
   },
   {
     metricLabel: METRIC_LABELS[3],
@@ -62,6 +78,11 @@ const SECTIONS: SectionConfig[] = [
     yAxisLabel: "Concentração C3",
     yDomain: [0, 1],
     yTickDecimals: 4,
+    premierLeagueComparison: {
+      prefix:
+        "Nota: Para efeito de comparação, a Concentração C3 na Premier League na temporada 2024/25 foi de ",
+      value: "0,31",
+    },
   },
 ];
 
@@ -207,6 +228,17 @@ export default function AnaliseDeDesigualdade() {
                   data={data[section.metricLabel]}
                   visibleCategories={visibleCategories}
                 />
+                {visibleCategories.includes("Receita Operacional") && (
+                  <p
+                    className="text-xs italic mt-3 leading-relaxed"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {section.premierLeagueComparison.prefix}
+                    <strong style={{ color: "var(--text-primary)" }}>
+                      {section.premierLeagueComparison.value}
+                    </strong>
+                  </p>
+                )}
               </section>
             ))}
           </div>

@@ -28,7 +28,7 @@ export default function CategorySelector({
   categoryColors = CATEGORY_COLORS,
   maxSelected = MAX_SELECTED,
   minSelected = 0,
-  defaultDescription = "Receita da Atividade Esportiva e Custo da Atividade Esportiva são exibidas por padrão.",
+  defaultDescription = "Receita Operacional é exibida por padrão. Escolha até três métricas para traçar os gráficos.",
 }: CategorySelectorProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
