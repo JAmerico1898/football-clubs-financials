@@ -119,7 +119,8 @@
       "Bash(Measure-Object -Line)",
       "Bash(xxd \"D:/jose_americo/financials/football-clubs-financials/app/evolucao-liga/page.tsx\")",
       "Bash(rtk next *)",
-      "Bash(next build *)"
+      "Bash(next build *)",
+      "Bash(vercel whoami *)"
     ]
   }
 }
