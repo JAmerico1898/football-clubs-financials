@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Public_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={`${inter.variable} ${publicSans.variable} ${inter.className}`}>
         <div className="animate-fade-in">{children}</div>
+        <Analytics />
       </body>
     </html>
   );
