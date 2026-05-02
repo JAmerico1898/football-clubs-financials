@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { clubs2024, DEFAULT_CLUB, getIconUrl, getBackdropUrl, type Club, type Season } from "@/lib/clubs";
 import { clubs2025 } from "@/lib/clubs2025";
 import ModuleNavbar from "@/components/ModuleNavbar";
@@ -68,8 +69,17 @@ export default function AnaliseIndividual() {
       <h1 className="text-3xl font-bold tracking-tight text-center mb-1" style={{ color: "var(--text-primary)" }}>
         Análise Individual
       </h1>
-      <p className="text-center mb-6" style={{ color: "var(--text-secondary)" }}>
+      <p className="text-center mb-2" style={{ color: "var(--text-secondary)" }}>
         Explore as finanças dos clubes do Brasileirão
+      </p>
+      <p className="text-center mb-6 text-sm">
+        <Link
+          href="/glossario"
+          className="font-semibold hover:underline"
+          style={{ color: "var(--brand-blue)" }}
+        >
+          Ver Glossário
+        </Link>
       </p>
 
       <div className="card-surface mb-6 relative overflow-hidden">
